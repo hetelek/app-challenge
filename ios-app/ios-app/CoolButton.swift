@@ -38,6 +38,9 @@ class CoolButton : SKSpriteNode
     
     var label = SKLabelNode(fontNamed: "STHeitiTC-Light")
     
+    // used for linking any object to the button
+    var tag: AnyObject?
+    
     // store targets/selectors
     private var targets: [AnyObject] = [ ]
     private var selectors: [Selector] = [ ]

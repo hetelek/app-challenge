@@ -8,13 +8,22 @@
 
 import SpriteKit
 
+enum SelectSceneState
+{
+    case SelectChoice, SelectModifier
+}
+
 class SelectScene : SKScene
 {
+    // button stuff
     private var buttonTitles: [String] = [ ]
-    private var choices: [Choice] = [ ]
-    
     private var contentCreated = false
     
+    // state variables
+    var state: SelectSceneState = .SelectChoice
+    var selectedChoice: Choice?
+    
+    // button spacing
     private let HORIZONTAL_SPACING: CGFloat = 20
     private let VERTICAL_SPACING: CGFloat = 20
     
@@ -23,17 +32,13 @@ class SelectScene : SKScene
         // create the content if we haven't already
         if !self.contentCreated
         {
-            createContent()
+            self.createContent()
             self.contentCreated = true
         }
     }
     
     private func createContent()
     {
-        // start a new game
-        self.choices = Game.sharedInstance.randomChoices()
-        self.buttonTitles = self.choices.map { $0.choice }
-        
         // set background color/scale
         self.scaleMode = .ResizeFill
         
@@ -49,33 +54,54 @@ class SelectScene : SKScene
         let horizontalSpacing: CGFloat = width + self.HORIZONTAL_SPACING * 0.75
         let verticalSpacing: CGFloat = height + self.VERTICAL_SPACING * 0.75
         
-        // create btutons
-        let spacing: [[CGFloat]] = [ [-1, 1], [1, 1], [-1, -1], [1, -1] ]
-        for (index, buttonTitle) in self.buttonTitles.enumerate()
+        // setup GUI based on the state
+        if self.state == .SelectChoice
         {
-            // create start button
-            let button = CoolButton(color: UIColor.blackColor(), size: CGSize(width: width, height: height))
-            button.text = buttonTitle
-            button.addTarget(self, selector: "optionSelected:")
+            // get random choices
+            let choices = Game.sharedInstance.randomChoices()
             
-            // calculate points
-            let x = centerX + spacing[index][0] * (horizontalSpacing / 2)
-            let y = centerY + spacing[index][1] * (verticalSpacing / 2)
-            button.position = CGPoint(x: x, y: y)
+            // create buttons
+            let spacing: [[CGFloat]] = [ [-1, 1], [1, 1], [-1, -1], [1, -1] ]
+            for (index, choice) in choices.enumerate()
+            {
+                // create start button
+                let button = CoolButton(color: UIColor.blackColor(), size: CGSize(width: width, height: height))
+                button.text = choice.choice
+                button.tag = choice
+                button.addTarget(self, selector: "optionSelected:")
+                
+                // calculate points
+                let x = centerX + spacing[index][0] * (horizontalSpacing / 2)
+                let y = centerY + spacing[index][1] * (verticalSpacing / 2)
+                button.position = CGPoint(x: x, y: y)
+                
+                // add button to scene
+                self.addChild(button)
+            }
+        }
+        else if self.state == .SelectModifier
+        {
             
-            // add button to scene
-            self.addChild(button)
         }
     }
     
     func optionSelected(button: CoolButton)
     {
-        if let selectScreen = SelectScene(fileNamed: "SelectScene")
+        if self.state == .SelectChoice
         {
-            // set button titles
-            selectScreen.buttonTitles = [ "No arms", "Eyes closed", "No talking", "Facing the other way" ]
-            
-            self.view?.presentScene(selectScreen, transition: SKTransition.doorsCloseHorizontalWithDuration(0.5))
+            if let choice = button.tag as? Choice, let selectScreen = SelectScene(fileNamed: "SelectScene")
+            {
+                // set new state
+                selectScreen.state = .SelectModifier
+                selectScreen.selectedChoice = choice
+                
+                // present new scene (same class but with "Select Modifier" state)
+                self.view?.presentScene(selectScreen, transition: SKTransition.fadeWithDuration(0.5))
+            }
+        }
+        else if self.state == .SelectModifier
+        {
+            // proceed to next screen
         }
     }
 }
