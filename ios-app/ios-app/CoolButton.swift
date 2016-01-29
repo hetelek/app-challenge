@@ -53,7 +53,7 @@ class CoolButton : SKSpriteNode
         self.userInteractionEnabled = true
         
         // set font size and alignment
-        self.label.fontSize = 12
+        self.label.fontSize = 18
         self.label.horizontalAlignmentMode = .Center
         self.label.verticalAlignmentMode = .Center
         
