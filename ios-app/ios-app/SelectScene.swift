@@ -15,8 +15,6 @@ enum SelectSceneState
 
 class SelectScene : SKScene
 {
-    // button stuff
-    private var buttonTitles: [String] = [ ]
     private var contentCreated = false
     
     // state variables
@@ -24,8 +22,8 @@ class SelectScene : SKScene
     var selectedChoice: Choice?
     
     // button spacing
-    private let HORIZONTAL_SPACING: CGFloat = 10
-    private let VERTICAL_SPACING: CGFloat = 10
+    private let HORIZONTAL_SPACING: CGFloat = 20
+    private let VERTICAL_SPACING: CGFloat = 20
     
     override func didMoveToView(view: SKView)
     {
@@ -139,6 +137,10 @@ class SelectScene : SKScene
         else if self.state == .SelectModifier
         {
             // proceed to next screen
+            if let passDeviceScene = PassDeviceScene(fileNamed: "PassDeviceScene")
+            {
+                self.view?.presentScene(passDeviceScene, transition: SKTransition.fadeWithDuration(0.5))
+            }
         }
     }
 }

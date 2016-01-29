@@ -15,6 +15,8 @@
 		F311EBAB1C5C0DEE00672AB5 /* Choices.plist in Resources */ = {isa = PBXBuildFile; fileRef = F311EBAA1C5C0DEE00672AB5 /* Choices.plist */; };
 		F311EBAD1C5C0F6D00672AB5 /* Choice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F311EBAC1C5C0F6D00672AB5 /* Choice.swift */; };
 		F311EBAF1C5C168200672AB5 /* RandomNumberExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F311EBAE1C5C168200672AB5 /* RandomNumberExtensions.swift */; };
+		F311EBB11C5C2BAB00672AB5 /* PassDeviceScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F311EBB01C5C2BAB00672AB5 /* PassDeviceScene.swift */; };
+		F311EBB31C5C2BDF00672AB5 /* PassDeviceScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F311EBB21C5C2BDF00672AB5 /* PassDeviceScene.sks */; };
 		F341EBDD1C5B117800B416F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F341EBDC1C5B117800B416F1 /* AppDelegate.swift */; };
 		F341EBE11C5B117800B416F1 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F341EBE01C5B117800B416F1 /* MenuScene.swift */; };
 		F341EBE31C5B117800B416F1 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F341EBE21C5B117800B416F1 /* GameViewController.swift */; };
@@ -32,6 +34,8 @@
 		F311EBAA1C5C0DEE00672AB5 /* Choices.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Choices.plist; sourceTree = "<group>"; };
 		F311EBAC1C5C0F6D00672AB5 /* Choice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Choice.swift; sourceTree = "<group>"; };
 		F311EBAE1C5C168200672AB5 /* RandomNumberExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomNumberExtensions.swift; sourceTree = "<group>"; };
+		F311EBB01C5C2BAB00672AB5 /* PassDeviceScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassDeviceScene.swift; sourceTree = "<group>"; };
+		F311EBB21C5C2BDF00672AB5 /* PassDeviceScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PassDeviceScene.sks; sourceTree = "<group>"; };
 		F341EBD91C5B117800B416F1 /* ios-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F341EBDC1C5B117800B416F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F341EBE01C5B117800B416F1 /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
@@ -61,6 +65,8 @@
 				F311EB971C5B98FC00672AB5 /* MenuScene.sks */,
 				F311EB9B1C5BAAC000672AB5 /* SelectScene.swift */,
 				F311EB991C5BAAB800672AB5 /* SelectScene.sks */,
+				F311EBB01C5C2BAB00672AB5 /* PassDeviceScene.swift */,
+				F311EBB21C5C2BDF00672AB5 /* PassDeviceScene.sks */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -185,6 +191,7 @@
 				F311EBAB1C5C0DEE00672AB5 /* Choices.plist in Resources */,
 				F311EB9A1C5BAAB800672AB5 /* SelectScene.sks in Resources */,
 				F341EBE81C5B117800B416F1 /* Assets.xcassets in Resources */,
+				F311EBB31C5C2BDF00672AB5 /* PassDeviceScene.sks in Resources */,
 				F341EBE61C5B117800B416F1 /* Main.storyboard in Resources */,
 				F311EB981C5B98FC00672AB5 /* MenuScene.sks in Resources */,
 			);
@@ -203,6 +210,7 @@
 				F311EBAD1C5C0F6D00672AB5 /* Choice.swift in Sources */,
 				F311EB9E1C5BB0A300672AB5 /* CoolButton.swift in Sources */,
 				F311EB9C1C5BAAC000672AB5 /* SelectScene.swift in Sources */,
+				F311EBB11C5C2BAB00672AB5 /* PassDeviceScene.swift in Sources */,
 				F341EBE31C5B117800B416F1 /* GameViewController.swift in Sources */,
 				F341EBDD1C5B117800B416F1 /* AppDelegate.swift in Sources */,
 			);
