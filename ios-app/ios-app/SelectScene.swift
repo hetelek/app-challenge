@@ -24,8 +24,8 @@ class SelectScene : SKScene
     var selectedChoice: Choice?
     
     // button spacing
-    private let HORIZONTAL_SPACING: CGFloat = 20
-    private let VERTICAL_SPACING: CGFloat = 20
+    private let HORIZONTAL_SPACING: CGFloat = 10
+    private let VERTICAL_SPACING: CGFloat = 10
     
     override func didMoveToView(view: SKView)
     {
@@ -92,7 +92,34 @@ class SelectScene : SKScene
     
     private func steupSelectModifierGUI()
     {
-        
+        if let selectedChoice = self.selectedChoice
+        {
+            // screen center
+            let centerX = CGRectGetMidX(self.frame)
+            
+            // calcualte width and height of each button
+            let width = self.frame.size.width - HORIZONTAL_SPACING * 2
+            let height = self.frame.size.height / 2 - VERTICAL_SPACING * 1.5
+            
+            // calculate y coordinate (relative from edge of screen)
+            let y = HORIZONTAL_SPACING + height / 2
+            
+            // create top button
+            let topButton = CoolButton(color: SKColor.blackColor(), size: CGSize(width: width, height: height))
+            topButton.position = CGPoint(x: centerX, y: self.frame.height - y)
+            topButton.text = selectedChoice.modifiers[0]
+            topButton.addTarget(self, selector: "optionSelected:")
+            
+            // create bottom button
+            let bottomButton = CoolButton(color: SKColor.blackColor(), size: CGSize(width: width, height: height))
+            bottomButton.position = CGPoint(x: centerX, y: y)
+            bottomButton.text = selectedChoice.modifiers[1]
+            bottomButton.addTarget(self, selector: "optionSelected:")
+            
+            // add buttons to view
+            self.addChild(topButton)
+            self.addChild(bottomButton)
+        }
     }
     
     func optionSelected(button: CoolButton)
