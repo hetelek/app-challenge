@@ -61,7 +61,10 @@ class PassDeviceScene : SKScene
     
     func continueButtonTapped(button: CoolButton)
     {
-        // present next scene here
-        print("continue...")
+        // present start scene
+        if let startScene = StartScene(fileNamed: "StartScene")
+        {
+            self.view?.presentScene(startScene, transition: SKTransition.fadeWithDuration(0.5))
+        }
     }
 }

@@ -69,4 +69,9 @@ class Game
     {
         self.selectedChoice = choice
     }
+    
+    func selectModifier(modifier: String)
+    {
+        
+    }
 }

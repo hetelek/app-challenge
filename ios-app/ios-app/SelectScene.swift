@@ -19,7 +19,6 @@ class SelectScene : SKScene
     
     // state variables
     var state: SelectSceneState = .SelectChoice
-    var selectedChoice: Choice?
     
     // button spacing
     private let HORIZONTAL_SPACING: CGFloat = 20
@@ -90,7 +89,7 @@ class SelectScene : SKScene
     
     private func steupSelectModifierGUI()
     {
-        if let selectedChoice = self.selectedChoice
+        if let selectedChoice = Game.sharedInstance.selectedChoice
         {
             // screen center
             let centerX = CGRectGetMidX(self.frame)
@@ -126,9 +125,10 @@ class SelectScene : SKScene
         {
             if let choice = button.tag as? Choice, let selectScreen = SelectScene(fileNamed: "SelectScene")
             {
+                Game.sharedInstance.selectChoice(choice)
+                
                 // set new state
                 selectScreen.state = .SelectModifier
-                selectScreen.selectedChoice = choice
                 
                 // present new scene (same class but with "Select Modifier" state)
                 self.view?.presentScene(selectScreen, transition: SKTransition.fadeWithDuration(0.5))
