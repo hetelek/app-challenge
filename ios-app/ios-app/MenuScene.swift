@@ -43,9 +43,6 @@ class MenuScene : SKScene
         // present next scene (select choice)
         if let selectScreen = SelectScene(fileNamed: "SelectScene")
         {
-            // set button titles
-            selectScreen.buttonTitles = [ "Dog", "Chair", "Tree", "iPhone" ]
-            
             self.view?.presentScene(selectScreen, transition: SKTransition.fadeWithDuration(0.5))
         }
     }

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>choice</key>
+		<string>Tree</string>
+		<key>modifiers</key>
+		<array>
+			<string>No Hands</string>
+			<string>No Legs</string>
+			<string>Eyes Closed</string>
+			<string>Facing Away</string>
+		</array>
+	</dict>
+	<dict>
+		<key>choice</key>
+		<string>Dog</string>
+		<key>modifiers</key>
+		<array>
+			<string>No Hands</string>
+			<string>No Legs</string>
+			<string>Eyes Closed</string>
+			<string>Facing Away</string>
+		</array>
+	</dict>
+	<dict>
+		<key>choice</key>
+		<string>Building</string>
+		<key>modifiers</key>
+		<array>
+			<string>No Hands</string>
+			<string>No Legs</string>
+			<string>Eyes Closed</string>
+			<string>Facing Away</string>
+		</array>
+	</dict>
+	<dict>
+		<key>choice</key>
+		<string>Computer</string>
+		<key>modifiers</key>
+		<array>
+			<string>No Hands</string>
+			<string>No Legs</string>
+			<string>Eyes Closed</string>
+			<string>Facing Away</string>
+		</array>
+	</dict>
+	<dict>
+		<key>choice</key>
+		<string>Hat</string>
+		<key>modifiers</key>
+		<array>
+			<string>No Hands</string>
+			<string>No Legs</string>
+			<string>Eyes Closed</string>
+			<string>Facing Away</string>
+		</array>
+	</dict>
+</array>
+</plist>

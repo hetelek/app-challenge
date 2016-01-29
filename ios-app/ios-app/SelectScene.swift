@@ -10,7 +10,9 @@ import SpriteKit
 
 class SelectScene : SKScene
 {
-    var buttonTitles: [String] = [ ]
+    private var buttonTitles: [String] = [ ]
+    private var choices: [Choice] = [ ]
+    
     private var contentCreated = false
     
     private let HORIZONTAL_SPACING: CGFloat = 20
@@ -28,8 +30,11 @@ class SelectScene : SKScene
     
     private func createContent()
     {
+        // start a new game
+        self.choices = Game.sharedInstance.randomChoices()
+        self.buttonTitles = self.choices.map { $0.choice }
+        
         // set background color/scale
-        self.backgroundColor = SKColor.greenColor()
         self.scaleMode = .ResizeFill
         
         // screen center
