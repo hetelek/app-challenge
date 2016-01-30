@@ -105,12 +105,14 @@ class SelectScene : SKScene
             let topButton = CoolButton(color: SKColor.blackColor(), size: CGSize(width: width, height: height))
             topButton.position = CGPoint(x: centerX, y: self.frame.height - y)
             topButton.text = selectedChoice.modifiers[0]
+            topButton.tag = 0
             topButton.addTarget(self, selector: "optionSelected:")
             
             // create bottom button
             let bottomButton = CoolButton(color: SKColor.blackColor(), size: CGSize(width: width, height: height))
             bottomButton.position = CGPoint(x: centerX, y: y)
             bottomButton.text = selectedChoice.modifiers[1]
+            bottomButton.tag = 1
             bottomButton.addTarget(self, selector: "optionSelected:")
             
             // add buttons to view
@@ -125,6 +127,7 @@ class SelectScene : SKScene
         {
             if let choice = button.tag as? Choice, let selectScreen = SelectScene(fileNamed: "SelectScene")
             {
+                // select choice
                 Game.sharedInstance.selectChoice(choice)
                 
                 // set new state
@@ -137,8 +140,12 @@ class SelectScene : SKScene
         else if self.state == .SelectModifier
         {
             // proceed to next screen
-            if let passDeviceScene = PassDeviceScene(fileNamed: "PassDeviceScene")
+            if let modifier = button.tag as? Int, let passDeviceScene = PassDeviceScene(fileNamed: "PassDeviceScene")
             {
+                // select modifier
+                Game.sharedInstance.selectModifier(modifier)
+                
+                // present next screen
                 self.view?.presentScene(passDeviceScene, transition: SKTransition.fadeWithDuration(0.5))
             }
         }

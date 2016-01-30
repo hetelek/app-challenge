@@ -14,6 +14,13 @@ class Game
     
     private(set) var choices: [Choice] = [ ]
     private(set) var selectedChoice: Choice!
+    {
+        didSet
+        {
+            self.selectedModifier = nil
+        }
+    }
+    private(set) var selectedModifier: Int!
     
     init()
     {
@@ -69,9 +76,11 @@ class Game
     {
         self.selectedChoice = choice
     }
-    
-    func selectModifier(modifier: String)
+
+    func selectModifier(modifier: Int)
     {
+        assert(self.selectedChoice != nil)
         
+        self.selectedModifier = modifier
     }
 }

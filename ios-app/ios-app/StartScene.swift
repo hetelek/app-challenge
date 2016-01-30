@@ -40,9 +40,12 @@ class StartScene : SKScene
         
         self.addChild(startButton)
     }
-    
+
     func startButtonTapped(button: CoolButton)
     {
-        print("start round...")
+        if let playingScene = PlayingScene(fileNamed: "PlayingScene")
+        {
+            self.view?.presentScene(playingScene, transition: SKTransition.fadeWithDuration(0.5))
+        }
     }
 }
