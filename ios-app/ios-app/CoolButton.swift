@@ -36,7 +36,8 @@ class CoolButton : SKSpriteNode
         }
     }
     
-    var label = SKLabelNode(fontNamed: "STHeitiTC-Light")
+    private(set) var label = SKLabelNode(fontNamed: "STHeitiTC-Light")
+    var buttonColor: SKColor
     
     // used for linking any object to the button
     var tag: AnyObject?
@@ -47,6 +48,9 @@ class CoolButton : SKSpriteNode
     
     init(color: SKColor, size: CGSize)
     {
+        // save original color
+        self.buttonColor = color
+        
         super.init(texture: nil, color: color, size: size)
         
         // allow user interaction
@@ -72,7 +76,7 @@ class CoolButton : SKSpriteNode
         self.selectors.append(selector)
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
     {
         for (index, target) in self.targets.enumerate()
         {
