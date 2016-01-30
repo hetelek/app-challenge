@@ -32,7 +32,7 @@ class CoolButton : SKSpriteNode
         }
         set
         {
-            self.label.fontColor = fontColor
+            self.label.fontColor = newValue
         }
     }
     
