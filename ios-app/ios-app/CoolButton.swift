@@ -36,7 +36,7 @@ class CoolButton : SKSpriteNode
         }
     }
     
-    private(set) var label = SKLabelNode(fontNamed: "STHeitiTC-Light")
+    private(set) var label = SKLabelNode(fontNamed: "Raleway-Bold")
     var buttonColor: SKColor
     var flatColor = false
     

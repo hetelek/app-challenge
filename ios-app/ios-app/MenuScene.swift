@@ -26,19 +26,44 @@ class MenuScene : SKScene
     {
         // set background color/scale
         self.scaleMode = .ResizeFill
-        
-        // screen center
-        let centerX = CGRectGetMidX(self.frame)
-        let centerY = CGRectGetMidY(self.frame)
+        self.backgroundColor = SKColor.gameYellowColor()
+        self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         
         // create start button
-        let button = CoolButton(color: UIColor(red: 250 / 255.0, green: 229 / 255.0, blue: 150 / 255.0, alpha: 1), size: CGSize(width: 400, height: 200))
-        button.text = "Start"
+        let button = CoolButton(color: SKColor.gameBlueColor(), size: CGSize(width: CGRectGetWidth(self.frame) + 5, height: CGRectGetHeight(self.frame) / 2 + 5))
+        button.text = "Tap to Continue"
+        button.fontColor = SKColor.gameYellowColor()
         button.addTarget(self, selector: "startButtonTapped:")
-        button.position = CGPoint(x: centerX, y: centerY)
+        button.position = CGPoint(x: 0, y: -CGRectGetHeight(self.frame) / 4)
         
         // add button to scene
         self.addChild(button)
+        
+        // create burst emitter
+        let burstEmitter = self.createBurstEmitter()
+        self.addChild(burstEmitter)
+    }
+    
+    private func createBurstEmitter() -> SKEmitterNode
+    {
+        // get sparkle texture from image
+        let sparkles = SKTexture(imageNamed: "particle_hard_blue.png")
+        
+        // setup emitter
+        let burstEmitter = SKEmitterNode()
+        burstEmitter.particleTexture = sparkles
+        burstEmitter.position = CGPoint(x: 0, y: -sparkles.size().height)
+        burstEmitter.particlePositionRange = CGVector(dx: self.size.width, dy: 0)
+        burstEmitter.particleScaleSequence = SKKeyframeSequence(keyframeValues: [ 1.0, 0.8, 0.0 ], times: [ 0.0, 0.7, 1.0 ])
+        burstEmitter.particleBirthRate = 13
+        burstEmitter.particleLifetimeRange = 3
+        burstEmitter.particleLifetime = 4
+        
+        // set acceleration (only vertical acceleration)
+        burstEmitter.xAcceleration = 0
+        burstEmitter.yAcceleration = 30
+        
+        return burstEmitter
     }
     
     func startButtonTapped(button: CoolButton)
