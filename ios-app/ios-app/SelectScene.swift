@@ -17,12 +17,15 @@ class SelectScene : SKScene
 {
     private var contentCreated = false
     
+    let buttonColors = [ SKColor.gameBlueColor(), SKColor.gameYellowColor(), SKColor.gameYellowColor(), SKColor.gameBlueColor() ]
+    let fontColors = [ SKColor.gameYellowColor(), SKColor.gameBlueColor(), SKColor.gameBlueColor(), SKColor.gameYellowColor() ]
+    
     // state variables
     var state: SelectSceneState = .SelectChoice
     
     // button spacing
-    private let HORIZONTAL_SPACING: CGFloat = 20
-    private let VERTICAL_SPACING: CGFloat = 20
+    private let HORIZONTAL_SPACING: CGFloat = 0
+    private let VERTICAL_SPACING: CGFloat = 0
     
     override func didMoveToView(view: SKView)
     {
@@ -46,7 +49,7 @@ class SelectScene : SKScene
         }
         else if self.state == .SelectModifier
         {
-            self.steupSelectModifierGUI()
+            self.setupSelectModifierGUI()
         }
     }
     
@@ -72,7 +75,8 @@ class SelectScene : SKScene
         for (index, choice) in choices.enumerate()
         {
             // create start button
-            let button = CoolButton(color: UIColor.blackColor(), size: CGSize(width: width, height: height))
+            let button = CoolButton(color: self.buttonColors[index], size: CGSize(width: width, height: height))
+            button.fontColor = self.fontColors[index]
             button.text = choice.choice
             button.tag = choice
             button.addTarget(self, selector: "optionSelected:")
@@ -87,7 +91,7 @@ class SelectScene : SKScene
         }
     }
     
-    private func steupSelectModifierGUI()
+    private func setupSelectModifierGUI()
     {
         if let selectedChoice = Game.sharedInstance.selectedChoice
         {
@@ -102,14 +106,16 @@ class SelectScene : SKScene
             let y = HORIZONTAL_SPACING + height / 2
             
             // create top button
-            let topButton = CoolButton(color: SKColor.blackColor(), size: CGSize(width: width, height: height))
+            let topButton = CoolButton(color: SKColor.gameYellowColor(), size: CGSize(width: width, height: height))
+            topButton.fontColor = SKColor.gameBlueColor()
             topButton.position = CGPoint(x: centerX, y: self.frame.height - y)
             topButton.text = selectedChoice.modifiers[0].modifierOnly
             topButton.tag = selectedChoice.modifiers[0]
             topButton.addTarget(self, selector: "optionSelected:")
             
             // create bottom button
-            let bottomButton = CoolButton(color: SKColor.blackColor(), size: CGSize(width: width, height: height))
+            let bottomButton = CoolButton(color: SKColor.gameBlueColor(), size: CGSize(width: width, height: height))
+            bottomButton.fontColor = SKColor.gameYellowColor()
             bottomButton.position = CGPoint(x: centerX, y: y)
             bottomButton.text = selectedChoice.modifiers[1].modifierOnly
             bottomButton.tag = selectedChoice.modifiers[1]
