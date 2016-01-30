@@ -6,39 +6,49 @@
 //  Copyright © 2016 RyanDannyStevie. All rights reserved.
 //
 
-import UIKit
+import SpriteKit
 
 extension UIColor
 {
-    class func colorWithRGB(rgbValue : UInt, alpha : CGFloat = 1.0) -> UIColor
+    class func gameBlueColor() -> SKColor
+    {
+        return SKColor(red: 0.2470588235, green: 0.6901960784, blue: 0.6745098039, alpha: 1)
+    }
+    
+    class func gameYellowColor() -> SKColor
+    {
+        return SKColor(red: 0.9803921569, green: 0.8980392157, blue: 0.5882352941, alpha: 1)
+    }
+    
+    class func colorWithRGB(rgbValue: UInt, alpha: CGFloat = 1.0) -> SKColor
     {
         let red = CGFloat((rgbValue & 0xFF0000) >> 16) / 255
         let green = CGFloat((rgbValue & 0xFF00) >> 8) / 255
         let blue = CGFloat(rgbValue & 0xFF) / 255
         
-        return UIColor(red: red, green: green, blue: blue, alpha: alpha)
+        return SKColor(red: red, green: green, blue: blue, alpha: alpha)
     }
     
-    func lighten(percent : Double) -> UIColor
+    func lighten(percent : Double) -> SKColor
     {
-        return colorWithBrightnessFactor(CGFloat(1 + percent))
+        return self.colorWithBrightnessFactor(CGFloat(1 + percent))
     }
     
-    func darken(percent : Double) -> UIColor
+    func darken(percent : Double) -> SKColor
     {
-        return colorWithBrightnessFactor(CGFloat(1 - percent))
+        return self.colorWithBrightnessFactor(CGFloat(1 - percent))
     }
     
-    func colorWithBrightnessFactor(factor: CGFloat) -> UIColor
+    func colorWithBrightnessFactor(factor: CGFloat) -> SKColor
     {
-        var hue : CGFloat = 0
-        var saturation : CGFloat = 0
-        var brightness : CGFloat = 0
-        var alpha : CGFloat = 0
+        var hue: CGFloat = 0
+        var saturation: CGFloat = 0
+        var brightness: CGFloat = 0
+        var alpha: CGFloat = 0
         
         if getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
         {
-            return UIColor(hue: hue, saturation: saturation, brightness: brightness * factor, alpha: alpha)
+            return SKColor(hue: hue, saturation: saturation, brightness: brightness * factor, alpha: alpha)
         }
         else
         {
@@ -46,16 +56,16 @@ extension UIColor
         }
     }
     
-    func colorWithSaturationFactor(factor: CGFloat) -> UIColor
+    func colorWithSaturationFactor(factor: CGFloat) -> SKColor
     {
-        var hue : CGFloat = 0
-        var saturation : CGFloat = 0
-        var brightness : CGFloat = 0
-        var alpha : CGFloat = 0
+        var hue: CGFloat = 0
+        var saturation: CGFloat = 0
+        var brightness: CGFloat = 0
+        var alpha: CGFloat = 0
         
         if getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
         {
-            return UIColor(hue: hue, saturation: saturation * factor, brightness: brightness, alpha: alpha)
+            return SKColor(hue: hue, saturation: saturation * factor, brightness: brightness, alpha: alpha)
         }
         else
         {
