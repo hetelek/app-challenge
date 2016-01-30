@@ -29,6 +29,14 @@ class MenuScene : SKScene
         self.backgroundColor = SKColor.gameYellowColor()
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         
+        // create title label
+        let titleLabel = SKLabelNode(text: "Pick Your Poison")
+        titleLabel.position = CGPoint(x: 0, y: self.size.height / 4)
+        titleLabel.fontName = "Raleway-Bold"
+        titleLabel.fontColor = SKColor.gameBlueColor()
+        
+        self.addChild(titleLabel)
+        
         // create start button
         let button = CoolButton(color: SKColor.gameBlueColor(), size: CGSize(width: CGRectGetWidth(self.frame) + 5, height: CGRectGetHeight(self.frame) / 2 + 5))
         button.text = "Tap to Continue"
@@ -36,7 +44,6 @@ class MenuScene : SKScene
         button.addTarget(self, selector: "startButtonTapped:")
         button.position = CGPoint(x: 0, y: -CGRectGetHeight(self.frame) / 4)
         
-        // add button to scene
         self.addChild(button)
         
         // create burst emitter
