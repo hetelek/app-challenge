@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-extension UIColor
+extension SKColor
 {
     class func gameBlueColor() -> SKColor
     {
