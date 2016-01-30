@@ -45,4 +45,21 @@ extension UIColor
             return self
         }
     }
+    
+    func colorWithSaturationFactor(factor: CGFloat) -> UIColor
+    {
+        var hue : CGFloat = 0
+        var saturation : CGFloat = 0
+        var brightness : CGFloat = 0
+        var alpha : CGFloat = 0
+        
+        if getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
+        {
+            return UIColor(hue: hue, saturation: saturation * factor, brightness: brightness, alpha: alpha)
+        }
+        else
+        {
+            return self
+        }
+    }
 }

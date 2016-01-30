@@ -26,13 +26,16 @@ class MenuScene : SKScene
     {
         // set background color/scale
         self.scaleMode = .ResizeFill
-        self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        
+        // screen center
+        let centerX = CGRectGetMidX(self.frame)
+        let centerY = CGRectGetMidY(self.frame)
         
         // create start button
-        let button = CoolButton(color: UIColor.blackColor(), size: CGSize(width: 100, height: 50))
+        let button = CoolButton(color: UIColor(red: 250 / 255.0, green: 229 / 255.0, blue: 150 / 255.0, alpha: 1), size: CGSize(width: 400, height: 200))
         button.text = "Start"
         button.addTarget(self, selector: "startButtonTapped:")
-        button.position = CGPoint(x: 0, y: 0)
+        button.position = CGPoint(x: centerX, y: centerY)
         
         // add button to scene
         self.addChild(button)

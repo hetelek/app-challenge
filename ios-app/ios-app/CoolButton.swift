@@ -38,6 +38,7 @@ class CoolButton : SKSpriteNode
     
     private(set) var label = SKLabelNode(fontNamed: "STHeitiTC-Light")
     var buttonColor: SKColor
+    var flatColor = false
     
     // used for linking any object to the button
     var tag: AnyObject?
@@ -76,8 +77,29 @@ class CoolButton : SKSpriteNode
         self.selectors.append(selector)
     }
     
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
+    {
+        if !self.flatColor
+        {
+            self.color = self.buttonColor.colorWithSaturationFactor(1.25)
+        }
+    }
+    
+    override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?)
+    {
+        if !self.flatColor
+        {
+            self.color = self.buttonColor
+        }
+    }
+    
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
     {
+        if !self.flatColor
+        {
+            self.color = self.buttonColor
+        }
+        
         for (index, target) in self.targets.enumerate()
         {
             target.performSelector(self.selectors[index], withObject: self)
