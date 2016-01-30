@@ -37,6 +37,10 @@ class MenuScene : SKScene
         
         self.addChild(titleLabel)
         
+        // create burst emitter
+        let burstEmitter = self.createBurstEmitter()
+        self.addChild(burstEmitter)
+        
         // create start button
         let button = CoolButton(color: SKColor.gameBlueColor(), size: CGSize(width: CGRectGetWidth(self.frame) + 5, height: CGRectGetHeight(self.frame) / 2 + 5))
         button.text = "Tap to Continue"
@@ -45,10 +49,6 @@ class MenuScene : SKScene
         button.position = CGPoint(x: 0, y: -CGRectGetHeight(self.frame) / 4)
         
         self.addChild(button)
-        
-        // create burst emitter
-        let burstEmitter = self.createBurstEmitter()
-        self.addChild(burstEmitter)
     }
     
     private func createBurstEmitter() -> SKEmitterNode
