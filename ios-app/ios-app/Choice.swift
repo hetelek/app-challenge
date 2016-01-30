@@ -14,15 +14,22 @@ class Choice
     static let MODIFIERS_KEY = "modifiers"
     
     private(set) var choice: String!
-    private(set) var modifiers: [String]!
+    private(set) var modifiers: [Modifier] = [ ]
     
     static func choiceFromDictionary(dictionary: NSDictionary) -> Choice
     {
         let newChoice = Choice()
         
         // parse objects in dictionary
-        newChoice.choice = dictionary.objectForKey(CHOICE_KEY) as! String
-        newChoice.modifiers = dictionary.objectForKey(MODIFIERS_KEY) as! [String]
+        newChoice.choice = dictionary.objectForKey(Choice.CHOICE_KEY) as! String
+        
+        // parse individual modifiers
+        let modifiersArray = dictionary.objectForKey(Choice.MODIFIERS_KEY) as! [NSDictionary]
+        for modifierDictionary in modifiersArray
+        {
+            let modifier = Modifier.modifierFromDictionary(modifierDictionary)
+            newChoice.modifiers.append(modifier)
+        }
         
         return newChoice
     }

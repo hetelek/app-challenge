@@ -104,14 +104,14 @@ class SelectScene : SKScene
             // create top button
             let topButton = CoolButton(color: SKColor.blackColor(), size: CGSize(width: width, height: height))
             topButton.position = CGPoint(x: centerX, y: self.frame.height - y)
-            topButton.text = selectedChoice.modifiers[0]
+            topButton.text = selectedChoice.modifiers[0].modifierOnly
             topButton.tag = 0
             topButton.addTarget(self, selector: "optionSelected:")
             
             // create bottom button
             let bottomButton = CoolButton(color: SKColor.blackColor(), size: CGSize(width: width, height: height))
             bottomButton.position = CGPoint(x: centerX, y: y)
-            bottomButton.text = selectedChoice.modifiers[1]
+            bottomButton.text = selectedChoice.modifiers[1].modifierOnly
             bottomButton.tag = 1
             bottomButton.addTarget(self, selector: "optionSelected:")
             

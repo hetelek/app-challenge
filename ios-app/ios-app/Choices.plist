@@ -4,13 +4,21 @@
 <array>
 	<dict>
 		<key>choice</key>
-		<string>Tree</string>
+		<string>Dog</string>
 		<key>modifiers</key>
 		<array>
-			<string>No Hands</string>
-			<string>No Legs</string>
-			<string>Eyes Closed</string>
-			<string>Facing Away</string>
+			<dict>
+				<key>modifier_only</key>
+				<string>No Legs</string>
+				<key>full_text</key>
+				<string>A dog without your legs!</string>
+			</dict>
+			<dict>
+				<key>modifier_only</key>
+				<string>Jumping</string>
+				<key>full_text</key>
+				<string>A dog while jumping up and down!</string>
+			</dict>
 		</array>
 	</dict>
 	<dict>
@@ -18,43 +26,94 @@
 		<string>Dog</string>
 		<key>modifiers</key>
 		<array>
-			<string>No Hands</string>
-			<string>No Legs</string>
-			<string>Eyes Closed</string>
-			<string>Facing Away</string>
+			<dict>
+				<key>modifier_only</key>
+				<string>No Legs</string>
+				<key>full_text</key>
+				<string>A dog without your legs!</string>
+			</dict>
+			<dict>
+				<key>modifier_only</key>
+				<string>Jumping</string>
+				<key>full_text</key>
+				<string>A dog while jumping up and down!</string>
+			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>choice</key>
-		<string>Building</string>
+		<string>Dog</string>
 		<key>modifiers</key>
 		<array>
-			<string>No Hands</string>
-			<string>No Legs</string>
-			<string>Eyes Closed</string>
-			<string>Facing Away</string>
+			<dict>
+				<key>modifier_only</key>
+				<string>No Legs</string>
+				<key>full_text</key>
+				<string>A dog without your legs!</string>
+			</dict>
+			<dict>
+				<key>modifier_only</key>
+				<string>Jumping</string>
+				<key>full_text</key>
+				<string>A dog while jumping up and down!</string>
+			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>choice</key>
-		<string>Computer</string>
+		<string>Dog</string>
 		<key>modifiers</key>
 		<array>
-			<string>No Hands</string>
-			<string>No Legs</string>
-			<string>Eyes Closed</string>
-			<string>Facing Away</string>
+			<dict>
+				<key>modifier_only</key>
+				<string>No Legs</string>
+				<key>full_text</key>
+				<string>A dog without your legs!</string>
+			</dict>
+			<dict>
+				<key>modifier_only</key>
+				<string>Jumping</string>
+				<key>full_text</key>
+				<string>A dog while jumping up and down!</string>
+			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>choice</key>
-		<string>Hat</string>
+		<string>Dog</string>
 		<key>modifiers</key>
 		<array>
-			<string>No Hands</string>
-			<string>No Legs</string>
-			<string>Eyes Closed</string>
-			<string>Facing Away</string>
+			<dict>
+				<key>modifier_only</key>
+				<string>No Legs</string>
+				<key>full_text</key>
+				<string>A dog without your legs!</string>
+			</dict>
+			<dict>
+				<key>modifier_only</key>
+				<string>Jumping</string>
+				<key>full_text</key>
+				<string>A dog while jumping up and down!</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>choice</key>
+		<string>Dog</string>
+		<key>modifiers</key>
+		<array>
+			<dict>
+				<key>modifier_only</key>
+				<string>No Legs</string>
+				<key>full_text</key>
+				<string>A dog without your legs!</string>
+			</dict>
+			<dict>
+				<key>modifier_only</key>
+				<string>Jumping</string>
+				<key>full_text</key>
+				<string>A dog while jumping up and down!</string>
+			</dict>
 		</array>
 	</dict>
 </array>
