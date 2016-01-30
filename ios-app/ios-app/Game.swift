@@ -20,7 +20,7 @@ class Game
             self.selectedModifier = nil
         }
     }
-    private(set) var selectedModifier: Int!
+    private(set) var selectedModifier: Modifier!
     
     init()
     {
@@ -77,7 +77,7 @@ class Game
         self.selectedChoice = choice
     }
 
-    func selectModifier(modifier: Int)
+    func selectModifier(modifier: Modifier)
     {
         assert(self.selectedChoice != nil)
         
