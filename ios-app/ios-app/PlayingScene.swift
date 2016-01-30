@@ -27,6 +27,7 @@ class PlayingScene : SKScene
     override func didMoveToView(view: SKView)
     {
         self.screenRatio = self.frame.width / self.frame.height
+        Game.sharedInstance.startTimer(self, selector: "timeRanOut")
         
         // create the content if we haven't already
         if !self.contentCreated
@@ -99,5 +100,10 @@ class PlayingScene : SKScene
     func gotItButtonTapped(button: CoolButton)
     {
         print("got it")
+    }
+    
+    func timeRanOut()
+    {
+        print("time ran out!")
     }
 }
