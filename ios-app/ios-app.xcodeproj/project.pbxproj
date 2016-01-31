@@ -210,12 +210,7 @@
 		F34B2A551C5D7CC5004B70A8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				84693C461C5E6FC3008F1E41 /* Click2.mp3 */,
-				84693C581C5E886F008F1E41 /* Raleway-Regular.ttf */,
-				84693C571C5E8860008F1E41 /* Raleway-Light.ttf */,
-				84693C441C5E6E8B008F1E41 /* 10424_SFX.wav */,
-				84693C561C5E883C008F1E41 /* Akashi.ttf */,
-				F34B2A561C5D7CEF004B70A8 /* Raleway-Bold.ttf */,
+				F384175F1C5EB6D2001B6825 /* Fonts */,
 				F341EBE41C5B117800B416F1 /* Main.storyboard */,
 				F341EBE71C5B117800B416F1 /* Assets.xcassets */,
 				F341EBE91C5B117800B416F1 /* LaunchScreen.storyboard */,
@@ -234,6 +229,17 @@
 				F3789D2C1C5DB6EA00AFC4A2 /* GCDAsyncSocket.m */,
 			);
 			name = Communication;
+			sourceTree = "<group>";
+		};
+		F384175F1C5EB6D2001B6825 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				84693C561C5E883C008F1E41 /* Akashi.ttf */,
+				84693C571C5E8860008F1E41 /* Raleway-Light.ttf */,
+				84693C581C5E886F008F1E41 /* Raleway-Regular.ttf */,
+				F34B2A561C5D7CEF004B70A8 /* Raleway-Bold.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,10 +309,8 @@
 				F311EB9A1C5BAAB800672AB5 /* SelectScene.sks in Resources */,
 				F341EBE81C5B117800B416F1 /* Assets.xcassets in Resources */,
 				F311EBB31C5C2BDF00672AB5 /* PassDeviceScene.sks in Resources */,
-				84693C451C5E6E8B008F1E41 /* 10424_SFX.wav in Resources */,
 				F341EBE61C5B117800B416F1 /* Main.storyboard in Resources */,
 				F311EBBB1C5C37AC00672AB5 /* PlayingScene.sks in Resources */,
-				84693C471C5E6FC3008F1E41 /* Click2.mp3 in Resources */,
 				84693C531C5E7C4E008F1E41 /* WinnerScene.sks in Resources */,
 				84693C4D1C5E7BF5008F1E41 /* ConfirmStartScene.sks in Resources */,
 				F311EB981C5B98FC00672AB5 /* MenuScene.sks in Resources */,

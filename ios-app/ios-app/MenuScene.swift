@@ -95,9 +95,9 @@ class MenuScene : SKScene, CommunicatorDelegate
     func startButtonTapped(button: CoolButton)
     {
         // present next scene (select choice)
-        if let selectScreen = SelectScene(fileNamed: "SelectScene")
+        if let confirmStartScreen = ConfirmStartScene(fileNamed: "ConfirmStartScene")
         {
-            self.view?.presentScene(selectScreen, transition: SKTransition.fadeWithDuration(0.5))
+            self.view?.presentScene(confirmStartScreen, transition: SKTransition.fadeWithDuration(0.5))
         }
     }
     
