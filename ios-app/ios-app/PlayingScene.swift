@@ -18,16 +18,21 @@ class PlayingScene : SKScene
     var bar5: SKSpriteNode!
     
     let TIMER_BAR_WIDTH: CGFloat = 10
-    let GOT_IT_SIZE = CGSize(width: 300, height: 100)
-    let TAP_TO_VIEW_SIZE = CGSize(width: 300, height: 100)
-    let PADDING_FROM_CENTER: CGFloat = 10
+    var GOT_IT_SIZE = CGSize(width: 100, height: 100)
+    var TAP_TO_VIEW_SIZE = CGSize(width: 100, height: 100)
+    let PADDING_FROM_CENTER: CGFloat = 0
     
     var screenRatio: CGFloat!
     
     override func didMoveToView(view: SKView)
     {
         self.screenRatio = self.frame.width / self.frame.height
-        Game.sharedInstance.startTimer(self, selector: "timeRanOut")
+        //Game.sharedInstance.startTimer(self, selector: "timeRanOut")
+        
+        //resetting the values for size because I couldn't get the screen dimensions out of function scope
+        GOT_IT_SIZE = CGSize(width: CGRectGetWidth(self.frame), height: CGRectGetHeight(self.frame)/2)
+        TAP_TO_VIEW_SIZE = CGSize(width: CGRectGetWidth(self.frame), height: CGRectGetHeight(self.frame)/2)
+
         
         // create the content if we haven't already
         if !self.contentCreated
@@ -47,22 +52,24 @@ class PlayingScene : SKScene
         let centerY = CGRectGetMidY(self.frame)
         
         // create got it button
-        let gotItButton = CoolButton(color: SKColor.blackColor(), size: self.GOT_IT_SIZE)
+        let gotItButton = CoolButton(color: SKColor.gameYellowColor(), size: self.GOT_IT_SIZE)
         gotItButton.text = "Got it!"
-        gotItButton.position = CGPoint(x: centerX, y: centerY + (self.GOT_IT_SIZE.height + self.PADDING_FROM_CENTER))
+        gotItButton.fontColor = SKColor.gameBlueColor()
+        gotItButton.position = CGPoint(x: centerX, y: centerY + (self.GOT_IT_SIZE.height + self.PADDING_FROM_CENTER)/2)
         gotItButton.addTarget(self, selector: "gotItButtonTapped:")
         
         self.addChild(gotItButton)
         
         // create instructions pane
-        let instructionsPane = TapToViewPane(color: SKColor.blackColor(), size: self.TAP_TO_VIEW_SIZE)
+        let instructionsPane = TapToViewPane(color: SKColor.gameBlueColor(), size: self.TAP_TO_VIEW_SIZE)
         instructionsPane.unhiddenText = "Tap and hold to view"
+        instructionsPane.fontColor = SKColor.gameYellowColor()
         instructionsPane.hiddenText = Game.sharedInstance.selectedModifier.fullText
-        instructionsPane.position = CGPoint(x: centerX, y: centerY - (self.GOT_IT_SIZE.height + self.PADDING_FROM_CENTER))
+        instructionsPane.position = CGPoint(x: centerX, y: centerY - (self.GOT_IT_SIZE.height + self.PADDING_FROM_CENTER)/2)
         
         self.addChild(instructionsPane)
         
-        /*
+        
         // top bar (starting centered)
         self.bar1 = SKSpriteNode(color: SKColor.greenColor(), size: CGSize(width: 0, height: self.TIMER_BAR_WIDTH))
         self.bar1.anchorPoint = CGPoint(x: 0, y: 1)
@@ -93,8 +100,8 @@ class PlayingScene : SKScene
         self.bar5.position = CGPoint(x: 0, y: CGRectGetHeight(self.frame))
         self.addChild(self.bar5)
         
-        NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "startTimer", userInfo: nil, repeats: false)
-        */
+        //NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "startTimer", userInfo: nil, repeats: false)
+        
     }
     
     func gotItButtonTapped(button: CoolButton)
