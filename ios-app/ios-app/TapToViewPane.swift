@@ -13,7 +13,7 @@ class TapToViewPane : SKSpriteNode
     
     // wrap the label's font color
     var fontColor: SKColor?
-        {
+    {
         get
         {
             return self.label.fontColor

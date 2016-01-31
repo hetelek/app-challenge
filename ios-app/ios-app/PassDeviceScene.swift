@@ -38,6 +38,7 @@ class PassDeviceScene : SKScene
         
         // create label
         let continueLabel = SKLabelNode(text: "Pass the device to continue...")
+        continueLabel.fontName = "Raleway-Bold"
         continueLabel.position = CGPoint(x: centerX, y: centerY * 1.5)
         continueLabel.fontColor = SKColor.gameBlueColor()
         continueLabel.fontSize = 24

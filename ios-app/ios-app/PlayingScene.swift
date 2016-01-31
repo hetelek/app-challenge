@@ -68,6 +68,8 @@ class PlayingScene : SKScene
         let instructionsPane = TapToViewPane(color: SKColor.gameBlueColor(), size: self.TAP_TO_VIEW_SIZE)
         instructionsPane.unhiddenText = "Tap and hold to view"
         instructionsPane.fontColor = SKColor.gameYellowColor()
+        instructionsPane.label.fontSize = 32
+        instructionsPane.label.fontName = "Raleway-Bold"
         instructionsPane.hiddenText = Game.sharedInstance.selectedModifier.fullText
         instructionsPane.position = CGPoint(x: centerX, y: centerY + (self.GOT_IT_SIZE.height + self.PADDING_FROM_CENTER)/2)
         
