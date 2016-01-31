@@ -8,18 +8,25 @@
 
 import SpriteKit
 
-class MenuScene : SKScene
+class MenuScene : SKScene, CommunicatorDelegate
 {
     private var contentCreated = false
     
     override func didMoveToView(view: SKView)
     {
+        Communicator.sharedInstance.delegate = self
+        
         // create the content if we haven't already
         if !self.contentCreated
         {
             createContent()
             self.contentCreated = true
         }
+    }
+    
+    func connectivityStatusChanged(connected: Bool)
+    {
+        print("connected: \(connected)")
     }
     
     private func createContent()

@@ -8,24 +8,37 @@
 
 /* Begin PBXBuildFile section */
 		F341EBFF1C5B119800B416F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F341EBFE1C5B119800B416F1 /* AppDelegate.swift */; };
-		F341EC011C5B119800B416F1 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F341EC001C5B119800B416F1 /* GameScene.sks */; };
-		F341EC031C5B119800B416F1 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F341EC021C5B119800B416F1 /* GameScene.swift */; };
 		F341EC051C5B119800B416F1 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F341EC041C5B119800B416F1 /* GameViewController.swift */; };
 		F341EC071C5B119800B416F1 /* Game.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F341EC061C5B119800B416F1 /* Game.xcassets */; };
 		F341EC0A1C5B119800B416F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F341EC081C5B119800B416F1 /* Main.storyboard */; };
 		F341EC0C1C5B119800B416F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F341EC0B1C5B119800B416F1 /* Assets.xcassets */; };
+		F34B2A5E1C5D9C41004B70A8 /* WaitingForDeviceScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34B2A5D1C5D9C41004B70A8 /* WaitingForDeviceScene.swift */; };
+		F34B2A601C5D9C5E004B70A8 /* WaitingForDeviceScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F34B2A5F1C5D9C5E004B70A8 /* WaitingForDeviceScene.sks */; };
+		F3789D361C5DBCAE00AFC4A2 /* RemoteReceiver.m in Sources */ = {isa = PBXBuildFile; fileRef = F3789D351C5DBCAE00AFC4A2 /* RemoteReceiver.m */; };
+		F37F86441C5DA63800E2B2C4 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = F37F86431C5DA63800E2B2C4 /* GCDAsyncSocket.m */; };
+		F3BE1AB91C5DD18B00DE1374 /* Communicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BE1AB81C5DD18B00DE1374 /* Communicator.swift */; };
+		F3BE1ABB1C5DD49100DE1374 /* ChoosingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BE1ABA1C5DD49100DE1374 /* ChoosingScene.swift */; };
+		F3BE1ABD1C5DD49E00DE1374 /* ChoosingScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F3BE1ABC1C5DD49E00DE1374 /* ChoosingScene.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F341EBFB1C5B119800B416F1 /* tv-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tv-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F341EBFE1C5B119800B416F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F341EC001C5B119800B416F1 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		F341EC021C5B119800B416F1 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		F341EC041C5B119800B416F1 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		F341EC061C5B119800B416F1 /* Game.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Game.xcassets; sourceTree = "<group>"; };
 		F341EC091C5B119800B416F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F341EC0B1C5B119800B416F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F341EC0D1C5B119800B416F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F34B2A5D1C5D9C41004B70A8 /* WaitingForDeviceScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingForDeviceScene.swift; sourceTree = "<group>"; };
+		F34B2A5F1C5D9C5E004B70A8 /* WaitingForDeviceScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = WaitingForDeviceScene.sks; sourceTree = "<group>"; };
+		F3789D341C5DBCAE00AFC4A2 /* RemoteReceiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteReceiver.h; sourceTree = "<group>"; };
+		F3789D351C5DBCAE00AFC4A2 /* RemoteReceiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoteReceiver.m; sourceTree = "<group>"; };
+		F37F86411C5DA63700E2B2C4 /* tv-app-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "tv-app-Bridging-Header.h"; sourceTree = "<group>"; };
+		F37F86421C5DA63800E2B2C4 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		F37F86431C5DA63800E2B2C4 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		F3BE1AB81C5DD18B00DE1374 /* Communicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Communicator.swift; sourceTree = "<group>"; };
+		F3BE1ABA1C5DD49100DE1374 /* ChoosingScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoosingScene.swift; sourceTree = "<group>"; };
+		F3BE1ABC1C5DD49E00DE1374 /* ChoosingScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ChoosingScene.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +71,64 @@
 		F341EBFD1C5B119800B416F1 /* tv-app */ = {
 			isa = PBXGroup;
 			children = (
+				F37F86411C5DA63700E2B2C4 /* tv-app-Bridging-Header.h */,
 				F341EBFE1C5B119800B416F1 /* AppDelegate.swift */,
-				F341EC001C5B119800B416F1 /* GameScene.sks */,
-				F341EC021C5B119800B416F1 /* GameScene.swift */,
-				F341EC041C5B119800B416F1 /* GameViewController.swift */,
-				F341EC061C5B119800B416F1 /* Game.xcassets */,
-				F341EC081C5B119800B416F1 /* Main.storyboard */,
-				F341EC0B1C5B119800B416F1 /* Assets.xcassets */,
+				F34B2A5B1C5D9C0F004B70A8 /* Scenes */,
+				F34B2A5A1C5D9C06004B70A8 /* Controllers */,
+				F34B2A611C5D9E48004B70A8 /* Model */,
+				F34B2A5C1C5D9C30004B70A8 /* Resources */,
 				F341EC0D1C5B119800B416F1 /* Info.plist */,
 			);
 			path = "tv-app";
+			sourceTree = "<group>";
+		};
+		F34B2A5A1C5D9C06004B70A8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F341EC041C5B119800B416F1 /* GameViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		F34B2A5B1C5D9C0F004B70A8 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				F34B2A5D1C5D9C41004B70A8 /* WaitingForDeviceScene.swift */,
+				F34B2A5F1C5D9C5E004B70A8 /* WaitingForDeviceScene.sks */,
+				F3BE1ABA1C5DD49100DE1374 /* ChoosingScene.swift */,
+				F3BE1ABC1C5DD49E00DE1374 /* ChoosingScene.sks */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+		F34B2A5C1C5D9C30004B70A8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F341EC061C5B119800B416F1 /* Game.xcassets */,
+				F341EC081C5B119800B416F1 /* Main.storyboard */,
+				F341EC0B1C5B119800B416F1 /* Assets.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		F34B2A611C5D9E48004B70A8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F37F86451C5DA64700E2B2C4 /* Communication */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		F37F86451C5DA64700E2B2C4 /* Communication */ = {
+			isa = PBXGroup;
+			children = (
+				F3BE1AB81C5DD18B00DE1374 /* Communicator.swift */,
+				F3789D341C5DBCAE00AFC4A2 /* RemoteReceiver.h */,
+				F3789D351C5DBCAE00AFC4A2 /* RemoteReceiver.m */,
+				F37F86421C5DA63800E2B2C4 /* GCDAsyncSocket.h */,
+				F37F86431C5DA63800E2B2C4 /* GCDAsyncSocket.m */,
+			);
+			name = Communication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -102,6 +163,7 @@
 				TargetAttributes = {
 					F341EBFA1C5B119800B416F1 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 4WSE28UZ7M;
 					};
 				};
 			};
@@ -128,8 +190,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3BE1ABD1C5DD49E00DE1374 /* ChoosingScene.sks in Resources */,
+				F34B2A601C5D9C5E004B70A8 /* WaitingForDeviceScene.sks in Resources */,
 				F341EC0A1C5B119800B416F1 /* Main.storyboard in Resources */,
-				F341EC011C5B119800B416F1 /* GameScene.sks in Resources */,
 				F341EC0C1C5B119800B416F1 /* Assets.xcassets in Resources */,
 				F341EC071C5B119800B416F1 /* Game.xcassets in Resources */,
 			);
@@ -142,8 +205,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F341EC031C5B119800B416F1 /* GameScene.swift in Sources */,
+				F3BE1AB91C5DD18B00DE1374 /* Communicator.swift in Sources */,
+				F3BE1ABB1C5DD49100DE1374 /* ChoosingScene.swift in Sources */,
 				F341EC051C5B119800B416F1 /* GameViewController.swift in Sources */,
+				F3789D361C5DBCAE00AFC4A2 /* RemoteReceiver.m in Sources */,
+				F37F86441C5DA63800E2B2C4 /* GCDAsyncSocket.m in Sources */,
+				F34B2A5E1C5D9C41004B70A8 /* WaitingForDeviceScene.swift in Sources */,
 				F341EBFF1C5B119800B416F1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -248,10 +315,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "tv-app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rds.tv-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "tv-app/tv-app-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
 		};
@@ -260,10 +334,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "tv-app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rds.tv-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "tv-app/tv-app-Bridging-Header.h";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Release;
 		};
@@ -286,6 +366,7 @@
 				F341EC121C5B119800B416F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
