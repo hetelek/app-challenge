@@ -11,8 +11,10 @@ import SpriteKit
 
 class GameViewController: UIViewController
 {
-    override func viewWillAppear(animated: Bool)
+    override func viewDidLoad()
     {
+        super.viewDidLoad()
+        
         let scene = MenuScene(fileNamed: "MenuScene")
         let spriteView = self.view as! SKView
         
@@ -22,10 +24,5 @@ class GameViewController: UIViewController
     override func prefersStatusBarHidden() -> Bool
     {
         return true
-    }
-    
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask
-    {
-        return .Landscape
     }
 }

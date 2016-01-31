@@ -30,6 +30,9 @@
 		F34B2A521C5D60FE004B70A8 /* Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34B2A511C5D60FE004B70A8 /* Modifier.swift */; };
 		F34B2A541C5D6F0E004B70A8 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34B2A531C5D6F0E004B70A8 /* Team.swift */; };
 		F34B2A571C5D7CEF004B70A8 /* Raleway-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F34B2A561C5D7CEF004B70A8 /* Raleway-Bold.ttf */; };
+		F3789D2D1C5DB6EA00AFC4A2 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = F3789D2C1C5DB6EA00AFC4A2 /* GCDAsyncSocket.m */; };
+		F3789D311C5DBAC200AFC4A2 /* RemoteSender.m in Sources */ = {isa = PBXBuildFile; fileRef = F3789D301C5DBAC200AFC4A2 /* RemoteSender.m */; };
+		F383E3031C5DD0610067F440 /* Communicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F383E3021C5DD0610067F440 /* Communicator.swift */; };
 		F38D49D51C5C48BC00BF171E /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38D49D41C5C48BC00BF171E /* ColorExtensions.swift */; };
 		F38D49D71C5D57B800BF171E /* TapToViewPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38D49D61C5D57B800BF171E /* TapToViewPane.swift */; };
 /* End PBXBuildFile section */
@@ -60,6 +63,12 @@
 		F34B2A511C5D60FE004B70A8 /* Modifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Modifier.swift; sourceTree = "<group>"; };
 		F34B2A531C5D6F0E004B70A8 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		F34B2A561C5D7CEF004B70A8 /* Raleway-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Bold.ttf"; sourceTree = "<group>"; };
+		F3789D2A1C5DB6EA00AFC4A2 /* ios-app-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ios-app-Bridging-Header.h"; sourceTree = "<group>"; };
+		F3789D2B1C5DB6EA00AFC4A2 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		F3789D2C1C5DB6EA00AFC4A2 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		F3789D2F1C5DBAC200AFC4A2 /* RemoteSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteSender.h; sourceTree = "<group>"; };
+		F3789D301C5DBAC200AFC4A2 /* RemoteSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoteSender.m; sourceTree = "<group>"; };
+		F383E3021C5DD0610067F440 /* Communicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Communicator.swift; sourceTree = "<group>"; };
 		F38D49D41C5C48BC00BF171E /* ColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		F38D49D61C5D57B800BF171E /* TapToViewPane.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapToViewPane.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,6 +123,7 @@
 		F311EBA91C5C0A6200672AB5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F3789D271C5DAEA600AFC4A2 /* Communication */,
 				F311EBA71C5C0A5E00672AB5 /* Game.swift */,
 				F34B2A531C5D6F0E004B70A8 /* Team.swift */,
 				F311EBAC1C5C0F6D00672AB5 /* Choice.swift */,
@@ -142,16 +152,13 @@
 		F341EBDB1C5B117800B416F1 /* ios-app */ = {
 			isa = PBXGroup;
 			children = (
+				F3789D2A1C5DB6EA00AFC4A2 /* ios-app-Bridging-Header.h */,
 				F341EBDC1C5B117800B416F1 /* AppDelegate.swift */,
 				F311EB951C5B931400672AB5 /* Scenes */,
 				F311EB961C5B931B00672AB5 /* Controllers */,
 				F311EBA91C5C0A6200672AB5 /* Model */,
 				F34B2A551C5D7CC5004B70A8 /* Resources */,
-				F341EBE41C5B117800B416F1 /* Main.storyboard */,
-				F341EBE71C5B117800B416F1 /* Assets.xcassets */,
-				F341EBE91C5B117800B416F1 /* LaunchScreen.storyboard */,
 				F341EBEC1C5B117800B416F1 /* Info.plist */,
-				F311EBAA1C5C0DEE00672AB5 /* Choices.plist */,
 			);
 			path = "ios-app";
 			sourceTree = "<group>";
@@ -160,8 +167,24 @@
 			isa = PBXGroup;
 			children = (
 				F34B2A561C5D7CEF004B70A8 /* Raleway-Bold.ttf */,
+				F341EBE41C5B117800B416F1 /* Main.storyboard */,
+				F341EBE71C5B117800B416F1 /* Assets.xcassets */,
+				F341EBE91C5B117800B416F1 /* LaunchScreen.storyboard */,
+				F311EBAA1C5C0DEE00672AB5 /* Choices.plist */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		F3789D271C5DAEA600AFC4A2 /* Communication */ = {
+			isa = PBXGroup;
+			children = (
+				F383E3021C5DD0610067F440 /* Communicator.swift */,
+				F3789D2F1C5DBAC200AFC4A2 /* RemoteSender.h */,
+				F3789D301C5DBAC200AFC4A2 /* RemoteSender.m */,
+				F3789D2B1C5DB6EA00AFC4A2 /* GCDAsyncSocket.h */,
+				F3789D2C1C5DB6EA00AFC4A2 /* GCDAsyncSocket.m */,
+			);
+			name = Communication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,11 +266,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F383E3031C5DD0610067F440 /* Communicator.swift in Sources */,
 				F311EBB91C5C378D00672AB5 /* PlayingScene.swift in Sources */,
 				F341EBE11C5B117800B416F1 /* MenuScene.swift in Sources */,
 				F311EBAF1C5C168200672AB5 /* RandomNumberExtensions.swift in Sources */,
+				F3789D311C5DBAC200AFC4A2 /* RemoteSender.m in Sources */,
 				F34B2A541C5D6F0E004B70A8 /* Team.swift in Sources */,
 				F38D49D71C5D57B800BF171E /* TapToViewPane.swift in Sources */,
+				F3789D2D1C5DB6EA00AFC4A2 /* GCDAsyncSocket.m in Sources */,
 				F311EBA81C5C0A5E00672AB5 /* Game.swift in Sources */,
 				F311EBB71C5C2F1B00672AB5 /* StartScene.swift in Sources */,
 				F34B2A521C5D60FE004B70A8 /* Modifier.swift in Sources */,
@@ -370,6 +396,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "ios-app/Info.plist";
@@ -378,6 +405,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rds.ios-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "ios-app/ios-app-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -386,6 +415,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "ios-app/Info.plist";
@@ -394,6 +424,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rds.ios-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "ios-app/ios-app-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
