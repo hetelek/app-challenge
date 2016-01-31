@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6727614C1C5EBB45005A44CA /* MultiLineLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6727614B1C5EBB45005A44CA /* MultiLineLabel.swift */; };
 		84693C451C5E6E8B008F1E41 /* 10424_SFX.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84693C441C5E6E8B008F1E41 /* 10424_SFX.wav */; };
 		84693C471C5E6FC3008F1E41 /* Click2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84693C461C5E6FC3008F1E41 /* Click2.mp3 */; };
 		84693C491C5E7BDC008F1E41 /* InstructionsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84693C481C5E7BDC008F1E41 /* InstructionsScene.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6727614B1C5EBB45005A44CA /* MultiLineLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiLineLabel.swift; sourceTree = "<group>"; };
 		84693C441C5E6E8B008F1E41 /* 10424_SFX.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 10424_SFX.wav; sourceTree = "<group>"; };
 		84693C461C5E6FC3008F1E41 /* Click2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Click2.mp3; sourceTree = "<group>"; };
 		84693C481C5E7BDC008F1E41 /* InstructionsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionsScene.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				F311EB9D1C5BB0A300672AB5 /* CoolButton.swift */,
 				F38D49D61C5D57B800BF171E /* TapToViewPane.swift */,
 				F38D49D41C5C48BC00BF171E /* ColorExtensions.swift */,
+				6727614B1C5EBB45005A44CA /* MultiLineLabel.swift */,
 			);
 			name = "UI Elements";
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				F311EBB91C5C378D00672AB5 /* PlayingScene.swift in Sources */,
 				F341EBE11C5B117800B416F1 /* MenuScene.swift in Sources */,
 				F311EBAF1C5C168200672AB5 /* RandomNumberExtensions.swift in Sources */,
+				6727614C1C5EBB45005A44CA /* MultiLineLabel.swift in Sources */,
 				F3789D311C5DBAC200AFC4A2 /* RemoteSender.m in Sources */,
 				F34B2A541C5D6F0E004B70A8 /* Team.swift in Sources */,
 				F38D49D71C5D57B800BF171E /* TapToViewPane.swift in Sources */,
