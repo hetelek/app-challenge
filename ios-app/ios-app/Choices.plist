@@ -49,7 +49,7 @@
 				<key>modifier_only</key>
 				<string>Stare at Teammate</string>
 				<key>full_text</key>
-				<string>A chair, while staring at your teammate</string>
+				<string>A chair, while staring at one of your teammates</string>
 			</dict>
 			<dict>
 				<key>modifier_only</key>
@@ -68,7 +68,7 @@
 				<key>modifier_only</key>
 				<string>Face Away From Teammate</string>
 				<key>full_text</key>
-				<string>An elephant, facing away from your partner</string>
+				<string>An elephant, with your back to your team</string>
 			</dict>
 			<dict>
 				<key>modifier_only</key>

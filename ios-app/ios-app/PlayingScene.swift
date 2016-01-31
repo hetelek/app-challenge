@@ -53,9 +53,9 @@ class PlayingScene : SKScene
         
         // create got it button
         let gotItButton = CoolButton(color: SKColor.gameYellowColor(), size: self.GOT_IT_SIZE)
-        gotItButton.text = "Got it!"
+        gotItButton.text = "Guessed Correctly"
         gotItButton.fontColor = SKColor.gameBlueColor()
-        gotItButton.position = CGPoint(x: centerX, y: centerY + (self.GOT_IT_SIZE.height + self.PADDING_FROM_CENTER)/2)
+        gotItButton.position = CGPoint(x: centerX, y: centerY - (self.GOT_IT_SIZE.height + self.PADDING_FROM_CENTER)/2)
         gotItButton.addTarget(self, selector: "gotItButtonTapped:")
         
         self.addChild(gotItButton)
@@ -65,7 +65,7 @@ class PlayingScene : SKScene
         instructionsPane.unhiddenText = "Tap and hold to view"
         instructionsPane.fontColor = SKColor.gameYellowColor()
         instructionsPane.hiddenText = Game.sharedInstance.selectedModifier.fullText
-        instructionsPane.position = CGPoint(x: centerX, y: centerY - (self.GOT_IT_SIZE.height + self.PADDING_FROM_CENTER)/2)
+        instructionsPane.position = CGPoint(x: centerX, y: centerY + (self.GOT_IT_SIZE.height + self.PADDING_FROM_CENTER)/2)
         
         self.addChild(instructionsPane)
         
