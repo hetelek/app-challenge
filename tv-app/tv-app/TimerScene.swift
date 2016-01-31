@@ -131,6 +131,6 @@ class TimerScene : SKScene, CommunicatorProtocol
     
     func receivedData(scene: Scene, data: [String: AnyObject]?)
     {
-        
+        updateStateFromData(scene, data: data, currentScene: self)
     }
 }

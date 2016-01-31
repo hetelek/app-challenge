@@ -11,6 +11,9 @@ import SpriteKit
 class ChoosingScene : SKScene, CommunicatorProtocol
 {
     private var contentCreated = false
+    private var currentChooser: String?
+    
+    var team: String?
     
     override func didMoveToView(view: SKView)
     {
@@ -59,7 +62,7 @@ class ChoosingScene : SKScene, CommunicatorProtocol
         self.addChild(TeamScoreView.sharedBlueInstance)
         
         // create waiting label
-        let waitingLabel = SKLabelNode(text: "Pick your poison!")
+        let waitingLabel = SKLabelNode(text: "Pick your poison, \(team ?? "???")!")
         waitingLabel.position = CGPoint(x: centerX, y: centerY)
         self.addChild(waitingLabel)
     }
@@ -71,16 +74,7 @@ class ChoosingScene : SKScene, CommunicatorProtocol
     
     func receivedData(scene: Scene, data: [String: AnyObject]?)
     {
-        print("\(scene): \(data)")
-        if scene == Scene.Playing, let timerScene = TimerScene(fileNamed: "TimerScene")
-        {
-            if let data = data, let roundTime = data["roundTime"] as? NSTimeInterval
-            {
-                timerScene.roundTime = roundTime
-            }
-            
-            self.view?.presentScene(timerScene, transition: SKTransition.fadeWithDuration(0.5))
-        }
+        updateStateFromData(scene, data: data, currentScene: self)
     }
     
     func connectivityStatusChanged(connected: Bool)
