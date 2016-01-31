@@ -57,7 +57,7 @@ class PlayingScene : SKScene
         // create instructions pane
         let instructionsPane = TapToViewPane(color: SKColor.blackColor(), size: self.TAP_TO_VIEW_SIZE)
         instructionsPane.unhiddenText = "Tap and hold to view"
-        instructionsPane.hiddenText = "Tree with your eyes closed"
+        instructionsPane.hiddenText = Game.sharedInstance.selectedModifier.fullText
         instructionsPane.position = CGPoint(x: centerX, y: centerY - (self.GOT_IT_SIZE.height + self.PADDING_FROM_CENTER))
         
         self.addChild(instructionsPane)
