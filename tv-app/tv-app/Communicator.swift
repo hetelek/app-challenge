@@ -11,7 +11,12 @@ import Foundation
 protocol CommunicatorProtocol
 {
     func connectivityStatusChanged(connected: Bool)
-    func receivedData(data: [String: AnyObject])
+    func receivedData(scene: Scene, data: [String: AnyObject]?)
+}
+
+enum Scene : Int
+{
+    case Menu, SelectChoice, SelectModifier, PassDevice, Start, Playing
 }
 
 class Communicator : NSObject, RemoteReceiverDelegate
@@ -36,9 +41,19 @@ class Communicator : NSObject, RemoteReceiverDelegate
     
     @objc func didReceiveMessage(userInfo: [NSObject : AnyObject]!)
     {
-        if let data = userInfo as? [String: AnyObject]
+        // parse the full dictionary
+        if let fullData = userInfo as? [String: AnyObject]
         {
-            self.delegate?.receivedData(data)
+            // parse the scene
+            if let sceneRawValue = fullData["scene"] as? Int, let scene = Scene(rawValue: sceneRawValue)
+            {
+                // call the delegate
+                self.delegate?.receivedData(scene, data: fullData["data"] as? [String: AnyObject])
+            }
+            else
+            {
+                print("received weird stuff")
+            }
         }
     }
 }

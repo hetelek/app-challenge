@@ -24,11 +24,6 @@ class MenuScene : SKScene, CommunicatorDelegate
         }
     }
     
-    func connectivityStatusChanged(connected: Bool)
-    {
-        print("connected: \(connected)")
-    }
-    
     private func createContent()
     {
         // set background color/scale
@@ -103,6 +98,15 @@ class MenuScene : SKScene, CommunicatorDelegate
         if let selectScreen = SelectScene(fileNamed: "SelectScene")
         {
             self.view?.presentScene(selectScreen, transition: SKTransition.fadeWithDuration(0.5))
+        }
+    }
+    
+    func connectivityStatusChanged(connected: Bool)
+    {
+        // once we're connect, notify what screen we're on
+        if connected
+        {
+            Communicator.sharedInstance.sendData(.Menu, data: nil)
         }
     }
 }

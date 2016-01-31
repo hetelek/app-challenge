@@ -8,12 +8,15 @@
 
 import SpriteKit
 
-class StartScene : SKScene
+class StartScene : SKScene, CommunicatorDelegate
 {
     var contentCreated = false
     
     override func didMoveToView(view: SKView)
     {
+        Communicator.sharedInstance.delegate = self
+        Communicator.sharedInstance.sendData(.Start, data: nil)
+        
         // create the content if we haven't already
         if !self.contentCreated
         {
@@ -27,6 +30,7 @@ class StartScene : SKScene
         // set background color/scale
         self.scaleMode = .ResizeFill
         self.backgroundColor = SKColor.gameYellowColor()
+        
         // screen center
         let centerX = CGRectGetMidX(self.frame)
         let centerY = CGRectGetMidY(self.frame)
@@ -48,5 +52,10 @@ class StartScene : SKScene
         {
             self.view?.presentScene(playingScene, transition: SKTransition.fadeWithDuration(0.5))
         }
+    }
+    
+    func connectivityStatusChanged(connected: Bool)
+    {
+        
     }
 }
