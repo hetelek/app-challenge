@@ -52,15 +52,14 @@ class ConfirmStartScene : SKScene
         instructionsButton.addTarget(self, selector: "instructionsButtonTapped:")
         
         self.addChild(instructionsButton)
-        
     }
     
     func startGameButtonTapped(button: CoolButton)
     {
-        // present next scene ()
-        if let confirmStartScreen = ConfirmStartScene(fileNamed: "ConfirmStartScene")
+        // present next scene
+        if let pickTheirPoisonScene = PickTheirPoisonScene(fileNamed: "PickTheirPoisonScene")
         {
-            self.view?.presentScene(confirmStartScreen, transition: SKTransition.fadeWithDuration(0.5))
+            self.view?.presentScene(pickTheirPoisonScene, transition: SKTransition.fadeWithDuration(0.5))
         }
     }
     

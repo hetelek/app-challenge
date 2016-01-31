@@ -30,7 +30,7 @@ class PlayingScene : SKScene, CommunicatorDelegate
         
         // setup communicator
         Communicator.sharedInstance.delegate = self
-        Communicator.sharedInstance.sendData(.Playing, data: [ "roundTime": self.roundTime ])
+        Communicator.sharedInstance.sendData(.Playing, data: [ "roundTime": self.roundTime, "blueTeam": Game.sharedInstance.guessingTeam.teamColor == TeamColor.Blue ])
         
         // create the content if we haven't already
         if !self.contentCreated
@@ -130,19 +130,56 @@ class PlayingScene : SKScene, CommunicatorDelegate
     
     func gotItButtonTapped(button: CoolButton)
     {
-        Game.sharedInstance.answeredCorrectly()
-        
-        // stop the timer bar from moving
-        self.bar1.removeAllActions()
-        self.bar2.removeAllActions()
-        self.bar3.removeAllActions()
-        self.bar4.removeAllActions()
-        self.bar5.removeAllActions()
+        if let roundEndedScene = RoundEndedScene(fileNamed: "RoundEndedScene")
+        {
+            // set the name
+            if Game.sharedInstance.guessingTeam.teamColor == TeamColor.Blue
+            {
+                roundEndedScene.teamName = "Blue"
+            }
+            else
+            {
+                roundEndedScene.teamName = "Yellow"
+            }
+            
+            // they scored
+            roundEndedScene.scored = true
+            
+            // tell the model
+            Game.sharedInstance.answeredCorrectly()
+            
+            // stop the timer bar from moving
+            self.bar1.removeAllActions()
+            self.bar2.removeAllActions()
+            self.bar3.removeAllActions()
+            self.bar4.removeAllActions()
+            self.bar5.removeAllActions()
+            
+            // present the winning view
+            self.view?.presentScene(roundEndedScene, transition: SKTransition.fadeWithDuration(0.5))
+        }
     }
     
     func timeRanOut()
     {
-        print("time ran out!")
+        if let roundEndedScene = RoundEndedScene(fileNamed: "RoundEndedScene")
+        {
+            // set the name
+            if Game.sharedInstance.guessingTeam.teamColor == TeamColor.Blue
+            {
+                roundEndedScene.teamName = "Blue"
+            }
+            else
+            {
+                roundEndedScene.teamName = "Yellow"
+            }
+            
+            // they scored
+            roundEndedScene.scored = false
+            
+            // present the winning view
+            self.view?.presentScene(roundEndedScene, transition: SKTransition.fadeWithDuration(0.5))
+        }
     }
     
     func connectivityStatusChanged(connected: Bool)

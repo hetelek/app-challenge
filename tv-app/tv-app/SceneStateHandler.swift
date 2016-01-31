@@ -27,9 +27,9 @@ func updateStateFromData(scene: Scene, data: [String: AnyObject]?, currentScene:
         
         if let choosingScene = ChoosingScene(fileNamed: "ChoosingScene")
         {
-            if let data = data, let team = data["team"] as? String
+            if let data = data, let blueTeam = data["blueTeam"] as? Bool
             {
-                choosingScene.team = team
+                choosingScene.blueTeam = blueTeam
             }
             
             currentScene.view?.presentScene(choosingScene, transition: SKTransition.fadeWithDuration(0.5))
@@ -39,9 +39,10 @@ func updateStateFromData(scene: Scene, data: [String: AnyObject]?, currentScene:
     case .Playing:
         if let timerScene = TimerScene(fileNamed: "TimerScene")
         {
-            if let data = data, let roundTime = data["roundTime"] as? NSTimeInterval
+            if let data = data, let roundTime = data["roundTime"] as? NSTimeInterval, let blueTeam = data["blueTeam"] as? Bool
             {
                 timerScene.roundTime = roundTime
+                timerScene.blueTeam = blueTeam
             }
             
             currentScene.view?.presentScene(timerScene, transition: SKTransition.fadeWithDuration(0.5))

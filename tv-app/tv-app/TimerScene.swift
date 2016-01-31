@@ -18,6 +18,7 @@ class TimerScene : SKScene, CommunicatorProtocol
     var bar4: SKSpriteNode!
     var bar5: SKSpriteNode!
     
+    var blueTeam: Bool = false
     var roundTime: NSTimeInterval = 30
     static let TIMER_BAR_WIDTH: CGFloat = 25
     static let SCORE_PANE_PADDING: CGFloat = 20
@@ -131,6 +132,34 @@ class TimerScene : SKScene, CommunicatorProtocol
     
     func receivedData(scene: Scene, data: [String: AnyObject]?)
     {
-        updateStateFromData(scene, data: data, currentScene: self)
+        if scene == Scene.Playing
+        {
+            if let data = data, let scored = data["scored"] as? Bool
+            {
+                if scored
+                {
+                    // stop the timer bar from moving
+                    self.bar1.removeAllActions()
+                    self.bar2.removeAllActions()
+                    self.bar3.removeAllActions()
+                    self.bar4.removeAllActions()
+                    self.bar5.removeAllActions()
+                    
+                    // give them a point
+                    if self.blueTeam
+                    {
+                        TeamScoreView.sharedBlueInstance.addPointBar()
+                    }
+                    else
+                    {
+                        TeamScoreView.sharedYellowInstance.addPointBar()
+                    }
+                }
+            }
+        }
+        else
+        {
+            updateStateFromData(scene, data: data, currentScene: self)
+        }
     }
 }
