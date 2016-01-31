@@ -16,7 +16,7 @@
 @property (strong, nonatomic) NSNetService *service;
 @property (strong, nonatomic) GCDAsyncSocket *socket;
 @property BOOL isConnected;
-
+@property (strong, nonatomic) NSMutableDictionary *receivedData;
 @end
 
 @implementation RemoteReceiver
@@ -27,6 +27,7 @@
     
     if (self)
     {
+        self.receivedData = [[NSMutableDictionary alloc] init];
         self.isConnected = NO;
         [self startBroadCasting];
     }
@@ -83,14 +84,37 @@
     }
 }
 
--(void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag{
-    
-    NSString *theTestString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    if(!theTestString)
+-(void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
+{
+    if(data.length > 0)
     {
-        NSDictionary *myDictionary = (NSDictionary *)[NSKeyedUnarchiver unarchiveObjectWithData:data];
-        [self.delegate didReceiveMessage:myDictionary];
+        NSString *key = [NSString stringWithFormat:@"%li", tag];
+        NSData *fullData = [self.receivedData valueForKey:key];
+        
+        NSMutableData *updatedData;
+        
+        if (fullData)
+        {
+            updatedData = [[NSMutableData alloc] initWithData:fullData];
+            [updatedData appendData:data];
+        }
+        else
+        {
+            updatedData = [[NSMutableData alloc] initWithData:data];
+        }
+        
+        NSDictionary *myDictionary = (NSDictionary *)[NSKeyedUnarchiver unarchiveObjectWithData:updatedData];
+        if (myDictionary != nil)
+        {
+            [self.delegate didReceiveMessage:myDictionary];
+            [self.receivedData removeObjectForKey:key];
+        }
+        else
+        {
+            [self.receivedData setObject:updatedData forKey:key];
+        }
     }
+    
     [sock readDataWithTimeout:-1.0f tag:0];
 }
 @end

@@ -153,11 +153,6 @@
     [self stopBrowsing];
 }
 
-- (void)netServiceDidStop:(NSNetService *)sender
-{
-    NSLog(@"asdf");
-}
-
 - (void)netServiceBrowser:(NSNetServiceBrowser *)serviceBrowser didRemoveService:(NSNetService *)service moreComing:(BOOL)moreComing
 {
     if (service)
@@ -178,7 +173,7 @@
 - (void)sendInfo:(NSDictionary *) infoDict
 {
     NSData *dictData = [NSKeyedArchiver archivedDataWithRootObject:infoDict];
-    [[self getSelectedSocket] writeData:dictData withTimeout:-1.0f tag:0];
+    [[self getSelectedSocket] writeData:dictData withTimeout:-1.0f tag:arc4random()];
 }
 
 @end
