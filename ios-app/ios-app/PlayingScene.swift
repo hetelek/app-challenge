@@ -76,7 +76,7 @@ class PlayingScene : SKScene
         
         // top bar (starting centered)
         self.bar1 = SKSpriteNode(color: SKColor.gameGreyColor(), size: CGSize(width: CGRectGetWidth(self.frame)/2, height: self.TIMER_BAR_WIDTH))
-        self.bar1.anchorPoint = CGPoint(x: 1, y: 1)
+        self.bar1.anchorPoint = CGPoint(x: 0, y: 1)
         self.bar1.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetHeight(self.frame))
         self.addChild(self.bar1)
         
