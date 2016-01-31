@@ -23,6 +23,7 @@ class Communicator : NSObject, RemoteSenderDelegate
     static let sharedInstance = Communicator()
     
     var delegate: CommunicatorDelegate?
+    private(set) var isConnected = false
     private var sender: RemoteSender!
     
     override init()
@@ -47,6 +48,7 @@ class Communicator : NSObject, RemoteSenderDelegate
     
     @objc func connectivityStatusChanged(connected: Bool)
     {
+        self.isConnected = connected
         self.delegate?.connectivityStatusChanged(connected)
     }
 }
