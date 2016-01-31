@@ -32,7 +32,7 @@ class MenuScene : SKScene
         //create top button so a tap anywhere proceeds
         let buttonTop = CoolButton(color: SKColor.gameYellowColor(), size: CGSize(width: CGRectGetWidth(self.frame) + 5, height: CGRectGetHeight(self.frame) / 2 + 5))
         buttonTop.text = ""
-        buttonTop.flatColor = true;
+        buttonTop.flatColor = true
         buttonTop.fontColor = SKColor.gameBlueColor()
         buttonTop.addTarget(self, selector: "startButtonTapped:")
         buttonTop.position = CGPoint(x: 0, y: CGRectGetHeight(self.frame) / 4)
@@ -54,6 +54,7 @@ class MenuScene : SKScene
         // create start button
         let button = CoolButton(color: SKColor.gameBlueColor(), size: CGSize(width: CGRectGetWidth(self.frame) + 5, height: CGRectGetHeight(self.frame) / 2 + 5))
         button.text = "Tap to Continue"
+        button.flatColor = true
         button.fontColor = SKColor.gameYellowColor()
         button.addTarget(self, selector: "startButtonTapped:")
         button.position = CGPoint(x: 0, y: -CGRectGetHeight(self.frame) / 4)
