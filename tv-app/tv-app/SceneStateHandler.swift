@@ -20,6 +20,11 @@ func updateStateFromData(scene: Scene, data: [String: AnyObject]?, currentScene:
         break
         
     case .SelectChoice, .SelectModifier, .Start, .PassDevice:
+        if currentScene.isKindOfClass(ChoosingScene)
+        {
+            break
+        }
+        
         if let choosingScene = ChoosingScene(fileNamed: "ChoosingScene")
         {
             if let data = data, let team = data["team"] as? String
