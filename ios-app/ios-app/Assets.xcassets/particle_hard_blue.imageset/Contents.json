@@ -2,8 +2,8 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "Spaceship.png"
+      "filename" : "particle_hard_blue.png",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",

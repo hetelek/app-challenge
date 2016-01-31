@@ -54,7 +54,7 @@ class MenuScene : SKScene
     private func createBurstEmitter() -> SKEmitterNode
     {
         // get sparkle texture from image
-        let sparkles = SKTexture(imageNamed: "particle_hard_blue.png")
+        let sparkles = SKTexture(imageNamed: "particle_hard_blue")
         
         // setup emitter
         let burstEmitter = SKEmitterNode()

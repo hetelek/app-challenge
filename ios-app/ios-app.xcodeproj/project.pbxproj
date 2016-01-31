@@ -30,7 +30,6 @@
 		F34B2A521C5D60FE004B70A8 /* Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34B2A511C5D60FE004B70A8 /* Modifier.swift */; };
 		F34B2A541C5D6F0E004B70A8 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34B2A531C5D6F0E004B70A8 /* Team.swift */; };
 		F34B2A571C5D7CEF004B70A8 /* Raleway-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F34B2A561C5D7CEF004B70A8 /* Raleway-Bold.ttf */; };
-		F34B2A591C5D7F9D004B70A8 /* particle_hard_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = F34B2A581C5D7F9D004B70A8 /* particle_hard_blue.png */; };
 		F38D49D51C5C48BC00BF171E /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38D49D41C5C48BC00BF171E /* ColorExtensions.swift */; };
 		F38D49D71C5D57B800BF171E /* TapToViewPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38D49D61C5D57B800BF171E /* TapToViewPane.swift */; };
 /* End PBXBuildFile section */
@@ -61,7 +60,6 @@
 		F34B2A511C5D60FE004B70A8 /* Modifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Modifier.swift; sourceTree = "<group>"; };
 		F34B2A531C5D6F0E004B70A8 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		F34B2A561C5D7CEF004B70A8 /* Raleway-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Bold.ttf"; sourceTree = "<group>"; };
-		F34B2A581C5D7F9D004B70A8 /* particle_hard_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particle_hard_blue.png; sourceTree = "<group>"; };
 		F38D49D41C5C48BC00BF171E /* ColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		F38D49D61C5D57B800BF171E /* TapToViewPane.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapToViewPane.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -161,7 +159,6 @@
 		F34B2A551C5D7CC5004B70A8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F34B2A581C5D7F9D004B70A8 /* particle_hard_blue.png */,
 				F34B2A561C5D7CEF004B70A8 /* Raleway-Bold.ttf */,
 			);
 			name = Resources;
@@ -228,7 +225,6 @@
 			files = (
 				F341EBEB1C5B117800B416F1 /* LaunchScreen.storyboard in Resources */,
 				F311EBB51C5C2F1400672AB5 /* StartScene.sks in Resources */,
-				F34B2A591C5D7F9D004B70A8 /* particle_hard_blue.png in Resources */,
 				F311EBAB1C5C0DEE00672AB5 /* Choices.plist in Resources */,
 				F34B2A571C5D7CEF004B70A8 /* Raleway-Bold.ttf in Resources */,
 				F311EB9A1C5BAAB800672AB5 /* SelectScene.sks in Resources */,
