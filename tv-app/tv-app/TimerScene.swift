@@ -55,23 +55,17 @@ class TimerScene : SKScene, CommunicatorProtocol
         let scoreOffset = TimerScene.TIMER_BAR_WIDTH + TimerScene.SCORE_PANE_PADDING
         
         // calculate width / positions
+        TeamScoreView.sharedYellowInstance.removeFromParent()
+        TeamScoreView.sharedBlueInstance.removeFromParent()
+        
         TeamScoreView.sharedYellowInstance.size.width = centerX - (scoreOffset * 2)
         TeamScoreView.sharedBlueInstance.size.width = centerX - (scoreOffset * 2)
         
         TeamScoreView.sharedYellowInstance.position = CGPoint(x: scoreOffset, y: scoreOffset)
         TeamScoreView.sharedBlueInstance.position = CGPoint(x: CGRectGetWidth(self.frame) - scoreOffset, y: scoreOffset)
         
-        // add views
         self.addChild(TeamScoreView.sharedYellowInstance)
         self.addChild(TeamScoreView.sharedBlueInstance)
-        
-        TeamScoreView.sharedBlueInstance.addPointBar()
-        TeamScoreView.sharedBlueInstance.addPointBar()
-        TeamScoreView.sharedBlueInstance.addPointBar()
-        
-        TeamScoreView.sharedYellowInstance.addPointBar()
-        TeamScoreView.sharedYellowInstance.addPointBar()
-        TeamScoreView.sharedYellowInstance.addPointBar()
         
         // start timers
         self.startTimers()

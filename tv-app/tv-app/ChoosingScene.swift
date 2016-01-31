@@ -33,10 +33,22 @@ class ChoosingScene : SKScene, CommunicatorProtocol
         let centerX = CGRectGetMidX(self.frame)
         let centerY = CGRectGetMidY(self.frame)
         
+        // set background color to yellow
+        self.backgroundColor = SKColor.gameYellowColor()
+        
+        // make right half blue
+        let bluePanel = SKSpriteNode(color: SKColor.gameBlueColor(), size: CGSize(width: CGRectGetWidth(self.frame) / 2, height: CGRectGetHeight(self.frame)))
+        bluePanel.anchorPoint = CGPoint(x: 0, y: 1)
+        bluePanel.position = CGPoint(x: centerX, y: CGRectGetMaxY(self.frame))
+        self.addChild(bluePanel)
+        
         // calculate padding
         let scoreOffset = TimerScene.TIMER_BAR_WIDTH + TimerScene.SCORE_PANE_PADDING
         
         // calculate width / positions
+        TeamScoreView.sharedYellowInstance.removeFromParent()
+        TeamScoreView.sharedBlueInstance.removeFromParent()
+        
         TeamScoreView.sharedYellowInstance.size.width = centerX - (scoreOffset * 2)
         TeamScoreView.sharedBlueInstance.size.width = centerX - (scoreOffset * 2)
         
