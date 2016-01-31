@@ -22,7 +22,7 @@ extension SKColor
     
     class func gameGreyColor() -> SKColor
     {
-        return SKColor(red: 23 / 255.0, green: 62 / 255.0, blue: 67 / 255.0, alpha: 1)
+        return SKColor(red: 0.09019607843, green: 0.2431372549, blue: 0.262745098, alpha: 1)
     }
     
     class func colorWithRGB(rgbValue: UInt, alpha: CGFloat = 1.0) -> SKColor

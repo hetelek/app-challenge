@@ -11,7 +11,7 @@ import Foundation
 class Game
 {
     static let sharedInstance = Game()
-    private(set) var roundTime: NSTimeInterval = 10
+    private(set) var roundTime: NSTimeInterval = 30
     
     // team
     private(set) var teams: [Team] = [ Team(teamColor: .Yellow), Team(teamColor: .Blue) ]

@@ -17,27 +17,14 @@ class PlayingScene : SKScene
     var bar4: SKSpriteNode!
     var bar5: SKSpriteNode!
     
-    
-    let ROUND_TIMER: CGFloat = 30
+    var roundTime: NSTimeInterval!
     let TIMER_BAR_WIDTH: CGFloat = 17
-    var GOT_IT_SIZE = CGSize(width: 100, height: 100)
-    var TAP_TO_VIEW_SIZE = CGSize(width: 100, height: 100)
+    var GOT_IT_SIZE: CGSize!
+    var TAP_TO_VIEW_SIZE: CGSize!
     let PADDING_FROM_CENTER: CGFloat = 0
-    
-    
-    
-    var screenRatio: CGFloat!
     
     override func didMoveToView(view: SKView)
     {
-        self.screenRatio = self.frame.width / self.frame.height
-        //Game.sharedInstance.startTimer(self, selector: "timeRanOut")
-        
-        //resetting the values for size because I couldn't get the screen dimensions out of function scope
-        GOT_IT_SIZE = CGSize(width: CGRectGetWidth(self.frame), height: CGRectGetHeight(self.frame)/2)
-        TAP_TO_VIEW_SIZE = CGSize(width: CGRectGetWidth(self.frame), height: CGRectGetHeight(self.frame)/2)
-
-        
         // create the content if we haven't already
         if !self.contentCreated
         {
@@ -54,6 +41,13 @@ class PlayingScene : SKScene
         // screen center
         let centerX = CGRectGetMidX(self.frame)
         let centerY = CGRectGetMidY(self.frame)
+        
+        // set round time
+        self.roundTime = Game.sharedInstance.roundTime
+        
+        // calculate sizes
+        self.GOT_IT_SIZE = CGSize(width: CGRectGetWidth(self.frame), height: CGRectGetHeight(self.frame) / 2)
+        self.TAP_TO_VIEW_SIZE = CGSize(width: CGRectGetWidth(self.frame), height: CGRectGetHeight(self.frame) / 2)
         
         // create got it button
         let gotItButton = CoolButton(color: SKColor.gameYellowColor(), size: self.GOT_IT_SIZE)
@@ -103,26 +97,41 @@ class PlayingScene : SKScene
         self.bar5.position = CGPoint(x: 0, y: CGRectGetHeight(self.frame))
         self.addChild(self.bar5)
         
-        //var timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: Selector("startTimers"), userInfo: nil, repeats: true)
-        startTimers()
+        // start timers
+        self.startTimers()
     }
     
     func startTimers()
     {
+        // calculate variables
         let TOTAL_DISTANCE = 2 * CGRectGetWidth(self.frame) + 2 * CGRectGetHeight(self.frame)
-        let HEIGHT_DURATION =  (ROUND_TIMER * ((2 * CGRectGetHeight(self.frame)) / TOTAL_DISTANCE)) / 2.0
-        let WIDTH_DURATION = (ROUND_TIMER * ((2 * CGRectGetWidth(self.frame)) / TOTAL_DISTANCE)) / 2.0
-        self.bar5.runAction(SKAction.scaleXTo(0.0, duration: Double(WIDTH_DURATION) / 2.0),
-            completion: { self.bar4.runAction(SKAction.scaleYTo(0.0, duration: Double(HEIGHT_DURATION)),
-                completion: {self.bar3.runAction(SKAction.scaleXTo(0.0, duration: Double(WIDTH_DURATION)),
-                    completion: {self.bar2.runAction(SKAction.scaleYTo(0.0, duration: Double(HEIGHT_DURATION)),
-                        completion: {self.bar1.runAction(SKAction.scaleXTo(0.0, duration: Double(WIDTH_DURATION) / 2.0),
-                            completion: {self.timeRanOut()})})})})})
+        let HEIGHT_DURATION =  Double(CGFloat(self.roundTime) * (CGRectGetHeight(self.frame) / TOTAL_DISTANCE))
+        let WIDTH_DURATION = Double(CGFloat(self.roundTime) * (CGRectGetWidth(self.frame) / TOTAL_DISTANCE))
+        
+        // animate bars
+        self.bar5.runAction(SKAction.scaleXTo(0.0, duration: WIDTH_DURATION / 2), completion: {
+            self.bar4.runAction(SKAction.scaleYTo(0.0, duration: HEIGHT_DURATION), completion: {
+                self.bar3.runAction(SKAction.scaleXTo(0.0, duration: WIDTH_DURATION), completion: {
+                    self.bar2.runAction(SKAction.scaleYTo(0.0, duration: HEIGHT_DURATION), completion: {
+                        self.bar1.runAction(SKAction.scaleXTo(0.0, duration: WIDTH_DURATION / 2))
+                    })
+                })
+            })
+        })
+        
+        Game.sharedInstance.startTimer(self, selector: "timeRanOut")
     }
     
     func gotItButtonTapped(button: CoolButton)
     {
-        print("got it")
+        Game.sharedInstance.answeredCorrectly()
+        
+        // stop the timer bar from moving
+        self.bar1.removeAllActions()
+        self.bar2.removeAllActions()
+        self.bar3.removeAllActions()
+        self.bar4.removeAllActions()
+        self.bar5.removeAllActions()
     }
     
     func timeRanOut()

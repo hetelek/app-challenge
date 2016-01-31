@@ -27,6 +27,7 @@ class StartScene : SKScene
         // set background color/scale
         self.scaleMode = .ResizeFill
         self.backgroundColor = SKColor.gameYellowColor()
+        
         // screen center
         let centerX = CGRectGetMidX(self.frame)
         let centerY = CGRectGetMidY(self.frame)

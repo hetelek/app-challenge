@@ -45,11 +45,11 @@ class PassDeviceScene : SKScene
         self.addChild(continueLabel)
         
         // calcualte width and height of the button
-        let width = self.frame.size.width - HORIZONTAL_SPACING * 2
-        let height = self.frame.size.height / 2 - VERTICAL_SPACING * 1.5
+        let width = self.frame.size.width - self.HORIZONTAL_SPACING * 2
+        let height = self.frame.size.height / 2 - self.VERTICAL_SPACING * 1.5
         
         // calculate y coordinate (relative from edge of screen)
-        let y = HORIZONTAL_SPACING + height / 2
+        let y = self.HORIZONTAL_SPACING + height / 2
         
         // create bottom button
         let continueButton = CoolButton(color: SKColor.gameBlueColor(), size: CGSize(width: width, height: height))
