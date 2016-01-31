@@ -132,6 +132,9 @@ class PlayingScene : SKScene, CommunicatorDelegate
     {
         if let roundEndedScene = RoundEndedScene(fileNamed: "RoundEndedScene")
         {
+            // tell the model
+            Game.sharedInstance.answeredCorrectly()
+            
             // set the name
             if Game.sharedInstance.guessingTeam.teamColor == TeamColor.Blue
             {
@@ -144,9 +147,6 @@ class PlayingScene : SKScene, CommunicatorDelegate
             
             // they scored
             roundEndedScene.scored = true
-            
-            // tell the model
-            Game.sharedInstance.answeredCorrectly()
             
             // stop the timer bar from moving
             self.bar1.removeAllActions()
@@ -165,7 +165,7 @@ class PlayingScene : SKScene, CommunicatorDelegate
         if let roundEndedScene = RoundEndedScene(fileNamed: "RoundEndedScene")
         {
             // set the name
-            if Game.sharedInstance.guessingTeam.teamColor == TeamColor.Blue
+            if Game.sharedInstance.guessingTeam.teamColor == TeamColor.Yellow
             {
                 roundEndedScene.teamName = "Blue"
             }

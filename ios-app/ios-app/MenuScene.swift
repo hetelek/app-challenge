@@ -62,7 +62,6 @@ class MenuScene : SKScene, CommunicatorDelegate
         button.position = CGPoint(x: 0, y: -CGRectGetHeight(self.frame) / 4)
         
         self.addChild(button)
-        
     }
     
     private func createBurstEmitter() -> SKEmitterNode

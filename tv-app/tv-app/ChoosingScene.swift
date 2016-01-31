@@ -62,7 +62,7 @@ class ChoosingScene : SKScene, CommunicatorProtocol
         self.addChild(TeamScoreView.sharedBlueInstance)
         
         // create left label
-        let leftLabel = SKLabelNode(text: "Pick Your Poison:")
+        let leftLabel = SKLabelNode(text: "Pick Their Poison:")
         leftLabel.position = CGPoint(x: centerX - 10, y: centerY)
         leftLabel.fontName = "Raleway-Bold"
         leftLabel.fontSize = 32

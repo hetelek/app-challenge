@@ -32,7 +32,7 @@ class SelectScene : SKScene, CommunicatorDelegate
         Communicator.sharedInstance.delegate = self
         
         // get the current team
-        let blueIsChoosing = Game.sharedInstance.choosingTeam.teamColor == TeamColor.Blue
+        let blueIsChoosing = Game.sharedInstance.guessingTeam.teamColor == TeamColor.Blue
         
         // send our state
         if state == .SelectChoice
