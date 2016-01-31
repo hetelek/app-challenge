@@ -5,6 +5,9 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Raleway-Bold.ttf</string>
+		<string>Raleway-Regular.ttf</string>
+		<string>Raleway-Light.ttf</string>
+		<string>Akashi.ttf</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
