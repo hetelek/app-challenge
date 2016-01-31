@@ -18,7 +18,7 @@ class PlayingScene : SKScene
     var bar5: SKSpriteNode!
     
     
-    let ROUND_TIMER: CGFloat = 20
+    let ROUND_TIMER: CGFloat = 30
     let TIMER_BAR_WIDTH: CGFloat = 17
     var GOT_IT_SIZE = CGSize(width: 100, height: 100)
     var TAP_TO_VIEW_SIZE = CGSize(width: 100, height: 100)
@@ -73,7 +73,6 @@ class PlayingScene : SKScene
         
         self.addChild(instructionsPane)
         
-        
         // top bar (starting centered)
         self.bar1 = SKSpriteNode(color: SKColor.gameGreyColor(), size: CGSize(width: CGRectGetWidth(self.frame)/2, height: self.TIMER_BAR_WIDTH))
         self.bar1.anchorPoint = CGPoint(x: 0, y: 1)
@@ -110,15 +109,15 @@ class PlayingScene : SKScene
     
     func startTimers()
     {
-        /*self.bar1.position.x += 1
-        if(self.bar1.position.x > CGRectGetWidth(self.frame)){
-            self.bar2.position.y -= 1
-        }*/
-        self.bar1.runAction(SKAction.scaleXTo(0.0, duration: 1), completion: { self.bar2.runAction(SKAction.scaleYTo(0.0, duration: 1),
-                completion: {self.bar3.runAction(SKAction.scaleXTo(0.0, duration: 1),
-                    completion: {self.bar4.runAction(SKAction.scaleYTo(0.0, duration: 1),
-                        completion: {self.bar5.runAction(SKAction.scaleXTo(0.0, duration: 1))})})})})
-        
+        let TOTAL_DISTANCE = 2 * CGRectGetWidth(self.frame) + 2 * CGRectGetHeight(self.frame)
+        let HEIGHT_DURATION =  (ROUND_TIMER * ((2 * CGRectGetHeight(self.frame)) / TOTAL_DISTANCE)) / 2.0
+        let WIDTH_DURATION = (ROUND_TIMER * ((2 * CGRectGetWidth(self.frame)) / TOTAL_DISTANCE)) / 2.0
+        self.bar5.runAction(SKAction.scaleXTo(0.0, duration: Double(WIDTH_DURATION) / 2.0),
+            completion: { self.bar4.runAction(SKAction.scaleYTo(0.0, duration: Double(HEIGHT_DURATION)),
+                completion: {self.bar3.runAction(SKAction.scaleXTo(0.0, duration: Double(WIDTH_DURATION)),
+                    completion: {self.bar2.runAction(SKAction.scaleYTo(0.0, duration: Double(HEIGHT_DURATION)),
+                        completion: {self.bar1.runAction(SKAction.scaleXTo(0.0, duration: Double(WIDTH_DURATION) / 2.0),
+                            completion: {self.timeRanOut()})})})})})
     }
     
     func gotItButtonTapped(button: CoolButton)
