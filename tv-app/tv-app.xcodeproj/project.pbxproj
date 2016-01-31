@@ -16,6 +16,8 @@
 		F34B2A601C5D9C5E004B70A8 /* WaitingForDeviceScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F34B2A5F1C5D9C5E004B70A8 /* WaitingForDeviceScene.sks */; };
 		F3789D361C5DBCAE00AFC4A2 /* RemoteReceiver.m in Sources */ = {isa = PBXBuildFile; fileRef = F3789D351C5DBCAE00AFC4A2 /* RemoteReceiver.m */; };
 		F37F86441C5DA63800E2B2C4 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = F37F86431C5DA63800E2B2C4 /* GCDAsyncSocket.m */; };
+		F39F957C1C5E85C700C55638 /* TeamScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39F957B1C5E85C700C55638 /* TeamScoreView.swift */; };
+		F3A692761C5E7A9100D28A01 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A692751C5E7A9100D28A01 /* ColorExtensions.swift */; };
 		F3BE1AB91C5DD18B00DE1374 /* Communicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BE1AB81C5DD18B00DE1374 /* Communicator.swift */; };
 		F3BE1ABB1C5DD49100DE1374 /* ChoosingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BE1ABA1C5DD49100DE1374 /* ChoosingScene.swift */; };
 		F3BE1ABD1C5DD49E00DE1374 /* ChoosingScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F3BE1ABC1C5DD49E00DE1374 /* ChoosingScene.sks */; };
@@ -38,6 +40,8 @@
 		F37F86411C5DA63700E2B2C4 /* tv-app-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "tv-app-Bridging-Header.h"; sourceTree = "<group>"; };
 		F37F86421C5DA63800E2B2C4 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
 		F37F86431C5DA63800E2B2C4 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		F39F957B1C5E85C700C55638 /* TeamScoreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamScoreView.swift; sourceTree = "<group>"; };
+		F3A692751C5E7A9100D28A01 /* ColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		F3BE1AB81C5DD18B00DE1374 /* Communicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Communicator.swift; sourceTree = "<group>"; };
 		F3BE1ABA1C5DD49100DE1374 /* ChoosingScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoosingScene.swift; sourceTree = "<group>"; };
 		F3BE1ABC1C5DD49E00DE1374 /* ChoosingScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ChoosingScene.sks; sourceTree = "<group>"; };
@@ -97,6 +101,7 @@
 		F34B2A5B1C5D9C0F004B70A8 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				F3A692771C5E7AA700D28A01 /* UI Elements */,
 				F34B2A5D1C5D9C41004B70A8 /* WaitingForDeviceScene.swift */,
 				F34B2A5F1C5D9C5E004B70A8 /* WaitingForDeviceScene.sks */,
 				F3BE1ABA1C5DD49100DE1374 /* ChoosingScene.swift */,
@@ -135,6 +140,15 @@
 				F37F86431C5DA63800E2B2C4 /* GCDAsyncSocket.m */,
 			);
 			name = Communication;
+			sourceTree = "<group>";
+		};
+		F3A692771C5E7AA700D28A01 /* UI Elements */ = {
+			isa = PBXGroup;
+			children = (
+				F3A692751C5E7A9100D28A01 /* ColorExtensions.swift */,
+				F39F957B1C5E85C700C55638 /* TeamScoreView.swift */,
+			);
+			name = "UI Elements";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,9 +228,11 @@
 			files = (
 				F3BE1AB91C5DD18B00DE1374 /* Communicator.swift in Sources */,
 				F3BE1ABB1C5DD49100DE1374 /* ChoosingScene.swift in Sources */,
+				F39F957C1C5E85C700C55638 /* TeamScoreView.swift in Sources */,
 				F3CE71761C5E7540004EFA4A /* TimerScene.swift in Sources */,
 				F341EC051C5B119800B416F1 /* GameViewController.swift in Sources */,
 				F3789D361C5DBCAE00AFC4A2 /* RemoteReceiver.m in Sources */,
+				F3A692761C5E7A9100D28A01 /* ColorExtensions.swift in Sources */,
 				F37F86441C5DA63800E2B2C4 /* GCDAsyncSocket.m in Sources */,
 				F34B2A5E1C5D9C41004B70A8 /* WaitingForDeviceScene.swift in Sources */,
 				F341EBFF1C5B119800B416F1 /* AppDelegate.swift in Sources */,

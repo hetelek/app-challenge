@@ -45,7 +45,16 @@ class ChoosingScene : SKScene, CommunicatorProtocol
     
     func receivedData(scene: Scene, data: [String: AnyObject]?)
     {
-        
+        print("\(scene): \(data)")
+        if scene == Scene.Playing, let timerScene = TimerScene(fileNamed: "TimerScene")
+        {
+            if let data = data, let roundTime = data["roundTime"] as? NSTimeInterval
+            {
+                timerScene.roundTime = roundTime
+            }
+            
+            self.view?.presentScene(timerScene, transition: SKTransition.fadeWithDuration(0.5))
+        }
     }
     
     func connectivityStatusChanged(connected: Bool)

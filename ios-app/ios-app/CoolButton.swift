@@ -49,7 +49,6 @@ class CoolButton : SKSpriteNode
     
     init(color: SKColor, size: CGSize)
     {
-        
         // save original color
         self.buttonColor = color
         

@@ -30,17 +30,28 @@ class WaitingForDeviceScene : SKScene, CommunicatorProtocol
         self.scaleMode = .ResizeFill
         
         // screen center
-        let centerX = CGRectGetMidX(self.frame)
-        let centerY = CGRectGetMidY(self.frame)
+        let centerX = CGRectGetMidX(UIScreen.mainScreen().bounds)
+        let centerY = CGRectGetMidY(UIScreen.mainScreen().bounds)
         
         let waitingLabel = SKLabelNode(text: "Please open the app on your device...")
         waitingLabel.position = CGPoint(x: centerX, y: centerY)
         self.addChild(waitingLabel)
+        
+        NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "doStuff:", userInfo: nil, repeats: false)
     }
     
-    func receivedData(data: [String: AnyObject])
+    func receivedData(scene: Scene, data: [String: AnyObject]?)
     {
-        print(data)
+        print("\(scene): \(data)")
+    }
+    
+    func doStuff(timer: NSTimer)
+    {
+        if let timerScene = TimerScene(fileNamed: "TimerScene")
+        {
+            timerScene.roundTime = 30
+            self.view?.presentScene(timerScene, transition: SKTransition.fadeWithDuration(0.5))
+        }
     }
     
     func connectivityStatusChanged(connected: Bool)
@@ -53,10 +64,5 @@ class WaitingForDeviceScene : SKScene, CommunicatorProtocol
                 self.view?.presentScene(choosingScene, transition: SKTransition.fadeWithDuration(0.5))
             }
         }
-    }
-    
-    func receivedData(scene: Scene, data: [String: AnyObject]?)
-    {
-        
     }
 }
