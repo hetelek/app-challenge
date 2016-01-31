@@ -31,17 +31,19 @@ class RoundEndedScene : SKScene
     
     private func createContent()
     {
-        // set background color/scale
+        // set scale
         self.scaleMode = .ResizeFill
-        self.backgroundColor = SKColor.gameYellowColor()
         
-        // screen center
-        let centerX = CGRectGetMidX(self.frame)
-        let centerY = CGRectGetMidY(self.frame)
+        // set anchor
+        self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         
-        // add label
         if let teamName = teamName, let scored = self.scored
         {
+            // set background color
+            let blueJustWent = teamName == "Blue"
+            self.backgroundColor = blueJustWent ? SKColor.gameYellowColor() : SKColor.gameBlueColor()
+            
+            // set text
             var text: String
             if scored
             {
@@ -52,16 +54,28 @@ class RoundEndedScene : SKScene
                 text = "Nice try \(teamName)..."
             }
             
+            // add text label
             let label = SKLabelNode(text: text)
-            label.position = CGPoint(x: centerX, y: centerY)
+            label.position = CGPoint(x: 0, y: 0)
             label.fontSize = 24
+            label.fontColor = blueJustWent ? SKColor.gameBlueColor() : SKColor.gameYellowColor()
+            label.fontSize = 32
+            label.fontName = "Raleway-Bold"
+            
             self.addChild(label)
+            
+            // tap to continue label
+            let continueLabel = SKLabelNode(text: "Tap to continue")
+            continueLabel.fontSize = 16
+            continueLabel.fontName = "Raleway-Regular"
+            continueLabel.fontColor = blueJustWent ? SKColor.gameBlueColor() : SKColor.gameYellowColor()
+            continueLabel.position = CGPoint(x: 0, y: -30)
+            
+            self.addChild(continueLabel)
         }
-        
-        NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: "viewExpired:", userInfo: nil, repeats: false)
     }
     
-    func viewExpired(timer: NSTimer)
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
     {
         if let selectScene = SelectScene(fileNamed: "SelectScene")
         {
