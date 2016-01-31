@@ -81,7 +81,19 @@ class CoolButton : SKSpriteNode
     {
         if !self.flatColor
         {
-            self.color = self.buttonColor.colorWithSaturationFactor(1.25)
+            if (self.buttonColor == SKColor.gameYellowColor())
+            {
+                self.color = self.buttonColor.colorWithSaturationFactor(1.25)
+            }
+            else if (self.buttonColor == SKColor.gameBlueColor())
+            {
+                self.color = self.buttonColor.colorWithSaturationFactor(1.25)
+                self.color = self.buttonColor.colorWithBrightnessFactor(0.80)
+            }
+            else
+            {
+                self.color = self.buttonColor.colorWithSaturationFactor(1.25)
+            }
         }
     }
     

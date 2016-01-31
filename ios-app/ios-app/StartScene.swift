@@ -26,21 +26,22 @@ class StartScene : SKScene
     {
         // set background color/scale
         self.scaleMode = .ResizeFill
-        
+        self.backgroundColor = SKColor.gameYellowColor()
         // screen center
         let centerX = CGRectGetMidX(self.frame)
         let centerY = CGRectGetMidY(self.frame)
         
         // create start button
-        let startButton = CoolButton(color: SKColor.blackColor(), size: CGSize(width: 400, height: 200))
+        let startButton = CoolButton(color: SKColor.gameBlueColor(), size: CGSize(width: self.size.width, height: self.size.height))
         startButton.text = "Start Round"
         startButton.label.fontSize = 24
+        startButton.fontColor = SKColor.gameYellowColor()
         startButton.position = CGPoint(x: centerX, y: centerY)
         startButton.addTarget(self, selector: "startButtonTapped:")
         
         self.addChild(startButton)
     }
-
+    
     func startButtonTapped(button: CoolButton)
     {
         if let playingScene = PlayingScene(fileNamed: "PlayingScene")

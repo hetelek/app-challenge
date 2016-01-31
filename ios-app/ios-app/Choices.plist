@@ -11,108 +11,108 @@
 				<key>modifier_only</key>
 				<string>No Legs</string>
 				<key>full_text</key>
-				<string>A dog without your legs!</string>
+				<string>A dog, without the use of your legs</string>
 			</dict>
 			<dict>
 				<key>modifier_only</key>
-				<string>Jumping</string>
+				<string>No Arms</string>
 				<key>full_text</key>
-				<string>A dog while jumping up and down!</string>
-			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>choice</key>
-		<string>Dog</string>
-		<key>modifiers</key>
-		<array>
-			<dict>
-				<key>modifier_only</key>
-				<string>No Legs</string>
-				<key>full_text</key>
-				<string>A dog without your legs!</string>
-			</dict>
-			<dict>
-				<key>modifier_only</key>
-				<string>Jumping</string>
-				<key>full_text</key>
-				<string>A dog while jumping up and down!</string>
+				<string>A dog, without the use of your arms</string>
 			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>choice</key>
-		<string>Dog</string>
+		<string>Flower</string>
 		<key>modifiers</key>
 		<array>
 			<dict>
 				<key>modifier_only</key>
-				<string>No Legs</string>
+				<string>While Jumping</string>
 				<key>full_text</key>
-				<string>A dog without your legs!</string>
+				<string>A flower, while jumping</string>
 			</dict>
 			<dict>
 				<key>modifier_only</key>
-				<string>Jumping</string>
+				<string>Lying Down</string>
 				<key>full_text</key>
-				<string>A dog while jumping up and down!</string>
+				<string>A flower, while lying down</string>
 			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>choice</key>
-		<string>Dog</string>
+		<string>Chair</string>
 		<key>modifiers</key>
 		<array>
 			<dict>
 				<key>modifier_only</key>
-				<string>No Legs</string>
+				<string>Stare at Teammate</string>
 				<key>full_text</key>
-				<string>A dog without your legs!</string>
+				<string>A chair, while staring at your teammate</string>
 			</dict>
 			<dict>
 				<key>modifier_only</key>
-				<string>Jumping</string>
+				<string>Eyes Closed</string>
 				<key>full_text</key>
-				<string>A dog while jumping up and down!</string>
+				<string>A chair, with your eyes closed</string>
 			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>choice</key>
-		<string>Dog</string>
+		<string>Elephant</string>
 		<key>modifiers</key>
 		<array>
 			<dict>
 				<key>modifier_only</key>
-				<string>No Legs</string>
+				<string>Face Away From Teammate</string>
 				<key>full_text</key>
-				<string>A dog without your legs!</string>
+				<string>An elephant, facing away from your partner</string>
 			</dict>
 			<dict>
 				<key>modifier_only</key>
-				<string>Jumping</string>
+				<string>Balance on One Leg</string>
 				<key>full_text</key>
-				<string>A dog while jumping up and down!</string>
+				<string>An elephant, while balancing on one leg</string>
 			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>choice</key>
-		<string>Dog</string>
+		<string>Football</string>
 		<key>modifiers</key>
 		<array>
 			<dict>
 				<key>modifier_only</key>
-				<string>No Legs</string>
+				<string>Making Fists</string>
 				<key>full_text</key>
-				<string>A dog without your legs!</string>
+				<string>Football, while making fists with your hands</string>
 			</dict>
 			<dict>
 				<key>modifier_only</key>
-				<string>Jumping</string>
+				<string>Jazz Hands</string>
 				<key>full_text</key>
-				<string>A dog while jumping up and down!</string>
+				<string>Football, while doing jazz hands</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>choice</key>
+		<string>Telephone</string>
+		<key>modifiers</key>
+		<array>
+			<dict>
+				<key>modifier_only</key>
+				<string>Waltzing</string>
+				<key>full_text</key>
+				<string>A telephone, while waltzing</string>
+			</dict>
+			<dict>
+				<key>modifier_only</key>
+				<string>Salsa Dancing</string>
+				<key>full_text</key>
+				<string>A telephone, while salsa dancing</string>
 			</dict>
 		</array>
 	</dict>

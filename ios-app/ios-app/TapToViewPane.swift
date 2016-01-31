@@ -10,6 +10,20 @@ import SpriteKit
 
 class TapToViewPane : SKSpriteNode
 {
+    
+    // wrap the label's font color
+    var fontColor: SKColor?
+        {
+        get
+        {
+            return self.label.fontColor
+        }
+        set
+        {
+            self.label.fontColor = newValue
+        }
+    }
+    
     var unhiddenText: String = ""
     {
         didSet
