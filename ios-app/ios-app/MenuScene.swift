@@ -29,19 +29,6 @@ class MenuScene : SKScene
         self.backgroundColor = SKColor.gameYellowColor()
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         
-        // create burst emitter
-        let burstEmitter = self.createBurstEmitter()
-        self.addChild(burstEmitter)
-        
-        // create start button
-        let button = CoolButton(color: SKColor.gameBlueColor(), size: CGSize(width: CGRectGetWidth(self.frame) + 5, height: CGRectGetHeight(self.frame) / 2 + 5))
-        button.text = "Tap to Continue"
-        button.fontColor = SKColor.gameYellowColor()
-        button.addTarget(self, selector: "startButtonTapped:")
-        button.position = CGPoint(x: 0, y: -CGRectGetHeight(self.frame) / 4)
-        
-        self.addChild(button)
-        
         //create top button so a tap anywhere proceeds
         let buttonTop = CoolButton(color: SKColor.gameYellowColor(), size: CGSize(width: CGRectGetWidth(self.frame) + 5, height: CGRectGetHeight(self.frame) / 2 + 5))
         buttonTop.text = ""
@@ -59,6 +46,19 @@ class MenuScene : SKScene
         titleLabel.fontColor = SKColor.gameBlueColor()
         
         self.addChild(titleLabel)
+        
+        // create burst emitter
+        let burstEmitter = self.createBurstEmitter()
+        self.addChild(burstEmitter)
+        
+        // create start button
+        let button = CoolButton(color: SKColor.gameBlueColor(), size: CGSize(width: CGRectGetWidth(self.frame) + 5, height: CGRectGetHeight(self.frame) / 2 + 5))
+        button.text = "Tap to Continue"
+        button.fontColor = SKColor.gameYellowColor()
+        button.addTarget(self, selector: "startButtonTapped:")
+        button.position = CGPoint(x: 0, y: -CGRectGetHeight(self.frame) / 4)
+        
+        self.addChild(button)
         
     }
     
