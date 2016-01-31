@@ -15,9 +15,12 @@ enum TeamColor
 
 class TeamScoreView : SKSpriteNode
 {
+    static let sharedBlueInstance = TeamScoreView(teamColor: TeamColor.Blue)
+    static let sharedYellowInstance = TeamScoreView(teamColor: TeamColor.Yellow)
+    
     // constants
     private let MAGIC_HEIGHT_MULTIPLIER: CGFloat = 0.3259259259
-    private let MAGIC_POINT_BAR_WIDTH_MULTIPLIER: CGFloat = 0.2341920375
+    private let MAGIC_POINT_BAR_WIDTH_MULTIPLIER: CGFloat = 0.1341920375
     private let MAX_NUMBER_OF_POINT_BARS: CGFloat = 6
     private let TEAM_COLOR_FONT_SIZE: CGFloat = 80
     private let TEAM_FONT_SIZE: CGFloat = 50
@@ -34,12 +37,14 @@ class TeamScoreView : SKSpriteNode
     private var primaryColor: SKColor
     private var secondaryColor: SKColor
     
-    init(teamColor: TeamColor, width: CGFloat)
+    init(teamColor: TeamColor)
     {
         self.teamColor = teamColor
         
         // calculate frame size, and point bar size
         let height = UIScreen.mainScreen().bounds.height * self.MAGIC_HEIGHT_MULTIPLIER
+        let scoreOffset = TimerScene.TIMER_BAR_WIDTH + TimerScene.SCORE_PANE_PADDING
+        let width = (UIScreen.mainScreen().bounds.width / 2) - (scoreOffset * 2)
         let size = CGSize(width: width, height: height)
         
         self.pointBarSize = CGSize(width: self.MAGIC_POINT_BAR_WIDTH_MULTIPLIER * width, height: height / self.MAX_NUMBER_OF_POINT_BARS - self.pointBarSeperation)
@@ -71,6 +76,8 @@ class TeamScoreView : SKSpriteNode
             
             // set anchor to bottom left (makes things easier)
             self.anchorPoint = CGPoint(x: 0, y: 0)
+            
+            self.position = CGPoint(x: scoreOffset, y: scoreOffset)
         }
         else
         {
@@ -98,6 +105,8 @@ class TeamScoreView : SKSpriteNode
             
             // set anchor to bottom right (makes things easier)
             self.anchorPoint = CGPoint(x: 1, y: 0)
+            
+            self.position = CGPoint(x: CGRectGetWidth(self.frame) - scoreOffset, y: scoreOffset)
         }
     }
     

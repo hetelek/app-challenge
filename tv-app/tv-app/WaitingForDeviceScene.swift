@@ -37,7 +37,7 @@ class WaitingForDeviceScene : SKScene, CommunicatorProtocol
         waitingLabel.position = CGPoint(x: centerX, y: centerY)
         self.addChild(waitingLabel)
         
-        NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "doStuff:", userInfo: nil, repeats: false)
+        //NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "doStuff:", userInfo: nil, repeats: false)
     }
     
     func receivedData(scene: Scene, data: [String: AnyObject]?)

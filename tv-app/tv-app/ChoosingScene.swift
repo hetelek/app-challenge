@@ -33,6 +33,20 @@ class ChoosingScene : SKScene, CommunicatorProtocol
         let centerX = CGRectGetMidX(self.frame)
         let centerY = CGRectGetMidY(self.frame)
         
+        // calculate padding
+        let scoreOffset = TimerScene.TIMER_BAR_WIDTH + TimerScene.SCORE_PANE_PADDING
+        
+        // calculate width / positions
+        TeamScoreView.sharedYellowInstance.size.width = centerX - (scoreOffset * 2)
+        TeamScoreView.sharedBlueInstance.size.width = centerX - (scoreOffset * 2)
+        
+        TeamScoreView.sharedYellowInstance.position = CGPoint(x: scoreOffset, y: scoreOffset)
+        TeamScoreView.sharedBlueInstance.position = CGPoint(x: CGRectGetWidth(self.frame) - scoreOffset, y: scoreOffset)
+        
+        self.addChild(TeamScoreView.sharedYellowInstance)
+        self.addChild(TeamScoreView.sharedBlueInstance)
+        
+        // create waiting label
         let waitingLabel = SKLabelNode(text: "Pick your poison!")
         waitingLabel.position = CGPoint(x: centerX, y: centerY)
         self.addChild(waitingLabel)

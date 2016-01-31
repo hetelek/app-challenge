@@ -19,8 +19,8 @@ class TimerScene : SKScene, CommunicatorProtocol
     var bar5: SKSpriteNode!
     
     var roundTime: NSTimeInterval = 30
-    let TIMER_BAR_WIDTH: CGFloat = 25
-    let SCORE_PANE_PADDING: CGFloat = 20
+    static let TIMER_BAR_WIDTH: CGFloat = 25
+    static let SCORE_PANE_PADDING: CGFloat = 20
     
     override func didMoveToView(view: SKView)
     {
@@ -51,60 +51,60 @@ class TimerScene : SKScene, CommunicatorProtocol
         bluePanel.position = CGPoint(x: centerX, y: CGRectGetMaxY(self.frame))
         self.addChild(bluePanel)
         
-        // score panel offset
-        let scoreOffset = TIMER_BAR_WIDTH + SCORE_PANE_PADDING
+        // calculate padding
+        let scoreOffset = TimerScene.TIMER_BAR_WIDTH + TimerScene.SCORE_PANE_PADDING
         
-        // create yellow score pane
-        let yellowScore = TeamScoreView(teamColor: TeamColor.Yellow, width: centerX - (scoreOffset * 2))
-        yellowScore.position = CGPoint(x: scoreOffset, y: scoreOffset)
-        self.addChild(yellowScore)
+        // calculate width / positions
+        TeamScoreView.sharedYellowInstance.size.width = centerX - (scoreOffset * 2)
+        TeamScoreView.sharedBlueInstance.size.width = centerX - (scoreOffset * 2)
         
-        // create blue score pane
-        let blueScore = TeamScoreView(teamColor: TeamColor.Blue, width: centerX - (scoreOffset * 2))
-        blueScore.position = CGPoint(x: CGRectGetWidth(self.frame) - scoreOffset, y: scoreOffset)
-        self.addChild(blueScore)
+        TeamScoreView.sharedYellowInstance.position = CGPoint(x: scoreOffset, y: scoreOffset)
+        TeamScoreView.sharedBlueInstance.position = CGPoint(x: CGRectGetWidth(self.frame) - scoreOffset, y: scoreOffset)
+        
+        // add views
+        self.addChild(TeamScoreView.sharedYellowInstance)
+        self.addChild(TeamScoreView.sharedBlueInstance)
+        
+        TeamScoreView.sharedBlueInstance.addPointBar()
+        TeamScoreView.sharedBlueInstance.addPointBar()
+        TeamScoreView.sharedBlueInstance.addPointBar()
+        
+        TeamScoreView.sharedYellowInstance.addPointBar()
+        TeamScoreView.sharedYellowInstance.addPointBar()
+        TeamScoreView.sharedYellowInstance.addPointBar()
         
         // start timers
         self.startTimers()
-        
-        yellowScore.addPointBar()
-        yellowScore.addPointBar()
-        yellowScore.addPointBar()
-        yellowScore.addPointBar()
-        yellowScore.addPointBar()
-        yellowScore.addPointBar()
-        
-        blueScore.addPointBar()
     }
 
     func startTimers()
     {
         // top bar (starting centered)
-        self.bar1 = SKSpriteNode(color: SKColor.gameGreyColor(), size: CGSize(width: CGRectGetWidth(self.frame) / 2, height: self.TIMER_BAR_WIDTH))
+        self.bar1 = SKSpriteNode(color: SKColor.gameGreyColor(), size: CGSize(width: CGRectGetWidth(self.frame) / 2, height: TimerScene.TIMER_BAR_WIDTH))
         self.bar1.anchorPoint = CGPoint(x: 0, y: 1)
         self.bar1.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetHeight(self.frame))
         self.addChild(self.bar1)
         
         // right bar
-        self.bar2 = SKSpriteNode(color: SKColor.gameGreyColor(), size: CGSize(width: self.TIMER_BAR_WIDTH, height: CGRectGetHeight(self.frame)))
+        self.bar2 = SKSpriteNode(color: SKColor.gameGreyColor(), size: CGSize(width: TimerScene.TIMER_BAR_WIDTH, height: CGRectGetHeight(self.frame)))
         self.bar2.anchorPoint = CGPoint(x: 1, y: 1)
         self.bar2.position = CGPoint(x: CGRectGetWidth(self.frame), y: CGRectGetHeight(self.frame))
         self.addChild(self.bar2)
         
         // bottom bar
-        self.bar3 = SKSpriteNode(color: SKColor.gameGreyColor(), size: CGSize(width: CGRectGetWidth(self.frame), height: self.TIMER_BAR_WIDTH))
+        self.bar3 = SKSpriteNode(color: SKColor.gameGreyColor(), size: CGSize(width: CGRectGetWidth(self.frame), height: TimerScene.TIMER_BAR_WIDTH))
         self.bar3.anchorPoint = CGPoint(x: 1, y: 0)
         self.bar3.position = CGPoint(x: CGRectGetWidth(self.frame), y: 0)
         self.addChild(self.bar3)
         
         // left bar
-        self.bar4 = SKSpriteNode(color: SKColor.gameGreyColor(), size: CGSize(width: self.TIMER_BAR_WIDTH, height: CGRectGetHeight(self.frame)))
+        self.bar4 = SKSpriteNode(color: SKColor.gameGreyColor(), size: CGSize(width: TimerScene.TIMER_BAR_WIDTH, height: CGRectGetHeight(self.frame)))
         self.bar4.anchorPoint = CGPoint(x: 0, y: 0)
         self.bar4.position = CGPoint(x: 0, y: 0)
         self.addChild(self.bar4)
         
         // top bar (starting left)
-        self.bar5 = SKSpriteNode(color: SKColor.gameGreyColor(), size: CGSize(width: CGRectGetWidth(self.frame) / 2, height: self.TIMER_BAR_WIDTH))
+        self.bar5 = SKSpriteNode(color: SKColor.gameGreyColor(), size: CGSize(width: CGRectGetWidth(self.frame) / 2, height: TimerScene.TIMER_BAR_WIDTH))
         self.bar5.anchorPoint = CGPoint(x: 0, y: 1)
         self.bar5.position = CGPoint(x: 0, y: CGRectGetHeight(self.frame))
         self.addChild(self.bar5)
