@@ -1,10 +1,10 @@
-//
+
 //  PassDeviceScene.swift
 //  ios-app
 //
 //  Created by Stevie Hetelekides on 1/29/16.
 //  Copyright © 2016 RyanDannyStevie. All rights reserved.
-//
+
 
 import SpriteKit
 
@@ -13,8 +13,8 @@ class PassDeviceScene : SKScene
     var contentCreated = false
     
     // button spacing
-    private let HORIZONTAL_SPACING: CGFloat = 20
-    private let VERTICAL_SPACING: CGFloat = 20
+    private let HORIZONTAL_SPACING: CGFloat = 0
+    private let VERTICAL_SPACING: CGFloat = 0
     
     override func didMoveToView(view: SKView)
     {
@@ -30,6 +30,7 @@ class PassDeviceScene : SKScene
     {
         // set background color/scale
         self.scaleMode = .ResizeFill
+        self.backgroundColor = SKColor.gameYellowColor()
         
         // screen center
         let centerX = CGRectGetMidX(self.frame)
@@ -38,7 +39,7 @@ class PassDeviceScene : SKScene
         // create label
         let continueLabel = SKLabelNode(text: "Pass the device to continue...")
         continueLabel.position = CGPoint(x: centerX, y: centerY * 1.5)
-        continueLabel.fontColor = SKColor.blackColor()
+        continueLabel.fontColor = SKColor.gameBlueColor()
         continueLabel.fontSize = 24
         
         self.addChild(continueLabel)
@@ -51,9 +52,10 @@ class PassDeviceScene : SKScene
         let y = HORIZONTAL_SPACING + height / 2
         
         // create bottom button
-        let continueButton = CoolButton(color: SKColor.blackColor(), size: CGSize(width: width, height: height))
+        let continueButton = CoolButton(color: SKColor.gameBlueColor(), size: CGSize(width: width, height: height))
         continueButton.position = CGPoint(x: centerX, y: y)
         continueButton.text = "Tap to Continue"
+        continueButton.fontColor = SKColor.gameYellowColor()
         continueButton.addTarget(self, selector: "continueButtonTapped:")
         
         self.addChild(continueButton)
