@@ -19,7 +19,12 @@ class PassDeviceScene : SKScene, CommunicatorDelegate
     override func didMoveToView(view: SKView)
     {
         Communicator.sharedInstance.delegate = self
-        Communicator.sharedInstance.sendData(.PassDevice, data: nil)
+        
+        // get the current team
+        let choosingTeam = (Game.sharedInstance.choosingTeam.teamColor == TeamColor.Yellow) ? "yellow" : "blue"
+        
+        // send our state
+        Communicator.sharedInstance.sendData(.PassDevice, data: [ "team": choosingTeam ])
         
         // create the content if we haven't already
         if !self.contentCreated

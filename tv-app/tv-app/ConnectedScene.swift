@@ -1,14 +1,14 @@
 //
-//  WaitingForDeviceScene.swift
+//  ConnectedScene.swift
 //  tv-app
 //
-//  Created by Stevie Hetelekides on 1/30/16.
+//  Created by Stevie Hetelekides on 1/31/16.
 //  Copyright © 2016 RyanDannyStevie. All rights reserved.
 //
 
 import SpriteKit
 
-class WaitingForDeviceScene : SKScene, CommunicatorProtocol
+class ConnectedScene : SKScene, CommunicatorProtocol
 {
     private var contentCreated = false
     
@@ -30,32 +30,29 @@ class WaitingForDeviceScene : SKScene, CommunicatorProtocol
         self.scaleMode = .ResizeFill
         
         // screen center
-        let centerX = CGRectGetMidX(UIScreen.mainScreen().bounds)
-        let centerY = CGRectGetMidY(UIScreen.mainScreen().bounds)
+        let centerX = CGRectGetMidX(self.frame)
+        let centerY = CGRectGetMidY(self.frame)
         
         // set background color
         self.backgroundColor = SKColor.gameYellowColor()
         
-        // create waiting label
-        let waitingLabel = SKLabelNode(text: "Waiting for device")
-        waitingLabel.position = CGPoint(x: centerX, y: centerY)
-        self.addChild(waitingLabel)
+        // add image and title here
+        let titleLabel = SKLabelNode(text: "Pick Their Poison")
+        titleLabel.position = CGPoint(x: centerX, y: centerY)
+        self.addChild(titleLabel)
     }
     
     func receivedData(scene: Scene, data: [String: AnyObject]?)
     {
-       updateStateFromData(scene, data: data, currentScene: self)
+        updateStateFromData(scene, data: data, currentScene: self)
     }
     
     func connectivityStatusChanged(connected: Bool)
     {
-        if connected
+        // if we're disconnected, present the waiting screen
+        if !connected, let waitingScene = WaitingForDeviceScene(fileNamed: "WaitingForDeviceScene")
         {
-            // present start scene
-            if let connectedScene = ConnectedScene(fileNamed: "ConnectedScene")
-            {
-                self.view?.presentScene(connectedScene, transition: SKTransition.fadeWithDuration(0.5))
-            }
+            self.view?.presentScene(waitingScene, transition: SKTransition.fadeWithDuration(0.5))
         }
     }
 }

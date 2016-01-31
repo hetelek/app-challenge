@@ -25,8 +25,12 @@ class PlayingScene : SKScene, CommunicatorDelegate
     
     override func didMoveToView(view: SKView)
     {
+        // set round time
+        self.roundTime = Game.sharedInstance.roundTime
+        
+        // setup communicator
         Communicator.sharedInstance.delegate = self
-        Communicator.sharedInstance.sendData(.Playing, data: nil)
+        Communicator.sharedInstance.sendData(.Playing, data: [ "roundTime": self.roundTime ])
         
         // create the content if we haven't already
         if !self.contentCreated
@@ -44,9 +48,6 @@ class PlayingScene : SKScene, CommunicatorDelegate
         // screen center
         let centerX = CGRectGetMidX(self.frame)
         let centerY = CGRectGetMidY(self.frame)
-        
-        // set round time
-        self.roundTime = Game.sharedInstance.roundTime
         
         // calculate sizes
         self.GOT_IT_SIZE = CGSize(width: CGRectGetWidth(self.frame), height: CGRectGetHeight(self.frame) / 2)

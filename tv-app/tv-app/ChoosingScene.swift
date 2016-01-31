@@ -11,6 +11,9 @@ import SpriteKit
 class ChoosingScene : SKScene, CommunicatorProtocol
 {
     private var contentCreated = false
+    private var currentChooser: String?
+    
+    var team: String?
     
     override func didMoveToView(view: SKView)
     {
@@ -33,7 +36,33 @@ class ChoosingScene : SKScene, CommunicatorProtocol
         let centerX = CGRectGetMidX(self.frame)
         let centerY = CGRectGetMidY(self.frame)
         
-        let waitingLabel = SKLabelNode(text: "Pick your poison!")
+        // set background color to yellow
+        self.backgroundColor = SKColor.gameYellowColor()
+        
+        // make right half blue
+        let bluePanel = SKSpriteNode(color: SKColor.gameBlueColor(), size: CGSize(width: CGRectGetWidth(self.frame) / 2, height: CGRectGetHeight(self.frame)))
+        bluePanel.anchorPoint = CGPoint(x: 0, y: 1)
+        bluePanel.position = CGPoint(x: centerX, y: CGRectGetMaxY(self.frame))
+        self.addChild(bluePanel)
+        
+        // calculate padding
+        let scoreOffset = TimerScene.TIMER_BAR_WIDTH + TimerScene.SCORE_PANE_PADDING
+        
+        // calculate width / positions
+        TeamScoreView.sharedYellowInstance.removeFromParent()
+        TeamScoreView.sharedBlueInstance.removeFromParent()
+        
+        TeamScoreView.sharedYellowInstance.size.width = centerX - (scoreOffset * 2)
+        TeamScoreView.sharedBlueInstance.size.width = centerX - (scoreOffset * 2)
+        
+        TeamScoreView.sharedYellowInstance.position = CGPoint(x: scoreOffset, y: scoreOffset)
+        TeamScoreView.sharedBlueInstance.position = CGPoint(x: CGRectGetWidth(self.frame) - scoreOffset, y: scoreOffset)
+        
+        self.addChild(TeamScoreView.sharedYellowInstance)
+        self.addChild(TeamScoreView.sharedBlueInstance)
+        
+        // create waiting label
+        let waitingLabel = SKLabelNode(text: "Pick your poison, \(team ?? "???")!")
         waitingLabel.position = CGPoint(x: centerX, y: centerY)
         self.addChild(waitingLabel)
     }
@@ -45,7 +74,7 @@ class ChoosingScene : SKScene, CommunicatorProtocol
     
     func receivedData(scene: Scene, data: [String: AnyObject]?)
     {
-        
+        updateStateFromData(scene, data: data, currentScene: self)
     }
     
     func connectivityStatusChanged(connected: Bool)
