@@ -43,8 +43,17 @@ class ChoosingScene : SKScene, CommunicatorProtocol
         print(data)
     }
     
+    func receivedData(scene: Scene, data: [String: AnyObject]?)
+    {
+        
+    }
+    
     func connectivityStatusChanged(connected: Bool)
     {
-        print("connected: \(connected)")
+        // if we're disconnected, present the waiting screen
+        if !connected, let waitingScene = WaitingForDeviceScene(fileNamed: "WaitingForDeviceScene")
+        {
+            self.view?.presentScene(waitingScene, transition: SKTransition.fadeWithDuration(0.5))
+        }
     }
 }

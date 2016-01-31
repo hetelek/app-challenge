@@ -54,4 +54,9 @@ class WaitingForDeviceScene : SKScene, CommunicatorProtocol
             }
         }
     }
+    
+    func receivedData(scene: Scene, data: [String: AnyObject]?)
+    {
+        
+    }
 }
