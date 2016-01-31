@@ -29,8 +29,18 @@ class MenuScene : SKScene
         self.backgroundColor = SKColor.gameYellowColor()
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         
+        //create top button so a tap anywhere proceeds
+        let buttonTop = CoolButton(color: SKColor.gameYellowColor(), size: CGSize(width: CGRectGetWidth(self.frame) + 5, height: CGRectGetHeight(self.frame) / 2 + 5))
+        buttonTop.text = ""
+        buttonTop.flatColor = true;
+        buttonTop.fontColor = SKColor.gameBlueColor()
+        buttonTop.addTarget(self, selector: "startButtonTapped:")
+        buttonTop.position = CGPoint(x: 0, y: CGRectGetHeight(self.frame) / 4)
+        
+        self.addChild(buttonTop)
+        
         // create title label
-        let titleLabel = SKLabelNode(text: "Pick Your Poison")
+        let titleLabel = SKLabelNode(text: "Pick Their Poison")
         titleLabel.position = CGPoint(x: 0, y: self.size.height / 4)
         titleLabel.fontName = "Raleway-Bold"
         titleLabel.fontColor = SKColor.gameBlueColor()
@@ -49,6 +59,7 @@ class MenuScene : SKScene
         button.position = CGPoint(x: 0, y: -CGRectGetHeight(self.frame) / 4)
         
         self.addChild(button)
+        
     }
     
     private func createBurstEmitter() -> SKEmitterNode
