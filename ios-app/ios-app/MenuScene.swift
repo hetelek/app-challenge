@@ -80,7 +80,12 @@ class MenuScene : SKScene, CommunicatorDelegate
         burstEmitter.particleTexture = sparkles
         burstEmitter.position = CGPoint(x: 0, y: -sparkles.size().height)
         burstEmitter.particlePositionRange = CGVector(dx: self.size.width, dy: 0)
-        burstEmitter.particleScaleSequence = SKKeyframeSequence(keyframeValues: [ 1.0, 0.8, 0.0 ], times: [ 0.0, 0.7, 1.0 ])
+        //scale up based on the pt size of iphone 6
+        let BASE_PARTICLE_SCALE = CGFloat(1.0 / (667.0 * 375.0))
+        let INITIAL_SCALE = sqrt(BASE_PARTICLE_SCALE * (self.frame.size.height * self.frame.size.width))
+        print(INITIAL_SCALE)
+        burstEmitter.particleScaleSequence = SKKeyframeSequence(keyframeValues: [INITIAL_SCALE , 0.7 * INITIAL_SCALE, 0.0 ], times: [ 0.0, 0.7, 1.0 ])
+        
         burstEmitter.particleBirthRate = 13
         burstEmitter.particleLifetimeRange = 3
         burstEmitter.particleLifetime = 4

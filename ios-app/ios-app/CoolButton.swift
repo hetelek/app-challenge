@@ -49,6 +49,7 @@ class CoolButton : SKSpriteNode
     
     init(color: SKColor, size: CGSize)
     {
+        
         // save original color
         self.buttonColor = color
         
@@ -95,7 +96,9 @@ class CoolButton : SKSpriteNode
                 self.color = self.buttonColor.colorWithSaturationFactor(1.25)
             }
         }
+
     }
+
     
     override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?)
     {
