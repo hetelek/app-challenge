@@ -13,7 +13,7 @@ enum SelectSceneState
     case SelectChoice, SelectModifier
 }
 
-class SelectScene : SKScene
+class SelectScene : SKScene, CommunicatorDelegate
 {
     private var contentCreated = false
     
@@ -29,6 +29,21 @@ class SelectScene : SKScene
     
     override func didMoveToView(view: SKView)
     {
+        Communicator.sharedInstance.delegate = self
+        
+        // get the current team
+        let choosingTeam = (Game.sharedInstance.choosingTeam.teamColor == TeamColor.Yellow) ? "yellow" : "blue"
+        
+        // send our state
+        if state == .SelectChoice
+        {
+            Communicator.sharedInstance.sendData(.SelectChoice, data: [ "team": choosingTeam ])
+        }
+        else if state == .SelectModifier
+        {
+            Communicator.sharedInstance.sendData(.SelectModifier, data: [ "team": choosingTeam ])
+        }
+        
         // create the content if we haven't already
         if !self.contentCreated
         {
@@ -155,5 +170,10 @@ class SelectScene : SKScene
                 self.view?.presentScene(passDeviceScene, transition: SKTransition.fadeWithDuration(0.5))
             }
         }
+    }
+    
+    func connectivityStatusChanged(connected: Bool)
+    {
+        
     }
 }

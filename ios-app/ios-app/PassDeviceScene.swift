@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class PassDeviceScene : SKScene
+class PassDeviceScene : SKScene, CommunicatorDelegate
 {
     var contentCreated = false
     
@@ -18,6 +18,9 @@ class PassDeviceScene : SKScene
     
     override func didMoveToView(view: SKView)
     {
+        Communicator.sharedInstance.delegate = self
+        Communicator.sharedInstance.sendData(.PassDevice, data: nil)
+        
         // create the content if we haven't already
         if !self.contentCreated
         {
@@ -68,5 +71,10 @@ class PassDeviceScene : SKScene
         {
             self.view?.presentScene(startScene, transition: SKTransition.fadeWithDuration(0.5))
         }
+    }
+    
+    func connectivityStatusChanged(connected: Bool)
+    {
+        
     }
 }

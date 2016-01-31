@@ -19,6 +19,8 @@
 		F3BE1AB91C5DD18B00DE1374 /* Communicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BE1AB81C5DD18B00DE1374 /* Communicator.swift */; };
 		F3BE1ABB1C5DD49100DE1374 /* ChoosingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BE1ABA1C5DD49100DE1374 /* ChoosingScene.swift */; };
 		F3BE1ABD1C5DD49E00DE1374 /* ChoosingScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F3BE1ABC1C5DD49E00DE1374 /* ChoosingScene.sks */; };
+		F3CE71741C5E7535004EFA4A /* TimerScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F3CE71731C5E7535004EFA4A /* TimerScene.sks */; };
+		F3CE71761C5E7540004EFA4A /* TimerScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CE71751C5E7540004EFA4A /* TimerScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		F3BE1AB81C5DD18B00DE1374 /* Communicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Communicator.swift; sourceTree = "<group>"; };
 		F3BE1ABA1C5DD49100DE1374 /* ChoosingScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoosingScene.swift; sourceTree = "<group>"; };
 		F3BE1ABC1C5DD49E00DE1374 /* ChoosingScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ChoosingScene.sks; sourceTree = "<group>"; };
+		F3CE71731C5E7535004EFA4A /* TimerScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TimerScene.sks; sourceTree = "<group>"; };
+		F3CE71751C5E7540004EFA4A /* TimerScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,8 @@
 				F34B2A5F1C5D9C5E004B70A8 /* WaitingForDeviceScene.sks */,
 				F3BE1ABA1C5DD49100DE1374 /* ChoosingScene.swift */,
 				F3BE1ABC1C5DD49E00DE1374 /* ChoosingScene.sks */,
+				F3CE71751C5E7540004EFA4A /* TimerScene.swift */,
+				F3CE71731C5E7535004EFA4A /* TimerScene.sks */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -192,6 +198,7 @@
 			files = (
 				F3BE1ABD1C5DD49E00DE1374 /* ChoosingScene.sks in Resources */,
 				F34B2A601C5D9C5E004B70A8 /* WaitingForDeviceScene.sks in Resources */,
+				F3CE71741C5E7535004EFA4A /* TimerScene.sks in Resources */,
 				F341EC0A1C5B119800B416F1 /* Main.storyboard in Resources */,
 				F341EC0C1C5B119800B416F1 /* Assets.xcassets in Resources */,
 				F341EC071C5B119800B416F1 /* Game.xcassets in Resources */,
@@ -207,6 +214,7 @@
 			files = (
 				F3BE1AB91C5DD18B00DE1374 /* Communicator.swift in Sources */,
 				F3BE1ABB1C5DD49100DE1374 /* ChoosingScene.swift in Sources */,
+				F3CE71761C5E7540004EFA4A /* TimerScene.swift in Sources */,
 				F341EC051C5B119800B416F1 /* GameViewController.swift in Sources */,
 				F3789D361C5DBCAE00AFC4A2 /* RemoteReceiver.m in Sources */,
 				F37F86441C5DA63800E2B2C4 /* GCDAsyncSocket.m in Sources */,

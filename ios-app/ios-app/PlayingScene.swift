@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class PlayingScene : SKScene
+class PlayingScene : SKScene, CommunicatorDelegate
 {
     var contentCreated = false
     var bar1: SKSpriteNode!
@@ -25,6 +25,9 @@ class PlayingScene : SKScene
     
     override func didMoveToView(view: SKView)
     {
+        Communicator.sharedInstance.delegate = self
+        Communicator.sharedInstance.sendData(.Playing, data: nil)
+        
         // create the content if we haven't already
         if !self.contentCreated
         {
@@ -137,5 +140,10 @@ class PlayingScene : SKScene
     func timeRanOut()
     {
         print("time ran out!")
+    }
+    
+    func connectivityStatusChanged(connected: Bool)
+    {
+        
     }
 }
