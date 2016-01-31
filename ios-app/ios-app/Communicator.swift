@@ -13,6 +13,11 @@ protocol CommunicatorDelegate
     func connectivityStatusChanged(connected: Bool)
 }
 
+enum Scene : Int
+{
+    case Menu, SelectChoice, SelectModifier, PassDevice, Start, Playing
+}
+
 class Communicator : NSObject, RemoteSenderDelegate
 {
     static let sharedInstance = Communicator()
@@ -28,9 +33,16 @@ class Communicator : NSObject, RemoteSenderDelegate
         self.sender.delegate = self
     }
     
-    func sendData(data: [String: AnyObject])
+    func sendData(scene: Scene, data: [String: AnyObject]?)
     {
-        self.sender.sendInfo(data)
+        if let data = data
+        {
+            self.sender.sendInfo([ "scene": scene.rawValue, "data": data ])
+        }
+        else
+        {
+            self.sender.sendInfo([ "scene": scene.rawValue ])
+        }
     }
     
     @objc func connectivityStatusChanged(connected: Bool)
