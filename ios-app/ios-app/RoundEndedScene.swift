@@ -66,7 +66,7 @@ class RoundEndedScene : SKScene
             self.addChild(self.label)
             
             // tap to continue label
-            let continueLabel = SKLabelNode(text: "Tap to continue")
+            let continueLabel = SKLabelNode(text: "Tap to Continue")
             continueLabel.fontSize = 32
             continueLabel.fontName = "Raleway-Regular"
             continueLabel.fontColor = blueJustWent ? SKColor.gameBlueColor() : SKColor.gameYellowColor()
