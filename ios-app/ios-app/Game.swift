@@ -138,6 +138,9 @@ class Game
         {
             self.target?.performSelector(selector)
         }
+        
+        // change guessing team
+        self.guessingTeam = self.choosingTeam
     }
     
     func answeredCorrectly()
