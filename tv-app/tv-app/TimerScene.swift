@@ -235,15 +235,20 @@ class TimerScene : SKScene, CommunicatorProtocol
                     if self.blueTeam
                     {
                         TeamScoreView.sharedBlueInstance.addPointBar({ () -> Void in
-                            updateStateFromData(Scene.Menu, data: [ "blueTeam": !self.blueTeam ], currentScene: self)
+                            updateStateFromData(.PassDevice, data: [ "blueTeam": !self.blueTeam ], currentScene: self)
                         })
                     }
                     else
                     {
                         TeamScoreView.sharedYellowInstance.addPointBar({ () -> Void in
-                            updateStateFromData(Scene.Menu, data: [ "blueTeam": !self.blueTeam ], currentScene: self)
+                            updateStateFromData(.PassDevice, data: [ "blueTeam": !self.blueTeam ], currentScene: self)
                         })
                     }
+                }
+                else if let choosingScene = ChoosingScene(fileNamed: "ChoosingScene")
+                {
+                    choosingScene.blueTeam = !self.blueTeam
+                    self.view?.presentScene(choosingScene, transition: SKTransition.fadeWithDuration(0.5))
                 }
             }
         }
