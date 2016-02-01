@@ -11,7 +11,7 @@ class InstructionsScene : SKScene
 {
     var contentCreated = false
     let padding: CGFloat = 160
-    let instructionString = "Separate into two teams, minimum of two people to a team. One team takes a turn selecting the thing to be acted out, and the accompanying poison to make it difficult. One member of the opposing team receives the iPhone/iPad and presses start. They then quickly read the instructions and act out the thing following their specific rules. If guessed correctly by their teammates, the actor presses the “guessed correctly” button and that team is awarded one point. They then pick for the opposing team."
+    let instructionString = "Pick Their Poison is played by two teams, Blue Team and Yellow Team, where turns alternate between the teams. A turn starts with one team picking the word and modifier that a member of the opposing team has to act out. A modifier is a rule that has to be abided by while acting out the word. All other members of a team have to guess the word attempted to be acted out by their teammate. If it is guessed correctly, the actor must hit the confirm button on their device, otherwise time expires and they don’t receive a point. One point is awarded for every successful guess, with one team being declared the winner if they accrue 6 points."
     
     override func didMoveToView(view: SKView)
     {
@@ -31,7 +31,7 @@ class InstructionsScene : SKScene
         self.backgroundColor = SKColor.gameYellowColor()
         
         // add instructions label
-        let instructionsLabel = DSMultilineLabelNode(fontNamed: "Raleway-Regular")
+        let instructionsLabel = DSMultilineLabelNode(fontNamed: "Raleway-Bold")
         instructionsLabel.paragraphWidth = CGRectGetWidth(self.frame) - self.padding * 2
         instructionsLabel.text = instructionString
         instructionsLabel.position = CGPoint(x: 0, y: 0)
@@ -42,7 +42,7 @@ class InstructionsScene : SKScene
         self.addChild(instructionsLabel)
         
         // add tap to continue label
-        let tapLabel  = SKLabelNode(fontNamed: "Raleway-Regular")
+        let tapLabel  = SKLabelNode(fontNamed: "Raleway-Bold")
         tapLabel.text = "Tap to continue"
         tapLabel.position = CGPoint(x: 0, y: -CGRectGetHeight(self.frame) / 2 + self.padding)
         tapLabel.fontSize = 14

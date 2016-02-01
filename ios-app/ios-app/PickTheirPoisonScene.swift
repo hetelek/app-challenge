@@ -60,7 +60,7 @@ class PickTheirPoisonScene : SKScene
         
         self.addChild(teamButton)
         
-        // create instructions button
+        // create pick poison button
         let pickPoisonButton = CoolButton(color: colors[0], size: CGSize(width: CGRectGetWidth(self.frame) + 5, height: CGRectGetHeight(self.frame) / 2 + 5))
         pickPoisonButton.text = "Pick Their Poison"
         pickPoisonButton.label.fontName = "Raleway-Bold"
@@ -75,7 +75,7 @@ class PickTheirPoisonScene : SKScene
         // tap to continue label
         let continueLabel = SKLabelNode(text: "Tap to Continue")
         continueLabel.fontSize = 32
-        continueLabel.fontName = "Raleway-Regular"
+        continueLabel.fontName = "Raleway-Bold"
         continueLabel.fontColor = colors[1]
         continueLabel.position = CGPoint(x: 0, y: -CGRectGetHeight(self.frame) / 4 - 65)
         

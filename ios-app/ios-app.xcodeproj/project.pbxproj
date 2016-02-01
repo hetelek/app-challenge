@@ -55,7 +55,6 @@
 		84693C521C5E7C4E008F1E41 /* RoundEndedScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RoundEndedScene.sks; sourceTree = "<group>"; };
 		84693C561C5E883C008F1E41 /* Akashi.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Akashi.ttf; sourceTree = "<group>"; };
 		84693C571C5E8860008F1E41 /* Raleway-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Light.ttf"; sourceTree = "<group>"; };
-		84693C581C5E886F008F1E41 /* Raleway-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Regular.ttf"; sourceTree = "<group>"; };
 		F311EB971C5B98FC00672AB5 /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
 		F311EB991C5BAAB800672AB5 /* SelectScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SelectScene.sks; sourceTree = "<group>"; };
 		F311EB9B1C5BAAC000672AB5 /* SelectScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectScene.swift; sourceTree = "<group>"; };
@@ -240,7 +239,6 @@
 			children = (
 				84693C561C5E883C008F1E41 /* Akashi.ttf */,
 				84693C571C5E8860008F1E41 /* Raleway-Light.ttf */,
-				84693C581C5E886F008F1E41 /* Raleway-Regular.ttf */,
 				F34B2A561C5D7CEF004B70A8 /* Raleway-Bold.ttf */,
 			);
 			name = Fonts;
