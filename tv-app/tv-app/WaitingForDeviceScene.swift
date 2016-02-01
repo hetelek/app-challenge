@@ -37,7 +37,7 @@ class WaitingForDeviceScene : SKScene, CommunicatorProtocol
         let waitingLabel = SKLabelNode(text: "Waiting for device")
         waitingLabel.position = CGPoint(x: 0, y: 0)
         waitingLabel.fontName = "Raleway-Bold"
-        waitingLabel.fontSize = 32
+        waitingLabel.fontSize = 64
         waitingLabel.fontColor = SKColor.gameBlueColor()
         self.addChild(waitingLabel)
     }

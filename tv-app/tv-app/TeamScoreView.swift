@@ -62,6 +62,7 @@ class TeamScoreView : SKSpriteNode
             teamColorLabel.fontColor = self.secondaryColor
             teamColorLabel.fontSize = self.TEAM_COLOR_FONT_SIZE
             teamColorLabel.horizontalAlignmentMode = .Left
+            teamColorLabel.fontName = "Raleway-Bold"
             teamColorLabel.position.x = self.pointBarSize.width + 10
             self.addChild(teamColorLabel)
             
@@ -70,6 +71,7 @@ class TeamScoreView : SKSpriteNode
             teamLabel.fontColor = self.secondaryColor
             teamLabel.fontSize = self.TEAM_FONT_SIZE
             teamLabel.horizontalAlignmentMode = .Left
+            teamLabel.fontName = "Raleway-Light"
             teamLabel.position.x = self.pointBarSize.width + 10
             teamLabel.position.y = CGRectGetHeight(teamColorLabel.frame) + 10
             self.addChild(teamLabel)
@@ -90,6 +92,7 @@ class TeamScoreView : SKSpriteNode
             let teamColorLabel = SKLabelNode(text: "YELLOW")
             teamColorLabel.fontColor = self.secondaryColor
             teamColorLabel.fontSize = self.TEAM_COLOR_FONT_SIZE
+            teamColorLabel.fontName = "Raleway-Bold"
             teamColorLabel.horizontalAlignmentMode = .Right
             teamColorLabel.position.x = -self.pointBarSize.width - 10
             self.addChild(teamColorLabel)
@@ -98,6 +101,7 @@ class TeamScoreView : SKSpriteNode
             let teamLabel = SKLabelNode(text: "Team")
             teamLabel.fontColor = self.secondaryColor
             teamLabel.fontSize = self.TEAM_FONT_SIZE
+            teamLabel.fontName = "Raleway-Light"
             teamLabel.horizontalAlignmentMode = .Right
             teamLabel.position.x = -self.pointBarSize.width - 10
             teamLabel.position.y = CGRectGetHeight(teamColorLabel.frame) + 10
@@ -110,7 +114,7 @@ class TeamScoreView : SKSpriteNode
         }
     }
     
-    func addPointBar()
+    func addPointBar(completion: () -> Void)
     {
         // create bar and set anchor point to bottom left
         let pointBar = SKSpriteNode(color: self.secondaryColor, size: CGSizeZero)
@@ -137,8 +141,10 @@ class TeamScoreView : SKSpriteNode
         self.pointBars.append(pointBar)
         self.addChild(pointBar)
         
-        pointBar.runAction(SKAction.resizeToWidth(self.pointBarSize.width, duration: 0.3))
-        pointBar.runAction(SKAction.resizeToHeight(self.pointBarSize.height, duration: 0.3))
+        let animation = SKAction.sequence([ SKAction.resizeToWidth(self.pointBarSize.width, duration: 0.3), SKAction.resizeToHeight(self.pointBarSize.height, duration: 0.3), SKAction.waitForDuration(1) ])
+        pointBar.runAction(animation) { () -> Void in
+            completion()
+        }
     }
 
     required init?(coder aDecoder: NSCoder)

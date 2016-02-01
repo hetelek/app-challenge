@@ -79,8 +79,8 @@ class TimerScene : SKScene, CommunicatorProtocol
         // create left label
         self.leftLabel = SKLabelNode(text: "3")
         self.leftLabel.position = CGPoint(x: centerX - 5, y: centerY)
-        self.leftLabel.fontName = "Raleway-Bold"
-        self.leftLabel.fontSize = 108
+        self.leftLabel.fontName = "Akashi"
+        self.leftLabel.fontSize = 200
         self.leftLabel.horizontalAlignmentMode = .Right
         self.leftLabel.fontColor = SKColor.gameBlueColor()
         self.addChild(self.leftLabel)
@@ -88,8 +88,8 @@ class TimerScene : SKScene, CommunicatorProtocol
         // create right label
         self.rightLabel = SKLabelNode(text: "0")
         self.rightLabel.position = CGPoint(x: centerX + 5, y: centerY)
-        self.rightLabel.fontName = "Raleway-Bold"
-        self.rightLabel.fontSize = 108
+        self.rightLabel.fontName = "Akashi"
+        self.rightLabel.fontSize = 200
         self.rightLabel.horizontalAlignmentMode = .Left
         self.rightLabel.fontColor = SKColor.gameYellowColor()
         self.addChild(self.rightLabel)
@@ -110,12 +110,14 @@ class TimerScene : SKScene, CommunicatorProtocol
     
     func tick(timer: NSTimer)
     {
-        if --self.timeRemaining < 1
+        if --self.timeRemaining < 0
         {
             timer.invalidate()
         }
-        
-        self.updateLabels()
+        else
+        {
+            self.updateLabels()
+        }
     }
 
     func startTimers()
@@ -232,11 +234,15 @@ class TimerScene : SKScene, CommunicatorProtocol
                     // give them a point
                     if self.blueTeam
                     {
-                        TeamScoreView.sharedBlueInstance.addPointBar()
+                        TeamScoreView.sharedBlueInstance.addPointBar({ () -> Void in
+                            updateStateFromData(Scene.Menu, data: [ "blueTeam": !self.blueTeam ], currentScene: self)
+                        })
                     }
                     else
                     {
-                        TeamScoreView.sharedYellowInstance.addPointBar()
+                        TeamScoreView.sharedYellowInstance.addPointBar({ () -> Void in
+                            updateStateFromData(Scene.Menu, data: [ "blueTeam": !self.blueTeam ], currentScene: self)
+                        })
                     }
                 }
             }
