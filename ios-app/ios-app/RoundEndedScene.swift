@@ -103,6 +103,13 @@ class RoundEndedScene : SKScene
         }
         else
         {
+            Communicator.sharedInstance.sendData(Scene.ResetAll, data: nil)
+            Game.sharedInstance.resetAll()
+            
+            if let menuScene = MenuScene(fileNamed: "MenuScene")
+            {
+                self.view?.presentScene(menuScene, transition: SKTransition.fadeWithDuration(0.5))
+            }
         }
     }
 }

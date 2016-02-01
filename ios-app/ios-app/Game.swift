@@ -176,7 +176,7 @@ class Game
     
     func resetAll()
     {
-        self.teams[0].score = 0
-        self.teams[1].score = 0
+        self.teams = [ Team(teamColor: .Yellow), Team(teamColor: .Blue) ]
+        self.guessingTeam = self.teams[0]
     }
 }

@@ -16,7 +16,7 @@ protocol CommunicatorProtocol
 
 enum Scene : Int
 {
-    case Menu, SelectChoice, SelectModifier, PassDevice, Start, Playing
+    case Menu, SelectChoice, SelectModifier, PassDevice, Start, Playing, ResetAll
 }
 
 class Communicator : NSObject, RemoteReceiverDelegate

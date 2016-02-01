@@ -48,5 +48,14 @@ func updateStateFromData(scene: Scene, data: [String: AnyObject]?, currentScene:
             currentScene.view?.presentScene(timerScene, transition: SKTransition.fadeWithDuration(0.5))
         }
         break
+    case .ResetAll:
+        if let connectedScene = ConnectedScene(fileNamed: "ConnectedScene")
+        {
+            TeamScoreView.sharedYellowInstance.resetAll()
+            TeamScoreView.sharedBlueInstance.resetAll()
+            
+            currentScene.view?.presentScene(connectedScene, transition: SKTransition.fadeWithDuration(0.5))
+        }
+        break
     }
 }

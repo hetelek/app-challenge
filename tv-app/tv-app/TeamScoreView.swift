@@ -146,6 +146,16 @@ class TeamScoreView : SKSpriteNode
             completion()
         }
     }
+    
+    func resetAll()
+    {
+        for pointBar in self.pointBars
+        {
+            pointBar.removeFromParent()
+        }
+        
+        self.pointBars.removeAll()
+    }
 
     required init?(coder aDecoder: NSCoder)
     {

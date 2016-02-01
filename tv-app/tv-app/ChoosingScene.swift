@@ -69,7 +69,7 @@ class ChoosingScene : SKScene, CommunicatorProtocol
         
         // create left label
         let leftLabel = SKLabelNode(text: "Pick Their Poison:")
-        leftLabel.position = CGPoint(x: centerX - 10, y: centerY)
+        leftLabel.position = CGPoint(x: centerX - 10, y: centerY + 30)
         leftLabel.fontName = "Raleway-Light"
         leftLabel.fontSize = 48
         leftLabel.horizontalAlignmentMode = .Right
@@ -80,7 +80,7 @@ class ChoosingScene : SKScene, CommunicatorProtocol
         let teamName = self.blueTeam! ? "Blue" : "Yellow"
         
         let rightLabel = SKLabelNode(text: teamName)
-        rightLabel.position = CGPoint(x: centerX + 10, y: centerY)
+        rightLabel.position = CGPoint(x: centerX + 10, y: centerY + 30)
         rightLabel.fontName = "Raleway-Bold"
         rightLabel.fontSize = 64
         rightLabel.horizontalAlignmentMode = .Left
