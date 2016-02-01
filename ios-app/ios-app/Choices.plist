@@ -4,6 +4,25 @@
 <array>
 	<dict>
 		<key>choice</key>
+		<string>Astronaut</string>
+		<key>modifiers</key>
+		<array>
+			<dict>
+				<key>modifier_only</key>
+				<string>While Clapping</string>
+				<key>full_text</key>
+				<string>An astronaut, while clapping</string>
+			</dict>
+			<dict>
+				<key>modifier_only</key>
+				<string>Running in Place</string>
+				<key>full_text</key>
+				<string>An astronaut, while running in place</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>choice</key>
 		<string>Dog</string>
 		<key>modifiers</key>
 		<array>
@@ -113,6 +132,25 @@
 				<string>Salsa Dancing</string>
 				<key>full_text</key>
 				<string>A telephone, while salsa dancing</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>choice</key>
+		<string>Jacket</string>
+		<key>modifiers</key>
+		<array>
+			<dict>
+				<key>modifier_only</key>
+				<string>While Catwalking</string>
+				<key>full_text</key>
+				<string>A jacket, while doing your best catwalk</string>
+			</dict>
+			<dict>
+				<key>modifier_only</key>
+				<string>Headbanging</string>
+				<key>full_text</key>
+				<string>A jacket, while headbanging</string>
 			</dict>
 		</array>
 	</dict>
