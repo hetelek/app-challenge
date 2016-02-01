@@ -113,8 +113,20 @@ class TeamScoreView : SKSpriteNode
     func addPointBar()
     {
         // create bar and set anchor point to bottom left
-        let pointBar = SKSpriteNode(color: self.secondaryColor, size: self.pointBarSize)
-        pointBar.anchorPoint = self.anchorPoint
+        let pointBar = SKSpriteNode(color: self.secondaryColor, size: CGSizeZero)
+        pointBar.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        
+        // x and y's
+        if teamColor == TeamColor.Yellow
+        {
+            pointBar.position.x = self.pointBarSize.width / 2
+            pointBar.position.y = self.pointBarSize.height / 2
+        }
+        else
+        {
+            pointBar.position.x = -self.pointBarSize.width / 2
+            pointBar.position.y = self.pointBarSize.height / 2
+        }
         
         // get the top bar, and set the new bar's y based off of that
         if let topBar = self.pointBars.last
@@ -124,6 +136,9 @@ class TeamScoreView : SKSpriteNode
         
         self.pointBars.append(pointBar)
         self.addChild(pointBar)
+        
+        pointBar.runAction(SKAction.resizeToWidth(self.pointBarSize.width, duration: 0.3))
+        pointBar.runAction(SKAction.resizeToHeight(self.pointBarSize.height, duration: 0.3))
     }
 
     required init?(coder aDecoder: NSCoder)
