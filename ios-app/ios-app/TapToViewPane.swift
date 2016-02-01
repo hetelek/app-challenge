@@ -70,7 +70,7 @@ class TapToViewPane : SKSpriteNode
         self.userInteractionEnabled = true
         
         // set font size and alignment
-        self.label.fontSize = 64
+        self.label.fontSize = 50
         self.label.horizontalAlignmentMode = .Center
         self.label.verticalAlignmentMode = .Center
         
@@ -122,7 +122,7 @@ class TapToViewPane : SKSpriteNode
                 }
                 else
                 {
-                    self.label.fontSize = 64
+                    self.label.fontSize = 50
                 }
                 
                 self.label.runAction(SKAction.fadeInWithDuration(0.15))
