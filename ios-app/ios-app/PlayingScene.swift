@@ -18,7 +18,7 @@ class PlayingScene : SKScene, CommunicatorDelegate
     var bar5: SKSpriteNode!
     
     var roundTime: NSTimeInterval!
-    let TIMER_BAR_WIDTH: CGFloat = 17
+    let TIMER_BAR_WIDTH: CGFloat = 40
     var GOT_IT_SIZE: CGSize!
     var TAP_TO_VIEW_SIZE: CGSize!
     let PADDING_FROM_CENTER: CGFloat = 0
