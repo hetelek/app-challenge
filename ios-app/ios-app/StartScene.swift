@@ -42,9 +42,9 @@ class StartScene : SKScene, CommunicatorDelegate
         
         // create start button
         let startButton = CoolButton(color: SKColor.gameBlueColor(), size: CGSize(width: self.size.width, height: self.size.height))
-        startButton.text = "Start Round"
+        startButton.text = "Tap to Start Round"
         startButton.flatColor = true
-        startButton.label.fontSize = 24
+        startButton.label.fontSize = 64
         startButton.fontColor = SKColor.gameYellowColor()
         startButton.position = CGPoint(x: centerX, y: centerY)
         startButton.addTarget(self, selector: "startButtonTapped:")

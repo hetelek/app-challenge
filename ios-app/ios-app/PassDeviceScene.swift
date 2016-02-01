@@ -45,11 +45,11 @@ class PassDeviceScene : SKScene, CommunicatorDelegate
         let centerY = CGRectGetMidY(self.frame)
         
         // create label
-        let continueLabel = SKLabelNode(text: "Pass the device to continue...")
+        let continueLabel = SKLabelNode(text: "Pass the device")
         continueLabel.fontName = "Raleway-Bold"
         continueLabel.position = CGPoint(x: centerX, y: centerY * 1.5)
         continueLabel.fontColor = SKColor.gameBlueColor()
-        continueLabel.fontSize = 24
+        continueLabel.fontSize = 64
         
         self.addChild(continueLabel)
         
@@ -66,11 +66,22 @@ class PassDeviceScene : SKScene, CommunicatorDelegate
         continueButton.text = "Tap to Continue"
         continueButton.fontColor = SKColor.gameYellowColor()
         continueButton.addTarget(self, selector: "continueButtonTapped:")
+        continueButton.label.fontSize = 32
+        continueButton.flatColor = true
         
         self.addChild(continueButton)
     }
     
     func continueButtonTapped(button: CoolButton)
+    {
+        // present start scene
+        if let startScene = StartScene(fileNamed: "StartScene")
+        {
+            self.view?.presentScene(startScene, transition: SKTransition.fadeWithDuration(0.5))
+        }
+    }
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
     {
         // present start scene
         if let startScene = StartScene(fileNamed: "StartScene")

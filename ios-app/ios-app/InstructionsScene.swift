@@ -36,6 +36,7 @@ class InstructionsScene : SKScene
         instructionsLabel.text = instructionString
         instructionsLabel.position = CGPoint(x: 0, y: 0)
         instructionsLabel.fontSize = 22
+        instructionsLabel.horizontalAlignmentMode = .Left
         instructionsLabel.fontColor = SKColor.gameBlueColor()
         
         self.addChild(instructionsLabel)

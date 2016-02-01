@@ -153,7 +153,7 @@ class Game
         self.timer = nil
         
         // give the guessing team a point
-        ++self.guessingTeam.score
+        ++self.choosingTeam.score
         
         // change guessing team
         self.guessingTeam = self.choosingTeam
@@ -169,5 +169,11 @@ class Game
     {
         assert(self.selectedChoice != nil)
         self.selectedModifier = modifier
+    }
+    
+    func resetAll()
+    {
+        self.teams[0].score = 0
+        self.teams[1].score = 0
     }
 }

@@ -94,6 +94,7 @@ class SelectScene : SKScene, CommunicatorDelegate
             button.fontColor = self.fontColors[index]
             button.text = choice.choice
             button.tag = choice
+            button.label.fontSize = 64
             button.addTarget(self, selector: "optionSelected:")
             
             // calculate points
@@ -126,6 +127,7 @@ class SelectScene : SKScene, CommunicatorDelegate
             topButton.position = CGPoint(x: centerX, y: self.frame.height - y)
             topButton.text = selectedChoice.modifiers[0].modifierOnly
             topButton.tag = selectedChoice.modifiers[0]
+            topButton.label.fontSize = 64
             topButton.addTarget(self, selector: "optionSelected:")
             
             // create bottom button
@@ -134,6 +136,7 @@ class SelectScene : SKScene, CommunicatorDelegate
             bottomButton.position = CGPoint(x: centerX, y: y)
             bottomButton.text = selectedChoice.modifiers[1].modifierOnly
             bottomButton.tag = selectedChoice.modifiers[1]
+            bottomButton.label.fontSize = 64
             bottomButton.addTarget(self, selector: "optionSelected:")
             
             // add buttons to view

@@ -57,26 +57,26 @@ class PlayingScene : SKScene, CommunicatorDelegate
         let gotItButton = CoolButton(color: SKColor.gameYellowColor(), size: self.GOT_IT_SIZE)
         gotItButton.text = "Guessed Correctly"
         gotItButton.fontColor = SKColor.gameBlueColor()
-        gotItButton.position = CGPoint(x: centerX, y: centerY - (self.GOT_IT_SIZE.height + self.PADDING_FROM_CENTER)/2)
+        gotItButton.label.fontSize = 96
+        gotItButton.position = CGPoint(x: centerX, y: centerY - (self.GOT_IT_SIZE.height + self.PADDING_FROM_CENTER) / 2)
         gotItButton.addTarget(self, selector: "gotItButtonTapped:")
         
         self.addChild(gotItButton)
         
         // create instructions pane
         let instructionsPane = TapToViewPane(color: SKColor.gameBlueColor(), size: self.TAP_TO_VIEW_SIZE)
-        instructionsPane.unhiddenText = "Tap and hold to view"
+        instructionsPane.unhiddenText = "Tap and Hold to View Instructions"
         instructionsPane.fontColor = SKColor.gameYellowColor()
-        instructionsPane.label.fontSize = 32
         instructionsPane.label.fontName = "Raleway-Bold"
         instructionsPane.hiddenText = Game.sharedInstance.selectedModifier.fullText
-        instructionsPane.position = CGPoint(x: centerX, y: centerY + (self.GOT_IT_SIZE.height + self.PADDING_FROM_CENTER)/2)
+        instructionsPane.position = CGPoint(x: centerX, y: centerY + (self.GOT_IT_SIZE.height + self.PADDING_FROM_CENTER) / 2)
         
         self.addChild(instructionsPane)
         
         makeEmptyBars()
         
         // top bar (starting centered)
-        self.bar1 = SKSpriteNode(color: SKColor.gameGreyColor(), size: CGSize(width: CGRectGetWidth(self.frame)/2, height: self.TIMER_BAR_WIDTH))
+        self.bar1 = SKSpriteNode(color: SKColor.gameGreyColor(), size: CGSize(width: CGRectGetWidth(self.frame) / 2, height: self.TIMER_BAR_WIDTH))
         self.bar1.anchorPoint = CGPoint(x: 0, y: 1)
         self.bar1.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetHeight(self.frame))
         self.addChild(self.bar1)

@@ -53,7 +53,7 @@ class PickTheirPoisonScene : SKScene
         teamButton.text = topText
         teamButton.label.fontName = "Raleway-Bold"
         teamButton.flatColor = true
-        teamButton.label.fontSize = 32
+        teamButton.label.fontSize = 64
         teamButton.fontColor = colors[0]
         teamButton.addTarget(self, selector: "continueButtonTapped:")
         teamButton.position = CGPoint(x: 0, y: CGRectGetHeight(self.frame) / 4)
@@ -65,7 +65,7 @@ class PickTheirPoisonScene : SKScene
         pickPoisonButton.text = "Pick Their Poison"
         pickPoisonButton.label.fontName = "Raleway-Bold"
         pickPoisonButton.flatColor = true
-        pickPoisonButton.label.fontSize = 32
+        pickPoisonButton.label.fontSize = 64
         pickPoisonButton.fontColor = colors[1]
         pickPoisonButton.position = CGPoint(x: 0, y: -CGRectGetHeight(self.frame) / 4)
         pickPoisonButton.addTarget(self, selector: "continueButtonTapped:")
@@ -73,11 +73,11 @@ class PickTheirPoisonScene : SKScene
         self.addChild(pickPoisonButton)
         
         // tap to continue label
-        let continueLabel = SKLabelNode(text: "Tap to continue")
-        continueLabel.fontSize = 16
+        let continueLabel = SKLabelNode(text: "Tap to Continue")
+        continueLabel.fontSize = 32
         continueLabel.fontName = "Raleway-Regular"
         continueLabel.fontColor = colors[1]
-        continueLabel.position = CGPoint(x: 0, y: -CGRectGetHeight(self.frame) / 4 - 30)
+        continueLabel.position = CGPoint(x: 0, y: -CGRectGetHeight(self.frame) / 4 - 65)
         
         self.addChild(continueLabel)
     }

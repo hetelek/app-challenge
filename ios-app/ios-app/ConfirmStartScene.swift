@@ -34,7 +34,7 @@ class ConfirmStartScene : SKScene
         startGameButton.text = "Start Game"
         startGameButton.label.fontName = "Raleway-Bold"
         startGameButton.flatColor = true
-        startGameButton.label.fontSize = 32
+        startGameButton.label.fontSize = 60
         startGameButton.fontColor = SKColor.gameBlueColor()
         startGameButton.addTarget(self, selector: "startGameButtonTapped:")
         startGameButton.position = CGPoint(x: 0, y: CGRectGetHeight(self.frame) / 4)
@@ -46,7 +46,7 @@ class ConfirmStartScene : SKScene
         instructionsButton.text = "Instructions"
         instructionsButton.label.fontName = "Raleway-Bold"
         instructionsButton.flatColor = true
-        instructionsButton.label.fontSize = 32
+        instructionsButton.label.fontSize = 60
         instructionsButton.fontColor = SKColor.gameYellowColor()
         instructionsButton.position = CGPoint(x: 0, y: -CGRectGetHeight(self.frame) / 4)
         instructionsButton.addTarget(self, selector: "instructionsButtonTapped:")

@@ -13,6 +13,8 @@ class RoundEndedScene : SKScene
     var contentCreated = false
     var scored: Bool?
     var teamName: String?
+    var showingWinner = false
+    var label: SKLabelNode!
     
     override func didMoveToView(view: SKView)
     {
@@ -55,21 +57,20 @@ class RoundEndedScene : SKScene
             }
             
             // add text label
-            let label = SKLabelNode(text: text)
-            label.position = CGPoint(x: 0, y: 0)
-            label.fontSize = 24
-            label.fontColor = blueJustWent ? SKColor.gameBlueColor() : SKColor.gameYellowColor()
-            label.fontSize = 32
-            label.fontName = "Raleway-Bold"
+            self.label = SKLabelNode(text: text)
+            self.label.position = CGPoint(x: 0, y: 0)
+            self.label.fontColor = blueJustWent ? SKColor.gameBlueColor() : SKColor.gameYellowColor()
+            self.label.fontSize = 96
+            self.label.fontName = "Raleway-Bold"
             
-            self.addChild(label)
+            self.addChild(self.label)
             
             // tap to continue label
             let continueLabel = SKLabelNode(text: "Tap to continue")
-            continueLabel.fontSize = 16
+            continueLabel.fontSize = 32
             continueLabel.fontName = "Raleway-Regular"
             continueLabel.fontColor = blueJustWent ? SKColor.gameBlueColor() : SKColor.gameYellowColor()
-            continueLabel.position = CGPoint(x: 0, y: -30)
+            continueLabel.position = CGPoint(x: 0, y: -80)
             
             self.addChild(continueLabel)
         }
@@ -77,9 +78,31 @@ class RoundEndedScene : SKScene
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
     {
-        if let pickTheirPoisonScene = PickTheirPoisonScene(fileNamed: "PickTheirPoisonScene")
+        if !self.showingWinner
         {
-            self.view?.presentScene(pickTheirPoisonScene, transition: SKTransition.fadeWithDuration(0.5))
+            if Game.sharedInstance.teams[0].score >= 6
+            {
+                self.showingWinner = true
+                self.label.runAction(SKAction.fadeOutWithDuration(0.15), completion: { () -> Void in
+                    self.label.text = "\(Game.sharedInstance.teams[0].teamColor) wins!"
+                    self.label.runAction(SKAction.fadeInWithDuration(0.15))
+                })
+            }
+            else if Game.sharedInstance.teams[1].score >= 6
+            {
+                self.showingWinner = true
+                self.label.runAction(SKAction.fadeOutWithDuration(0.15), completion: { () -> Void in
+                    self.label.text = "\(Game.sharedInstance.teams[1].teamColor) wins!"
+                    self.label.runAction(SKAction.fadeInWithDuration(0.15))
+                })
+            }
+            else if let pickTheirPoisonScene = PickTheirPoisonScene(fileNamed: "PickTheirPoisonScene")
+            {
+                self.view?.presentScene(pickTheirPoisonScene, transition: SKTransition.fadeWithDuration(0.5))
+            }
+        }
+        else
+        {
         }
     }
 }

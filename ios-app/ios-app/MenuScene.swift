@@ -45,6 +45,7 @@ class MenuScene : SKScene, CommunicatorDelegate
         let titleLabel = SKLabelNode(text: "Pick Their Poison")
         titleLabel.position = CGPoint(x: 0, y: self.size.height / 4)
         titleLabel.fontName = "Raleway-Bold"
+        titleLabel.fontSize = 74
         titleLabel.fontColor = SKColor.gameBlueColor()
         
         self.addChild(titleLabel)
