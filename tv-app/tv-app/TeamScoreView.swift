@@ -22,7 +22,7 @@ class TeamScoreView : SKSpriteNode
     private let MAGIC_HEIGHT_MULTIPLIER: CGFloat = 0.3259259259
     private let MAGIC_POINT_BAR_WIDTH_MULTIPLIER: CGFloat = 0.1341920375
     private let MAX_NUMBER_OF_POINT_BARS: CGFloat = 6
-    private let TEAM_COLOR_FONT_SIZE: CGFloat = 80
+    private let TEAM_COLOR_FONT_SIZE: CGFloat = 70
     private let TEAM_FONT_SIZE: CGFloat = 50
     
     // instance variables

@@ -37,7 +37,7 @@ class ConnectedScene : SKScene, CommunicatorProtocol
         let titleLabel = SKLabelNode(text: "Pick Their Poison")
         titleLabel.position = CGPoint(x: 0, y: 0)
         titleLabel.fontName = "Raleway-Bold"
-        titleLabel.fontSize = 128
+        titleLabel.fontSize = 100
         titleLabel.fontColor = SKColor.gameBlueColor()
         self.addChild(titleLabel)
     }

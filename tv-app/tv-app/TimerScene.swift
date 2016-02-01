@@ -25,7 +25,7 @@ class TimerScene : SKScene, CommunicatorProtocol
     var blueTeam: Bool = false
     var roundTime: NSTimeInterval = 30
     var timeRemaining: Int = 30
-    static let TIMER_BAR_WIDTH: CGFloat = 25
+    static let TIMER_BAR_WIDTH: CGFloat = 55
     static let SCORE_PANE_PADDING: CGFloat = 20
     
     override func didMoveToView(view: SKView)
