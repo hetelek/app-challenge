@@ -44,18 +44,13 @@
 - (void)startService
 {
     if (self.arrDevices)
-    {
         [self.arrDevices removeAllObjects];
-    }
     else
-    {
-        self.arrDevices=[NSMutableArray array];
-    }
+        self.arrDevices = [NSMutableArray array];
     
     self.coServiceBrowser = [[NSNetServiceBrowser alloc]init];
     self.coServiceBrowser.delegate = self;
     [self.coServiceBrowser searchForServicesOfType:SERVICE_NAME inDomain:@"local."];
-    
 }
 
 #pragma mark - Service Delegate
@@ -117,7 +112,7 @@
     [self.delegate connectivityStatusChanged:false];
 }
 
-- (GCDAsyncSocket*)getSelectedSocket
+- (GCDAsyncSocket *)getSelectedSocket
 {
     if (self.arrDevices.count < 1)
         return nil;

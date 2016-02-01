@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6727614C1C5EBB45005A44CA /* MultiLineLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6727614B1C5EBB45005A44CA /* MultiLineLabel.swift */; };
-		84693C451C5E6E8B008F1E41 /* 10424_SFX.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84693C441C5E6E8B008F1E41 /* 10424_SFX.wav */; };
-		84693C471C5E6FC3008F1E41 /* Click2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84693C461C5E6FC3008F1E41 /* Click2.mp3 */; };
 		84693C491C5E7BDC008F1E41 /* InstructionsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84693C481C5E7BDC008F1E41 /* InstructionsScene.swift */; };
 		84693C4B1C5E7BEC008F1E41 /* InstructionsScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 84693C4A1C5E7BEC008F1E41 /* InstructionsScene.sks */; };
 		84693C4D1C5E7BF5008F1E41 /* ConfirmStartScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 84693C4C1C5E7BF5008F1E41 /* ConfirmStartScene.sks */; };
@@ -41,6 +38,7 @@
 		F34B2A571C5D7CEF004B70A8 /* Raleway-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F34B2A561C5D7CEF004B70A8 /* Raleway-Bold.ttf */; };
 		F3789D2D1C5DB6EA00AFC4A2 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = F3789D2C1C5DB6EA00AFC4A2 /* GCDAsyncSocket.m */; };
 		F3789D311C5DBAC200AFC4A2 /* RemoteSender.m in Sources */ = {isa = PBXBuildFile; fileRef = F3789D301C5DBAC200AFC4A2 /* RemoteSender.m */; };
+		F3794AA41C5ED957007BEE88 /* DSMultilineLabelNode.m in Sources */ = {isa = PBXBuildFile; fileRef = F3794AA31C5ED957007BEE88 /* DSMultilineLabelNode.m */; };
 		F383E3031C5DD0610067F440 /* Communicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F383E3021C5DD0610067F440 /* Communicator.swift */; };
 		F38417611C5EC385001B6825 /* PickTheirPoisonScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38417601C5EC385001B6825 /* PickTheirPoisonScene.swift */; };
 		F38417631C5EC3A4001B6825 /* PickTheirPoisonScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F38417621C5EC3A4001B6825 /* PickTheirPoisonScene.sks */; };
@@ -49,9 +47,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6727614B1C5EBB45005A44CA /* MultiLineLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiLineLabel.swift; sourceTree = "<group>"; };
-		84693C441C5E6E8B008F1E41 /* 10424_SFX.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 10424_SFX.wav; sourceTree = "<group>"; };
-		84693C461C5E6FC3008F1E41 /* Click2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Click2.mp3; sourceTree = "<group>"; };
 		84693C481C5E7BDC008F1E41 /* InstructionsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionsScene.swift; sourceTree = "<group>"; };
 		84693C4A1C5E7BEC008F1E41 /* InstructionsScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = InstructionsScene.sks; sourceTree = "<group>"; };
 		84693C4C1C5E7BF5008F1E41 /* ConfirmStartScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ConfirmStartScene.sks; sourceTree = "<group>"; };
@@ -91,6 +86,8 @@
 		F3789D2C1C5DB6EA00AFC4A2 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
 		F3789D2F1C5DBAC200AFC4A2 /* RemoteSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteSender.h; sourceTree = "<group>"; };
 		F3789D301C5DBAC200AFC4A2 /* RemoteSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoteSender.m; sourceTree = "<group>"; };
+		F3794AA21C5ED957007BEE88 /* DSMultilineLabelNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSMultilineLabelNode.h; sourceTree = "<group>"; };
+		F3794AA31C5ED957007BEE88 /* DSMultilineLabelNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSMultilineLabelNode.m; sourceTree = "<group>"; };
 		F383E3021C5DD0610067F440 /* Communicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Communicator.swift; sourceTree = "<group>"; };
 		F38417601C5EC385001B6825 /* PickTheirPoisonScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickTheirPoisonScene.swift; sourceTree = "<group>"; };
 		F38417621C5EC3A4001B6825 /* PickTheirPoisonScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PickTheirPoisonScene.sks; sourceTree = "<group>"; };
@@ -162,10 +159,11 @@
 		F311EBA01C5BB46600672AB5 /* UI Elements */ = {
 			isa = PBXGroup;
 			children = (
+				F3794AA21C5ED957007BEE88 /* DSMultilineLabelNode.h */,
+				F3794AA31C5ED957007BEE88 /* DSMultilineLabelNode.m */,
 				F311EB9D1C5BB0A300672AB5 /* CoolButton.swift */,
 				F38D49D61C5D57B800BF171E /* TapToViewPane.swift */,
 				F38D49D41C5C48BC00BF171E /* ColorExtensions.swift */,
-				6727614B1C5EBB45005A44CA /* MultiLineLabel.swift */,
 			);
 			name = "UI Elements";
 			sourceTree = "<group>";
@@ -335,7 +333,6 @@
 				F311EBB91C5C378D00672AB5 /* PlayingScene.swift in Sources */,
 				F341EBE11C5B117800B416F1 /* MenuScene.swift in Sources */,
 				F311EBAF1C5C168200672AB5 /* RandomNumberExtensions.swift in Sources */,
-				6727614C1C5EBB45005A44CA /* MultiLineLabel.swift in Sources */,
 				F3789D311C5DBAC200AFC4A2 /* RemoteSender.m in Sources */,
 				F34B2A541C5D6F0E004B70A8 /* Team.swift in Sources */,
 				F38D49D71C5D57B800BF171E /* TapToViewPane.swift in Sources */,
@@ -348,6 +345,7 @@
 				F311EBB71C5C2F1B00672AB5 /* StartScene.swift in Sources */,
 				F34B2A521C5D60FE004B70A8 /* Modifier.swift in Sources */,
 				F311EBAD1C5C0F6D00672AB5 /* Choice.swift in Sources */,
+				F3794AA41C5ED957007BEE88 /* DSMultilineLabelNode.m in Sources */,
 				F311EB9E1C5BB0A300672AB5 /* CoolButton.swift in Sources */,
 				F311EB9C1C5BAAC000672AB5 /* SelectScene.swift in Sources */,
 				F311EBB11C5C2BAB00672AB5 /* PassDeviceScene.swift in Sources */,
