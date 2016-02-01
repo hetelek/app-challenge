@@ -21,10 +21,10 @@ class PassDeviceScene : SKScene, CommunicatorDelegate
         Communicator.sharedInstance.delegate = self
         
         // get the current team
-        let choosingTeam = (Game.sharedInstance.choosingTeam.teamColor == TeamColor.Yellow) ? "yellow" : "blue"
+        let blueIsChoosing = Game.sharedInstance.choosingTeam.teamColor == TeamColor.Blue
         
         // send our state
-        Communicator.sharedInstance.sendData(.PassDevice, data: [ "team": choosingTeam ])
+        Communicator.sharedInstance.sendData(.PassDevice, data: [ "blueTeam": blueIsChoosing ])
         
         // create the content if we haven't already
         if !self.contentCreated

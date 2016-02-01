@@ -28,17 +28,17 @@ class ConnectedScene : SKScene, CommunicatorProtocol
     {
         // set scale
         self.scaleMode = .ResizeFill
-        
-        // screen center
-        let centerX = CGRectGetMidX(self.frame)
-        let centerY = CGRectGetMidY(self.frame)
+        self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         
         // set background color
         self.backgroundColor = SKColor.gameYellowColor()
         
         // add image and title here
         let titleLabel = SKLabelNode(text: "Pick Their Poison")
-        titleLabel.position = CGPoint(x: centerX, y: centerY)
+        titleLabel.position = CGPoint(x: 0, y: 0)
+        titleLabel.fontName = "Raleway-Bold"
+        titleLabel.fontSize = 32
+        titleLabel.fontColor = SKColor.gameBlueColor()
         self.addChild(titleLabel)
     }
     

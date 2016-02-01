@@ -28,17 +28,17 @@ class WaitingForDeviceScene : SKScene, CommunicatorProtocol
     {
         // set scale
         self.scaleMode = .ResizeFill
-        
-        // screen center
-        let centerX = CGRectGetMidX(UIScreen.mainScreen().bounds)
-        let centerY = CGRectGetMidY(UIScreen.mainScreen().bounds)
+        self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         
         // set background color
         self.backgroundColor = SKColor.gameYellowColor()
         
         // create waiting label
         let waitingLabel = SKLabelNode(text: "Waiting for device")
-        waitingLabel.position = CGPoint(x: centerX, y: centerY)
+        waitingLabel.position = CGPoint(x: 0, y: 0)
+        waitingLabel.fontName = "Raleway-Bold"
+        waitingLabel.fontSize = 32
+        waitingLabel.fontColor = SKColor.gameBlueColor()
         self.addChild(waitingLabel)
     }
     

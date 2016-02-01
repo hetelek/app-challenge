@@ -32,16 +32,16 @@ class SelectScene : SKScene, CommunicatorDelegate
         Communicator.sharedInstance.delegate = self
         
         // get the current team
-        let choosingTeam = (Game.sharedInstance.choosingTeam.teamColor == TeamColor.Yellow) ? "yellow" : "blue"
+        let blueIsChoosing = Game.sharedInstance.guessingTeam.teamColor == TeamColor.Blue
         
         // send our state
         if state == .SelectChoice
         {
-            Communicator.sharedInstance.sendData(.SelectChoice, data: [ "team": choosingTeam ])
+            Communicator.sharedInstance.sendData(.SelectChoice, data: [ "blueTeam": blueIsChoosing ])
         }
         else if state == .SelectModifier
         {
-            Communicator.sharedInstance.sendData(.SelectModifier, data: [ "team": choosingTeam ])
+            Communicator.sharedInstance.sendData(.SelectModifier, data: [ "blueTeam": blueIsChoosing ])
         }
         
         // create the content if we haven't already

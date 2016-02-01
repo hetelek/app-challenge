@@ -16,6 +16,10 @@
 		F34B2A601C5D9C5E004B70A8 /* WaitingForDeviceScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F34B2A5F1C5D9C5E004B70A8 /* WaitingForDeviceScene.sks */; };
 		F3789D361C5DBCAE00AFC4A2 /* RemoteReceiver.m in Sources */ = {isa = PBXBuildFile; fileRef = F3789D351C5DBCAE00AFC4A2 /* RemoteReceiver.m */; };
 		F37F86441C5DA63800E2B2C4 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = F37F86431C5DA63800E2B2C4 /* GCDAsyncSocket.m */; };
+		F38417691C5ECA95001B6825 /* Akashi.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F38417641C5ECA95001B6825 /* Akashi.ttf */; };
+		F384176A1C5ECA95001B6825 /* Raleway-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F38417651C5ECA95001B6825 /* Raleway-Light.ttf */; };
+		F384176B1C5ECA95001B6825 /* Raleway-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F38417661C5ECA95001B6825 /* Raleway-Regular.ttf */; };
+		F384176C1C5ECA95001B6825 /* Raleway-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F38417671C5ECA95001B6825 /* Raleway-Bold.ttf */; };
 		F390B2CF1C5EA35D00AD368F /* ConnectedScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F390B2CE1C5EA35D00AD368F /* ConnectedScene.swift */; };
 		F390B2D11C5EA36800AD368F /* ConnectedScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F390B2D01C5EA36800AD368F /* ConnectedScene.sks */; };
 		F390B2D31C5EA5B400AD368F /* SceneStateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F390B2D21C5EA5B400AD368F /* SceneStateHandler.swift */; };
@@ -43,6 +47,10 @@
 		F37F86411C5DA63700E2B2C4 /* tv-app-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "tv-app-Bridging-Header.h"; sourceTree = "<group>"; };
 		F37F86421C5DA63800E2B2C4 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
 		F37F86431C5DA63800E2B2C4 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		F38417641C5ECA95001B6825 /* Akashi.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Akashi.ttf; sourceTree = "<group>"; };
+		F38417651C5ECA95001B6825 /* Raleway-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Light.ttf"; sourceTree = "<group>"; };
+		F38417661C5ECA95001B6825 /* Raleway-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Regular.ttf"; sourceTree = "<group>"; };
+		F38417671C5ECA95001B6825 /* Raleway-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Bold.ttf"; sourceTree = "<group>"; };
 		F390B2CE1C5EA35D00AD368F /* ConnectedScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectedScene.swift; sourceTree = "<group>"; };
 		F390B2D01C5EA36800AD368F /* ConnectedScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ConnectedScene.sks; sourceTree = "<group>"; };
 		F390B2D21C5EA5B400AD368F /* SceneStateHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneStateHandler.swift; sourceTree = "<group>"; };
@@ -123,6 +131,7 @@
 		F34B2A5C1C5D9C30004B70A8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F38417681C5ECA95001B6825 /* Fonts */,
 				F341EC061C5B119800B416F1 /* Game.xcassets */,
 				F341EC081C5B119800B416F1 /* Main.storyboard */,
 				F341EC0B1C5B119800B416F1 /* Assets.xcassets */,
@@ -149,6 +158,18 @@
 				F37F86431C5DA63800E2B2C4 /* GCDAsyncSocket.m */,
 			);
 			name = Communication;
+			sourceTree = "<group>";
+		};
+		F38417681C5ECA95001B6825 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F38417641C5ECA95001B6825 /* Akashi.ttf */,
+				F38417651C5ECA95001B6825 /* Raleway-Light.ttf */,
+				F38417661C5ECA95001B6825 /* Raleway-Regular.ttf */,
+				F38417671C5ECA95001B6825 /* Raleway-Bold.ttf */,
+			);
+			name = Fonts;
+			path = "../../ios-app/ios-app";
 			sourceTree = "<group>";
 		};
 		F3A692771C5E7AA700D28A01 /* UI Elements */ = {
@@ -220,12 +241,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3BE1ABD1C5DD49E00DE1374 /* ChoosingScene.sks in Resources */,
+				F384176B1C5ECA95001B6825 /* Raleway-Regular.ttf in Resources */,
 				F34B2A601C5D9C5E004B70A8 /* WaitingForDeviceScene.sks in Resources */,
 				F3CE71741C5E7535004EFA4A /* TimerScene.sks in Resources */,
 				F341EC0A1C5B119800B416F1 /* Main.storyboard in Resources */,
 				F390B2D11C5EA36800AD368F /* ConnectedScene.sks in Resources */,
 				F341EC0C1C5B119800B416F1 /* Assets.xcassets in Resources */,
+				F384176A1C5ECA95001B6825 /* Raleway-Light.ttf in Resources */,
+				F384176C1C5ECA95001B6825 /* Raleway-Bold.ttf in Resources */,
 				F341EC071C5B119800B416F1 /* Game.xcassets in Resources */,
+				F38417691C5ECA95001B6825 /* Akashi.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

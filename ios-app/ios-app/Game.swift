@@ -40,7 +40,7 @@ class Game
             // if the timer is going to fire in the future, then they can guess
             if let timer = self.timer
             {
-                return timer.fireDate.compare(NSDate()) == .OrderedAscending
+                return timer.fireDate.compare(NSDate()) == .OrderedDescending
             }
             
             return false
@@ -156,14 +156,7 @@ class Game
         ++self.guessingTeam.score
         
         // change guessing team
-        if self.guessingTeam.teamColor == .Yellow
-        {
-            self.guessingTeam = self.teams[1]
-        }
-        else
-        {
-            self.guessingTeam = self.teams[0]
-        }
+        self.guessingTeam = self.choosingTeam
     }
     
     func selectChoice(choice: Choice)

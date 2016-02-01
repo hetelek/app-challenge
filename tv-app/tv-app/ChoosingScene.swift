@@ -13,7 +13,7 @@ class ChoosingScene : SKScene, CommunicatorProtocol
     private var contentCreated = false
     private var currentChooser: String?
     
-    var team: String?
+    var blueTeam: Bool?
     
     override func didMoveToView(view: SKView)
     {
@@ -61,15 +61,25 @@ class ChoosingScene : SKScene, CommunicatorProtocol
         self.addChild(TeamScoreView.sharedYellowInstance)
         self.addChild(TeamScoreView.sharedBlueInstance)
         
-        // create waiting label
-        let waitingLabel = SKLabelNode(text: "Pick your poison, \(team ?? "???")!")
-        waitingLabel.position = CGPoint(x: centerX, y: centerY)
-        self.addChild(waitingLabel)
-    }
-    
-    func receivedData(data: [String: AnyObject])
-    {
-        print(data)
+        // create left label
+        let leftLabel = SKLabelNode(text: "Pick Their Poison:")
+        leftLabel.position = CGPoint(x: centerX - 10, y: centerY)
+        leftLabel.fontName = "Raleway-Bold"
+        leftLabel.fontSize = 32
+        leftLabel.horizontalAlignmentMode = .Right
+        leftLabel.fontColor = SKColor.gameBlueColor()
+        self.addChild(leftLabel)
+        
+        // create right label
+        let teamName = self.blueTeam! ? "Blue" : "Yellow"
+        
+        let rightLabel = SKLabelNode(text: teamName)
+        rightLabel.position = CGPoint(x: centerX + 10, y: centerY)
+        rightLabel.fontName = "Raleway-Bold"
+        rightLabel.fontSize = 32
+        rightLabel.horizontalAlignmentMode = .Left
+        rightLabel.fontColor = SKColor.gameYellowColor()
+        self.addChild(rightLabel)
     }
     
     func receivedData(scene: Scene, data: [String: AnyObject]?)
