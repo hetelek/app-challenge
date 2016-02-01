@@ -73,6 +73,8 @@ class PlayingScene : SKScene, CommunicatorDelegate
         
         self.addChild(instructionsPane)
         
+        makeEmptyBars()
+        
         // top bar (starting centered)
         self.bar1 = SKSpriteNode(color: SKColor.gameGreyColor(), size: CGSize(width: CGRectGetWidth(self.frame)/2, height: self.TIMER_BAR_WIDTH))
         self.bar1.anchorPoint = CGPoint(x: 0, y: 1)
@@ -127,6 +129,40 @@ class PlayingScene : SKScene, CommunicatorDelegate
         
         Game.sharedInstance.startTimer(self, selector: "timeRanOut")
     }
+    
+    private func makeEmptyBars()
+    {
+        // top bar (starting centered)
+        self.bar1 = SKSpriteNode(color: SKColor.gameLightGreyColor(), size: CGSize(width: CGRectGetWidth(self.frame) / 2, height: TIMER_BAR_WIDTH))
+        self.bar1.anchorPoint = CGPoint(x: 0, y: 1)
+        self.bar1.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetHeight(self.frame))
+        self.addChild(self.bar1)
+        
+        // right bar
+        self.bar2 = SKSpriteNode(color: SKColor.gameLightGreyColor(), size: CGSize(width: TIMER_BAR_WIDTH, height: CGRectGetHeight(self.frame) - TIMER_BAR_WIDTH * 2))
+        self.bar2.anchorPoint = CGPoint(x: 1, y: 1)
+        self.bar2.position = CGPoint(x: CGRectGetWidth(self.frame), y: CGRectGetHeight(self.frame) - TIMER_BAR_WIDTH)
+        self.addChild(self.bar2)
+        
+        // bottom bar
+        self.bar3 = SKSpriteNode(color: SKColor.gameLightGreyColor(), size: CGSize(width: CGRectGetWidth(self.frame), height: TIMER_BAR_WIDTH))
+        self.bar3.anchorPoint = CGPoint(x: 1, y: 0)
+        self.bar3.position = CGPoint(x: CGRectGetWidth(self.frame), y: 0)
+        self.addChild(self.bar3)
+        
+        // left bar
+        self.bar4 = SKSpriteNode(color: SKColor.gameLightGreyColor(), size: CGSize(width: TIMER_BAR_WIDTH, height: CGRectGetHeight(self.frame) - TIMER_BAR_WIDTH * 2))
+        self.bar4.anchorPoint = CGPoint(x: 0, y: 0)
+        self.bar4.position = CGPoint(x: 0, y: TIMER_BAR_WIDTH)
+        self.addChild(self.bar4)
+        
+        // top bar (starting left)
+        self.bar5 = SKSpriteNode(color: SKColor.gameLightGreyColor(), size: CGSize(width: CGRectGetWidth(self.frame) / 2, height: TIMER_BAR_WIDTH))
+        self.bar5.anchorPoint = CGPoint(x: 0, y: 1)
+        self.bar5.position = CGPoint(x: 0, y: CGRectGetHeight(self.frame))
+        self.addChild(self.bar5)
+    }
+
     
     func gotItButtonTapped(button: CoolButton)
     {
