@@ -39,5 +39,23 @@ class InstructionsScene : SKScene
         instructionsLabel.fontColor = SKColor.gameBlueColor()
         
         self.addChild(instructionsLabel)
+        
+        // add tap to continue label
+        let tapLabel  = SKLabelNode(fontNamed: "Raleway-Regular")
+        tapLabel.text = "Tap to continue"
+        tapLabel.position = CGPoint(x: 0, y: -CGRectGetHeight(self.frame) / 2 + self.padding)
+        tapLabel.fontSize = 14
+        tapLabel.fontColor = SKColor.gameBlueColor()
+        
+        self.addChild(tapLabel)
+    }
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
+    {
+        // present next scene (select choice)
+        if let confirmStartScreen = ConfirmStartScene(fileNamed: "ConfirmStartScene")
+        {
+            self.view?.presentScene(confirmStartScreen, transition: SKTransition.fadeWithDuration(0.5))
+        }
     }
 }
