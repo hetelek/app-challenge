@@ -77,9 +77,9 @@ class RoundEndedScene : SKScene
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
     {
-        if let selectScene = SelectScene(fileNamed: "SelectScene")
+        if let pickTheirPoisonScene = PickTheirPoisonScene(fileNamed: "PickTheirPoisonScene")
         {
-            self.view?.presentScene(selectScene, transition: SKTransition.fadeWithDuration(0.5))
+            self.view?.presentScene(pickTheirPoisonScene, transition: SKTransition.fadeWithDuration(0.5))
         }
     }
 }

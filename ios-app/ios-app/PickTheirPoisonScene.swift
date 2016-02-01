@@ -35,7 +35,7 @@ class PickTheirPoisonScene : SKScene
         
         // set variables based on who's picking
         let blueIsPicking = Game.sharedInstance.choosingTeam.teamColor == TeamColor.Blue
-        if blueIsPicking
+        if !blueIsPicking
         {
             colors.append(SKColor.gameBlueColor())
             colors.append(SKColor.gameYellowColor())
@@ -47,7 +47,6 @@ class PickTheirPoisonScene : SKScene
             colors.append(SKColor.gameBlueColor())
             topText = "Team Yellow"
         }
-        
         
         // create start button
         let teamButton = CoolButton(color:colors[1], size: CGSize(width: CGRectGetWidth(self.frame) + 5, height: CGRectGetHeight(self.frame) / 2 + 5))

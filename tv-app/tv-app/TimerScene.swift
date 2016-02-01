@@ -18,8 +18,13 @@ class TimerScene : SKScene, CommunicatorProtocol
     var bar4: SKSpriteNode!
     var bar5: SKSpriteNode!
     
+    var rightLabel: SKLabelNode!
+    var leftLabel: SKLabelNode!
+    var timer: NSTimer?
+    
     var blueTeam: Bool = false
     var roundTime: NSTimeInterval = 30
+    var timeRemaining: Int = 30
     static let TIMER_BAR_WIDTH: CGFloat = 25
     static let SCORE_PANE_PADDING: CGFloat = 20
     
@@ -42,6 +47,7 @@ class TimerScene : SKScene, CommunicatorProtocol
         
         // screen center
         let centerX = CGRectGetMidX(self.frame)
+        let centerY = CGRectGetMidY(self.frame)
         
         // set background color to yellow
         self.backgroundColor = SKColor.gameYellowColor()
@@ -68,12 +74,54 @@ class TimerScene : SKScene, CommunicatorProtocol
         self.addChild(TeamScoreView.sharedYellowInstance)
         self.addChild(TeamScoreView.sharedBlueInstance)
         
+        self.timeRemaining = Int(roundTime)
+        
+        // create left label
+        self.leftLabel = SKLabelNode(text: "3")
+        self.leftLabel.position = CGPoint(x: centerX - 5, y: centerY)
+        self.leftLabel.fontName = "Raleway-Bold"
+        self.leftLabel.fontSize = 108
+        self.leftLabel.horizontalAlignmentMode = .Right
+        self.leftLabel.fontColor = SKColor.gameBlueColor()
+        self.addChild(self.leftLabel)
+        
+        // create right label
+        self.rightLabel = SKLabelNode(text: "0")
+        self.rightLabel.position = CGPoint(x: centerX + 5, y: centerY)
+        self.rightLabel.fontName = "Raleway-Bold"
+        self.rightLabel.fontSize = 108
+        self.rightLabel.horizontalAlignmentMode = .Left
+        self.rightLabel.fontColor = SKColor.gameYellowColor()
+        self.addChild(self.rightLabel)
+        
         // start timers
         self.startTimers()
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "tick:", userInfo: nil, repeats: true)
+    }
+    
+    func updateLabels()
+    {
+        let left = String(self.timeRemaining / 10)
+        let right = String(self.timeRemaining % 10)
+        
+        self.leftLabel.text = left
+        self.rightLabel.text = right
+    }
+    
+    func tick(timer: NSTimer)
+    {
+        if --self.timeRemaining < 1
+        {
+            timer.invalidate()
+        }
+        
+        self.updateLabels()
     }
 
     func startTimers()
     {
+        makeEmptyBars()
+        
         // top bar (starting centered)
         self.bar1 = SKSpriteNode(color: SKColor.gameGreyColor(), size: CGSize(width: CGRectGetWidth(self.frame) / 2, height: TimerScene.TIMER_BAR_WIDTH))
         self.bar1.anchorPoint = CGPoint(x: 0, y: 1)
@@ -121,6 +169,39 @@ class TimerScene : SKScene, CommunicatorProtocol
         })
     }
 
+    private func makeEmptyBars()
+    {
+        // top bar (starting centered)
+        self.bar1 = SKSpriteNode(color: SKColor.gameLightGreyColor(), size: CGSize(width: CGRectGetWidth(self.frame) / 2, height: TimerScene.TIMER_BAR_WIDTH))
+        self.bar1.anchorPoint = CGPoint(x: 0, y: 1)
+        self.bar1.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetHeight(self.frame))
+        self.addChild(self.bar1)
+        
+        // right bar
+        self.bar2 = SKSpriteNode(color: SKColor.gameLightGreyColor(), size: CGSize(width: TimerScene.TIMER_BAR_WIDTH, height: CGRectGetHeight(self.frame) - TimerScene.TIMER_BAR_WIDTH * 2))
+        self.bar2.anchorPoint = CGPoint(x: 1, y: 1)
+        self.bar2.position = CGPoint(x: CGRectGetWidth(self.frame), y: CGRectGetHeight(self.frame) - TimerScene.TIMER_BAR_WIDTH)
+        self.addChild(self.bar2)
+        
+        // bottom bar
+        self.bar3 = SKSpriteNode(color: SKColor.gameLightGreyColor(), size: CGSize(width: CGRectGetWidth(self.frame), height: TimerScene.TIMER_BAR_WIDTH))
+        self.bar3.anchorPoint = CGPoint(x: 1, y: 0)
+        self.bar3.position = CGPoint(x: CGRectGetWidth(self.frame), y: 0)
+        self.addChild(self.bar3)
+        
+        // left bar
+        self.bar4 = SKSpriteNode(color: SKColor.gameLightGreyColor(), size: CGSize(width: TimerScene.TIMER_BAR_WIDTH, height: CGRectGetHeight(self.frame) - TimerScene.TIMER_BAR_WIDTH * 2))
+        self.bar4.anchorPoint = CGPoint(x: 0, y: 0)
+        self.bar4.position = CGPoint(x: 0, y: TimerScene.TIMER_BAR_WIDTH)
+        self.addChild(self.bar4)
+        
+        // top bar (starting left)
+        self.bar5 = SKSpriteNode(color: SKColor.gameLightGreyColor(), size: CGSize(width: CGRectGetWidth(self.frame) / 2, height: TimerScene.TIMER_BAR_WIDTH))
+        self.bar5.anchorPoint = CGPoint(x: 0, y: 1)
+        self.bar5.position = CGPoint(x: 0, y: CGRectGetHeight(self.frame))
+        self.addChild(self.bar5)
+    }
+    
     func connectivityStatusChanged(connected: Bool)
     {
         // if we're disconnected, present the waiting screen
@@ -136,6 +217,9 @@ class TimerScene : SKScene, CommunicatorProtocol
         {
             if let data = data, let scored = data["scored"] as? Bool
             {
+                self.timer?.invalidate()
+                self.timer = nil
+                
                 if scored
                 {
                     // stop the timer bar from moving
